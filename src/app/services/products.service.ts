@@ -12,6 +12,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ProductsService {
+  
   url = `${environment.urlApi}Product/type`;
   url2 = `${environment.urlApi}Prod/type`;
   url3 = `${environment.urlApi}Product/`

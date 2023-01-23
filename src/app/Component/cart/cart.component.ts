@@ -15,5 +15,6 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.payPalConfig=this.ProcessPaymentService.initConfig();
   }
+  
 
 }

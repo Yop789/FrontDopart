@@ -13,6 +13,7 @@ import { NzModalService } from 'ng-zorro-antd/modal';
   providedIn: 'root',
 })
 export class ProcessPaymentService {
+  
   cargaProduct: OrderProduct[] = [];
   user = '' + localStorage.getItem('user');
   totalPrecio = 0;

@@ -14,6 +14,7 @@ import { environment } from 'src/environments/environment';
 export class HomeComponent implements OnInit, DoCheck {
   secretKey = 'YourSecretKeyForEncryption&Descryption';
   url = environment.urlImagen;;
+  
   silla: Product[] = [];
   sillaRandom: Product[] = [];
   sillas: Product[] = [];

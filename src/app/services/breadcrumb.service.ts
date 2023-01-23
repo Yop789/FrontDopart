@@ -8,6 +8,7 @@ export class BreadcrumbService {
   breadcrumbModule: BreadcrumbModule[] = [];
 
   constructor() {}
+  
 
   setBreadcrumb(ob: BreadcrumbModule) {
     var num = this.breadcrumbModule.findIndex((obj) => obj.nombre == ob.nombre);

@@ -19,6 +19,7 @@ import { MostrarCatalogoService } from 'src/app/services/mostrar-catalogo.servic
 })
 export class LoginComponent implements OnInit {
   Autorice = true;
+  
   horizontalPosition: MatSnackBarHorizontalPosition = 'start';
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
   durationInSeconds = 5;

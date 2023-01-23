@@ -12,6 +12,7 @@ import { ProcessPaymentService } from 'src/app/services/process-payment.service'
   templateUrl: './detalles.component.html',
   styleUrls: ['./detalles.component.css'],
 })
+
 export class DetallesComponent implements OnInit, DoCheck {
   cantidad = 0;
   url = environment.urlImagen;

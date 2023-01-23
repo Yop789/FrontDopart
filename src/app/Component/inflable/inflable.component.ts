@@ -10,6 +10,7 @@ import { environment } from 'src/environments/environment';
   selector: 'app-inflable',
   template: `
   <div class="lgd">
+    
     <div class="container-fluid pt-5 pb-3 ">
       <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4" style="color:white;"><span
           class="pr-3">Inflables</span></h2>

@@ -10,6 +10,7 @@ import { InflableComponent } from './Component/inflable/inflable.component';
 import { AdornoComponent } from './Component/adorno/adorno.component';
 
 const routes: Routes = [
+  
   {
     path: 'home',
     component: HomeComponent,

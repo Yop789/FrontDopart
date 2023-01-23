@@ -46,6 +46,7 @@ import { ProductsService } from './../../services/products.service';
 export class SillaComponent implements OnInit {
   sillas: Product[]= [];
   url = environment.urlImagen;
+  
   constructor(
     private router: Router,
     private productsService: ProductsService,

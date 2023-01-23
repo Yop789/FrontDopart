@@ -57,6 +57,7 @@ import { environment } from 'src/environments/environment';
 export class MesaComponent implements OnInit {
   mesas: Product[] = [];
   url = environment.urlImagen;
+  
   constructor(
     private router: Router,
     private productsService: ProductsService,

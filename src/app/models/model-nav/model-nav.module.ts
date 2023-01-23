@@ -4,4 +4,5 @@ export interface nav {
   sill: boolean;
   ador: boolean;
   infla: boolean
+  
 }

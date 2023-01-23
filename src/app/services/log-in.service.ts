@@ -7,6 +7,7 @@ import { User } from '../models/user/user.module';
 })
 export class LogInService {
   url = `${environment.urlApi}Users`;
+  
   constructor(private http: HttpClient) {}
   getUser() {
     let header = new HttpHeaders().set('Type-content', 'aplication/json');

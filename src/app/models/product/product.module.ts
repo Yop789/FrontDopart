@@ -11,4 +11,5 @@ export interface Product {
 }
 export interface Type {
   Type: string;
+  
 }

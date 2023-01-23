@@ -10,6 +10,7 @@ export class RegistrarService {
   url = environment.urlApi+'Users';
 
   constructor(private http: HttpClient) {}
+  
 
   postNewUsuari(user: User): Observable<User> {
     let header = new HttpHeaders().set('Type-content', 'aplication/json');

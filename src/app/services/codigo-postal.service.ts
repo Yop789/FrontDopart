@@ -10,6 +10,7 @@ export class CodigoPostalService {
   constructor(private http: HttpClient) {}
 
   getPostal(l:string) {
+    
     var codP = l;
     return this.http.get(this.api +this. key + codP);
   }
