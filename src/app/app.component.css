@@ -62,10 +62,11 @@ input[type=number] {
 /* Color de las migagas de pan */
 #miDiv p:not(:last-of-type)
 {
+  font-size: 17px;
   color: blue;
 }
 #miDiv p:not(:last-of-type):hover
 {
   color: black;
-  font-size: 15px;
+  font-size: 16px;
 }
