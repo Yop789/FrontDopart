@@ -1,0 +1,71 @@
+.Logo {
+  color:#DDDDDD;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: bold;
+  text-align: center;
+  font-size: 25px;
+  flood-color: rgb(203, 77, 77);
+}
+
+.hola1 {
+  color:#DDDDDD;
+  font-size: 18px;
+}
+
+.TextoN {
+  color:#DDDDDD;
+  text-align: right;
+  font-size: 18px;
+}
+
+.jl {
+  position: absolute;
+  margin: left 200px;
+}
+
+@media (min-width: 1025px) {
+  .h-custom {
+    height: 100vh !important;
+  }
+}
+
+#map {
+  position: absolute;
+  width: 90px;
+  margin-left: 3%;
+  height: 180px;
+}
+
+.map-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+.p2 {
+  background-color: #DDDDDD;
+  height: 150px;
+  left: 50px;
+  position: relative;
+  top: -50px;
+  width: 150px;
+}
+/* Color de las migagas de pan */
+#miDiv p:not(:last-of-type)
+{
+  color: blue;
+}
+#miDiv p:not(:last-of-type):hover
+{
+  color: black;
+  font-size: 15px;
+}
