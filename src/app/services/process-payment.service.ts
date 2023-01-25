@@ -1,3 +1,4 @@
+import { MensajesService } from './mensajes.service';
 import { Injectable } from '@angular/core';
 import { ICreateOrderRequest, IPayPalConfig } from 'ngx-paypal';
 import { Dta, Order, OrderProduct } from '../models/order/order.module';
@@ -7,13 +8,12 @@ import { Cart, CartCostmer } from '../models/cart/cart.module';
 import { OrderService } from './order.service';
 import { DeleteCartProductsService } from './deleteCartProducts.service';
 import { UpdateCartProductsService } from './updateCartProducts.service';
-import { NzModalService } from 'ng-zorro-antd/modal';
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProcessPaymentService {
-  
   cargaProduct: OrderProduct[] = [];
   user = '' + localStorage.getItem('user');
   totalPrecio = 0;
@@ -36,7 +36,7 @@ export class ProcessPaymentService {
     private orderService: OrderService,
     private deleteCartProductsService: DeleteCartProductsService,
     private updateCartProductsService: UpdateCartProductsService,
-    private modal: NzModalService
+    private mensajesService:MensajesService
   ) {}
   setDate(date: Dta) {
     this.nombre = date.Nombre;
@@ -114,7 +114,7 @@ export class ProcessPaymentService {
               Calle: this.calle,
               DateEvent: this.dateEvent,
             };
-            this.showConfirm();
+            this.mensajesService.showConfirm();
             this.orderService.postOrder(data).subscribe((mesaje: any) => {
               const l = '' + localStorage.getItem('idCart');
               this.deleteCartProductsService
@@ -158,7 +158,7 @@ export class ProcessPaymentService {
       this.cargaProduct[elementIndex].Amount = product.Amount;
     } else {
       const l = this.cargaProduct.length;
-      this.cargaProduct.push(product);
+      this.cargaProduct[l]=product;
       this.alert('Se agrego correctamente');
     }
   }
@@ -187,7 +187,7 @@ export class ProcessPaymentService {
   // Recarga el carrito para mostrarselo al usuario
   cargaAnterior() {
     var cargaProduct: OrderProduct[] = [];
-    // this.cargaProduct=[]
+    this.cargaProduct=[]
     const l: CartCostmer = {
       IdCustomer: this.user,
     };
@@ -196,13 +196,12 @@ export class ProcessPaymentService {
         localStorage.setItem('idCart', cart[0]._id);
         const products = cart[0].Products;
         products.forEach((product: any) => {
-         cargaProduct.push(product);
+         this.cargaProduct.push(product);
         });
       } else {
         localStorage.setItem('idCart', '');
       }
     });
-    return cargaProduct
   }
   eliminarProduct(Id: string) {
     const l = '' + localStorage.getItem('idCart');
@@ -226,15 +225,5 @@ export class ProcessPaymentService {
       this.cargaAnterior();
     }
   }
-  showConfirm(): void {
-    const modal = this.modal.success({
-      nzTitle: 'La operacion se realisado correctamente',
-      nzContent:
-        'Sea realisado la orden correctamente verifica tu correo para ver los detalled de tu orden ',
-      nzOkText: 'Ok',
-      nzCentered: true,
-    });
-
-    setTimeout(() => modal.destroy(), 3000);
-  }
+  
 }

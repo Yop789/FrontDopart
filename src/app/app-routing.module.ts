@@ -1,8 +1,8 @@
+import { ErroComponent } from './Component/erro/erro.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DetallesComponent } from './Component/detalles/detalles.component';
 import { HomeComponent } from './Component/home/home.component';
-import { CartComponent } from './Component/cart/cart.component';
 import { LoginComponent } from './Component/login/login.component';
 import { SillaComponent } from './Component/silla/silla.component';
 import { MesaComponent } from './Component/mesa/mesa.component';
@@ -23,10 +23,6 @@ const routes: Routes = [
   {
     path: 'details',
     component: DetallesComponent,
-  },
-  {
-    path: 'cart',
-    component: CartComponent,
   },
   {
     path: 'login',
@@ -50,7 +46,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'home',
+    component:ErroComponent,
   },
 ];
 

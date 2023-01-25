@@ -71,11 +71,11 @@ export class AppComponent implements OnInit, DoCheck {
     this.totalPrecio = this.ProcessPaymentService.verPrecioTotal();
     this.totalObjet = this.ProcessPaymentService.totalProduct();
     this.breadcrumb = this.breadcrumbService.getBreadcrumb() 
-    // this.carga = this.ProcessPaymentService.verCargaProduct();
+    this.carga = this.ProcessPaymentService.verCargaProduct();
   }
 
   ngOnInit() {
-    this.carga=this.ProcessPaymentService.cargaAnterior();
+    
     this.mostrarCatalogoService.Mostrab(false);
     if (localStorage.getItem('user') === '') {
     }
@@ -83,23 +83,8 @@ export class AppComponent implements OnInit, DoCheck {
     this.ProcessPaymentService.cargaAnterior();
     this.bc();
   }
-  mostrarCatalogo() {
-    this.router.navigateByUrl('/home');
-  }
-  mostrarSillas() {
-    this.router.navigateByUrl('/sillas');
-  }
-  mostrarMesas() {
-    this.router.navigateByUrl('/mesas');
-  }
-  mostrarInflables() {
-    this.router.navigateByUrl('/inflables');
-  }
-  mostrarAdornos() {
-    this.router.navigateByUrl('/adornos');
-  }
+  
   mostrarCarrito() {
-    console.log(this.carga)
     if (this.visibleSidebar2) {
       this.ProcessPaymentService.cargaAnterior();
       this.visibleSidebar2 = false;
@@ -230,5 +215,21 @@ export class AppComponent implements OnInit, DoCheck {
   }
   rout(pagine: string){
     this.router.navigateByUrl(pagine)
+  }
+
+  mostrarCatalogo() {
+    this.router.navigateByUrl('/home');
+  }
+  mostrarSillas() {
+    this.router.navigateByUrl('/sillas');
+  }
+  mostrarMesas() {
+    this.router.navigateByUrl('/mesas');
+  }
+  mostrarInflables() {
+    this.router.navigateByUrl('/inflables');
+  }
+  mostrarAdornos() {
+    this.router.navigateByUrl('/adornos');
   }
 }

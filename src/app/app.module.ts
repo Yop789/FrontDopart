@@ -20,7 +20,6 @@ import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './Component/home/home.component';
-import { CartComponent } from './Component/cart/cart.component';
 import { DetallesComponent } from './Component/detalles/detalles.component';
 import { LoginComponent } from './Component/login/login.component';
 import { FormsModule } from '@angular/forms';
@@ -28,18 +27,21 @@ import { SillaComponent } from './Component/silla/silla.component';
 import { MesaComponent } from './Component/mesa/mesa.component';
 import { AdornoComponent } from './Component/adorno/adorno.component';
 import { InflableComponent } from './Component/inflable/inflable.component';
+import { ErroComponent } from './Component/erro/erro.component';
+import { MapaSiteComponent } from './Component/mapa-site/mapa-site.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    CartComponent,
     DetallesComponent,
     LoginComponent,
     SillaComponent,
     MesaComponent,
     AdornoComponent,
     InflableComponent,
+    ErroComponent,
+    MapaSiteComponent,
   ],
   imports: [
     BrowserModule,
