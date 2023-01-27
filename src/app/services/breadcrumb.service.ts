@@ -10,7 +10,11 @@ export class BreadcrumbService {
   constructor() {}
   
 
-  setBreadcrumb(ob: BreadcrumbModule) {
+  setBreadcrumb(nomPagina:string, ruterPgina:string) {
+    const ob: BreadcrumbModule={
+      nombre: nomPagina,
+      url: `/${ruterPgina}`
+    }
     var num = this.breadcrumbModule.findIndex((obj) => obj.nombre == ob.nombre);
     if (num == -1) {
       this.breadcrumbModule.push(ob);

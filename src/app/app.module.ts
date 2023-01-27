@@ -1,3 +1,12 @@
+import { MapaSiteComponent } from './area-cliente/Component/mapa-site/mapa-site.component';
+import { ErroComponent } from './area-cliente/Component/erro/erro.component';
+import { InflableComponent } from './area-cliente/Component/inflable/inflable.component';
+import { AdornoComponent } from './area-cliente/Component/adorno/adorno.component';
+import { MesaComponent } from './area-cliente/Component/mesa/mesa.component';
+import { SillaComponent } from './area-cliente/Component/silla/silla.component';
+import { LoginComponent } from './area-cliente/Component/login/login.component';
+import { DetallesComponent } from './area-cliente/Component/detalles/detalles.component';
+import { HomeComponent } from './area-cliente/Component/home/home.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NzCalendarModule } from 'ng-zorro-antd/calendar';
@@ -14,27 +23,15 @@ import { SidebarModule } from 'primeng/sidebar';
 import { NzDrawerModule } from 'ng-zorro-antd/drawer';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
 import { NzModalModule } from 'ng-zorro-antd/modal';
-
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './Component/home/home.component';
-import { DetallesComponent } from './Component/detalles/detalles.component';
-import { LoginComponent } from './Component/login/login.component';
 import { FormsModule } from '@angular/forms';
-import { SillaComponent } from './Component/silla/silla.component';
-import { MesaComponent } from './Component/mesa/mesa.component';
-import { AdornoComponent } from './Component/adorno/adorno.component';
-import { InflableComponent } from './Component/inflable/inflable.component';
-import { ErroComponent } from './Component/erro/erro.component';
-import { MapaSiteComponent } from './Component/mapa-site/mapa-site.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    DetallesComponent,
     LoginComponent,
     SillaComponent,
     MesaComponent,
@@ -42,6 +39,8 @@ import { MapaSiteComponent } from './Component/mapa-site/mapa-site.component';
     InflableComponent,
     ErroComponent,
     MapaSiteComponent,
+    HomeComponent,
+    DetallesComponent
   ],
   imports: [
     BrowserModule,

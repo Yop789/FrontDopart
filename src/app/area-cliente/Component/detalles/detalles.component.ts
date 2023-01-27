@@ -1,12 +1,12 @@
-import { environment } from './../../../environments/environment';
-import { BreadcrumbService } from './../../services/breadcrumb.service';
-import { BreadcrumbModule } from './../../models/breadcrumb/breadcrumb.module';
+
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product/product.module';
 import { ProductsService } from 'src/app/services/products.service';
 import { OrderProduct } from 'src/app/models/order/order.module';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ProcessPaymentService } from 'src/app/services/process-payment.service';
+import { environment } from 'src/environments/environment';
+import { BreadcrumbService } from 'src/app/services/breadcrumb.service';
 @Component({
   selector: 'app-detalles',
   templateUrl: './detalles.component.html',
@@ -37,7 +37,7 @@ export class DetallesComponent implements OnInit, DoCheck {
 
   ngOnInit() {
     this.getProductId();
-    this.bc();
+    this.breadcrumbService.setBreadcrumb('Detalles del producto','details');
   }
   getProductId() {
     this.productsService
@@ -85,12 +85,5 @@ export class DetallesComponent implements OnInit, DoCheck {
     this.snackBar.open('' + text, '', {
       duration: 3000,
     });
-  }
-  bc() {
-    const bc: BreadcrumbModule = {
-      nombre: '> Detalles del producto',
-      url: '/details',
-    };
-    this.breadcrumbService.setBreadcrumb(bc);
   }
 }

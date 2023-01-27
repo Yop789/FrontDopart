@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
-import { MostrarCatalogoService } from './../../services/mostrar-catalogo.service';
 import { Component, OnInit } from '@angular/core';
+import { MostrarCatalogoService } from 'src/app/services/mostrar-catalogo.service';
 
 @Component({
   selector: 'app-erro',

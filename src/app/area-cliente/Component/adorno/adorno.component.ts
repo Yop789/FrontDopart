@@ -1,8 +1,8 @@
-import { BreadcrumbService } from './../../services/breadcrumb.service';
-import { BreadcrumbModule } from './../../models/breadcrumb/breadcrumb.module';
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product, Type } from 'src/app/models/product/product.module';
+import { BreadcrumbService } from 'src/app/services/breadcrumb.service';
 import { ProductsService } from 'src/app/services/products.service';
 import { environment } from 'src/environments/environment';
 
@@ -65,7 +65,7 @@ export class AdornoComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProductsType('adorno');
-    this.bc();
+    this.breadcrumbService.setBreadcrumb('Adornos','adornos');
   }
   getProductsType(typ: string) {
     const type: Type = {
@@ -83,13 +83,5 @@ export class AdornoComponent implements OnInit {
   detalles(id: string) {
     localStorage.setItem('idProduct', id);
     this.router.navigateByUrl('/details');
-  }
-
-  bc() {
-    const bc: BreadcrumbModule = {
-      nombre: '> Adornos',
-      url: '/adornos',
-    };
-    this.breadcrumbService.setBreadcrumb(bc);
   }
 }

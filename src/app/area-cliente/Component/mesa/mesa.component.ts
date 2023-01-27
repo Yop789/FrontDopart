@@ -1,8 +1,7 @@
-import { BreadcrumbService } from './../../services/breadcrumb.service';
-import { BreadcrumbModule } from './../../models/breadcrumb/breadcrumb.module';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product, Type } from 'src/app/models/product/product.module';
+import { BreadcrumbService } from 'src/app/services/breadcrumb.service';
 import { ProductsService } from 'src/app/services/products.service';
 import { environment } from 'src/environments/environment';
 
@@ -66,7 +65,7 @@ export class MesaComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProductsType('mesa');
-    this.bc();
+    this.breadcrumbService.setBreadcrumb('Mesas','mesas');
   }
   getProductsType(typ: string) {
     const type: Type = {
@@ -93,12 +92,5 @@ export class MesaComponent implements OnInit {
   detalles(id: string) {
     localStorage.setItem('idProduct', id);
     this.router.navigateByUrl('/details');
-  }
-  bc() {
-    const bc: BreadcrumbModule = {
-      nombre: '> Mesas',
-      url: '/mesas',
-    };
-    this.breadcrumbService.setBreadcrumb(bc);
   }
 }

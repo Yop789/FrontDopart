@@ -1,13 +1,13 @@
-import { ErroComponent } from './Component/erro/erro.component';
+import { ErroComponent } from './area-cliente//Component/erro/erro.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DetallesComponent } from './Component/detalles/detalles.component';
-import { HomeComponent } from './Component/home/home.component';
-import { LoginComponent } from './Component/login/login.component';
-import { SillaComponent } from './Component/silla/silla.component';
-import { MesaComponent } from './Component/mesa/mesa.component';
-import { InflableComponent } from './Component/inflable/inflable.component';
-import { AdornoComponent } from './Component/adorno/adorno.component';
+import { DetallesComponent } from './area-cliente/Component/detalles/detalles.component';
+import { HomeComponent } from './area-cliente/Component/home/home.component';
+import { LoginComponent } from './area-cliente/Component/login/login.component';
+import { SillaComponent } from './area-cliente/Component/silla/silla.component';
+import { MesaComponent } from './area-cliente/Component/mesa/mesa.component';
+import { InflableComponent } from './area-cliente/Component/inflable/inflable.component';
+import { AdornoComponent } from './area-cliente/Component/adorno/adorno.component';
 
 const routes: Routes = [
   
@@ -44,6 +44,7 @@ const routes: Routes = [
     path: 'adornos',
     component: AdornoComponent,
   },
+  { path: 'Admin', loadChildren: () => import('./area-admin/area-admin.module').then(m => m.AreaAdminModule) },
   {
     path: '**',
     component:ErroComponent,

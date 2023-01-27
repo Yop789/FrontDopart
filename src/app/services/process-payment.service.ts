@@ -3,11 +3,11 @@ import { Injectable } from '@angular/core';
 import { ICreateOrderRequest, IPayPalConfig } from 'ngx-paypal';
 import { Dta, Order, OrderProduct } from '../models/order/order.module';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { GetCartProductsService } from './getCartProducts.service';
+import { GetCartProductsService } from './cars-services/getCartProducts.service';
 import { Cart, CartCostmer } from '../models/cart/cart.module';
 import { OrderService } from './order.service';
-import { DeleteCartProductsService } from './deleteCartProducts.service';
-import { UpdateCartProductsService } from './updateCartProducts.service';
+import { DeleteCartProductsService } from './cars-services/deleteCartProducts.service';
+import { UpdateCartProductsService } from './cars-services/updateCartProducts.service';
 
 
 @Injectable({
@@ -205,11 +205,15 @@ export class ProcessPaymentService {
   }
   eliminarProduct(Id: string) {
     const l = '' + localStorage.getItem('idCart');
+    var elementIndex = 0;
     if (this.cargaProduct.length > 1) {
-      var elementIndex = this.cargaProduct.findIndex(
-        (obj) => obj.IdProducts == Id
-      );
-      this.cargaProduct.splice(elementIndex, 1);
+      this.cargaProduct.forEach(element => {
+        if (element.IdProducts===Id){
+          this.cargaProduct.splice(elementIndex, 1);
+        }
+        elementIndex++
+      });
+      
       const cart: Cart = {
         IdCustomer: this.user,
         Products: this.cargaProduct,
@@ -224,6 +228,7 @@ export class ProcessPaymentService {
         .subscribe((mensaje: any) => {});
       this.cargaAnterior();
     }
+    return this.cargaProduct
   }
   
 }

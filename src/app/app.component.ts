@@ -13,13 +13,11 @@ import { ProcessPaymentService } from './services/process-payment.service';
 import { IPayPalConfig } from 'ngx-paypal';
 import { OrderProduct, Dta } from './models/order/order.module';
 import { Cart } from './models/cart/cart.module';
-import { UpdateCartProductsService } from './services/updateCartProducts.service';
-import { SetCartProductsService } from './services/setCartProducts.service';
+import { UpdateCartProductsService } from './services/cars-services/updateCartProducts.service';
+import { SetCartProductsService } from './services/cars-services/setCartProducts.service';
 import { CodigoPostalService } from './services/codigo-postal.service';
-import { NzModalService } from 'ng-zorro-antd/modal';
 import { Comunidad } from './models/comunidad/comunidad.module';
 import { BreadcrumbService } from './services/breadcrumb.service';
-import { BreadcrumbModule } from './models/breadcrumb/breadcrumb.module';
 import { environment } from 'src/environments/environment';
 
 
@@ -71,7 +69,7 @@ export class AppComponent implements OnInit, DoCheck {
     this.totalPrecio = this.ProcessPaymentService.verPrecioTotal();
     this.totalObjet = this.ProcessPaymentService.totalProduct();
     this.breadcrumb = this.breadcrumbService.getBreadcrumb() 
-    this.carga = this.ProcessPaymentService.verCargaProduct();
+    
   }
 
   ngOnInit() {
@@ -81,10 +79,11 @@ export class AppComponent implements OnInit, DoCheck {
     }
     this.payPalConfig = this.ProcessPaymentService.initConfig();
     this.ProcessPaymentService.cargaAnterior();
-    this.bc();
+    this.breadcrumbService.setBreadcrumb('Home','home');
   }
   
   mostrarCarrito() {
+    this.carga = this.ProcessPaymentService.verCargaProduct();
     if (this.visibleSidebar2) {
       this.ProcessPaymentService.cargaAnterior();
       this.visibleSidebar2 = false;
@@ -123,7 +122,7 @@ export class AppComponent implements OnInit, DoCheck {
     this.router.navigateByUrl('/login');
   }
   eliminar(id: string) {
-    this.ProcessPaymentService.eliminarProduct(id);
+    this.carga=this.ProcessPaymentService.eliminarProduct(id);
   }
   detalle(idPoduct: string) {
     localStorage.setItem('idProduct', idPoduct);
@@ -206,30 +205,12 @@ export class AppComponent implements OnInit, DoCheck {
     this.estado = '';
     this.municipio = "";
   }
-  bc(){
-    const bc: BreadcrumbModule={
-      nombre: 'Home',
-      url: '/home'
-    }
-    this.breadcrumbService.setBreadcrumb(bc)
-  }
+  
   rout(pagine: string){
     this.router.navigateByUrl(pagine)
   }
 
-  mostrarCatalogo() {
-    this.router.navigateByUrl('/home');
-  }
-  mostrarSillas() {
-    this.router.navigateByUrl('/sillas');
-  }
-  mostrarMesas() {
-    this.router.navigateByUrl('/mesas');
-  }
-  mostrarInflables() {
-    this.router.navigateByUrl('/inflables');
-  }
-  mostrarAdornos() {
-    this.router.navigateByUrl('/adornos');
+  mostrarCatalogo(pagina:string) {
+    this.router.navigateByUrl(`/${pagina}`);
   }
 }

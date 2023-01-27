@@ -1,11 +1,11 @@
-import { BreadcrumbService } from './../../services/breadcrumb.service';
-import { BreadcrumbModule } from './../../models/breadcrumb/breadcrumb.module';
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { Product, Type } from 'src/app/models/product/product.module';
 import { ProductsService } from 'src/app/services/products.service';
 import { Router } from '@angular/router';
 import { MostrarCatalogoService } from 'src/app/services/mostrar-catalogo.service';
 import { environment } from 'src/environments/environment';
+import { BreadcrumbService } from 'src/app/services/breadcrumb.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit, DoCheck {
     this.getsillasHome('mesa');
     this.getsillasHome('adorno');
     this.mostrarCatalogoService.Mostrab(false)
-    this.bc()
+    this.breadcrumbService.setBreadcrumb('Home','home');
     
   }
   ngDoCheck() {
@@ -123,12 +123,5 @@ export class HomeComponent implements OnInit, DoCheck {
   detalles(id: string){
     localStorage.setItem('idProduct', id);
     this.router.navigateByUrl('/details')
-  }
-  bc(){
-    const bc: BreadcrumbModule={
-      nombre: 'Home',
-      url: '/home'
-    }
-    this.breadcrumbService.setBreadcrumb(bc)
   }
 }

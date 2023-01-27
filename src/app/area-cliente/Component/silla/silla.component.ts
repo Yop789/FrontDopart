@@ -1,10 +1,10 @@
-import { environment } from './../../../environments/environment';
-import { BreadcrumbModule } from './../../models/breadcrumb/breadcrumb.module';
-import { BreadcrumbService } from './../../services/breadcrumb.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
-import { Product, Type } from './../../models/product/product.module';
-import { ProductsService } from './../../services/products.service';
+import { Product, Type } from 'src/app/models/product/product.module';
+import { BreadcrumbService } from 'src/app/services/breadcrumb.service';
+import { ProductsService } from 'src/app/services/products.service';
+import { environment } from 'src/environments/environment';
+
 
 
 @Component({
@@ -78,17 +78,11 @@ export class SillaComponent implements OnInit {
         this.sillas[i] = pro;
       }
     });
-    this.bc();
+    this.breadcrumbService.setBreadcrumb('Sillas','sillas');
   }
   detalles(id: string) {
     localStorage.setItem('idProduct', id);
     this.router.navigateByUrl('/details');
   }
-  bc(){
-    const bc: BreadcrumbModule={
-      nombre: '> Sillas',
-      url: '/sillas'
-    }
-    this.breadcrumbService.setBreadcrumb(bc)
-  }
+
 }
