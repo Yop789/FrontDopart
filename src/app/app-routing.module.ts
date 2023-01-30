@@ -8,6 +8,7 @@ import { SillaComponent } from './area-cliente/Component/silla/silla.component';
 import { MesaComponent } from './area-cliente/Component/mesa/mesa.component';
 import { InflableComponent } from './area-cliente/Component/inflable/inflable.component';
 import { AdornoComponent } from './area-cliente/Component/adorno/adorno.component';
+import { MapaSiteComponent } from './area-cliente/Component/mapa-site/mapa-site.component';
 
 const routes: Routes = [
   
@@ -43,6 +44,14 @@ const routes: Routes = [
   {
     path: 'adornos',
     component: AdornoComponent,
+  },
+  {
+    path: 'mapaSitio',
+    component: MapaSiteComponent,
+  },
+  {
+    path: 'error',
+    component: ErroComponent,
   },
   { path: 'Admin', loadChildren: () => import('./area-admin/area-admin.module').then(m => m.AreaAdminModule) },
   {
