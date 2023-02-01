@@ -171,15 +171,15 @@ sup {
 }
 
 .lgd {
-    background: linear-gradient( rgb(74, 1, 231),  #c0038a, rgb(255, 123, 0));
+    background: linear-gradient( rgb(255, 123, 0));
     ;
 }
 .lgdt {
-    background: linear-gradient(  rgb(255, 123, 0),  #c0038a,rgb(74, 1, 231));
+    background: linear-gradient(  rgb(255, 123, 0));
     ;
 }
 .lgu {
-    background: linear-gradient( to right,rgb(74, 1, 231),  #c0038a, rgb(255, 123, 0));
+    background-color:  rgb(255, 123, 0);
     
 }
 

@@ -1,13 +1,15 @@
+import { MapaSiteComponent } from './area-cliente/Component/mapa-site/mapa-site.component';
+import { CrearUsuariosComponent } from './logiarce/Component/crear-usuarios/crear-usuarios.component';
 import { ErroComponent } from './area-cliente//Component/erro/erro.component';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DetallesComponent } from './area-cliente/Component/detalles/detalles.component';
 import { HomeComponent } from './area-cliente/Component/home/home.component';
-import { LoginComponent } from './area-cliente/Component/login/login.component';
 import { SillaComponent } from './area-cliente/Component/silla/silla.component';
 import { MesaComponent } from './area-cliente/Component/mesa/mesa.component';
 import { InflableComponent } from './area-cliente/Component/inflable/inflable.component';
 import { AdornoComponent } from './area-cliente/Component/adorno/adorno.component';
+import { LogiComponent } from './logiarce/Component/logi/logi.component';
 
 const routes: Routes = [
   
@@ -17,16 +19,12 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'home',
     pathMatch: 'full',
   },
   {
     path: 'details',
     component: DetallesComponent,
-  },
-  {
-    path: 'login',
-    component: LoginComponent,
   },
   {
     path: 'sillas',
@@ -43,6 +41,22 @@ const routes: Routes = [
   {
     path: 'adornos',
     component: AdornoComponent,
+  },
+  {
+    path: 'registrarce',
+    component: CrearUsuariosComponent
+  },
+  {
+    path: 'iniciarSesion',
+    component: LogiComponent
+  },
+  {
+    path: 'Mapa',
+    component: MapaSiteComponent
+  },
+  {
+    path: 'recuperarContraceña',
+    component: CrearUsuariosComponent
   },
   { path: 'Admin', loadChildren: () => import('./area-admin/area-admin.module').then(m => m.AreaAdminModule) },
   {

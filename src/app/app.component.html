@@ -1,98 +1,21 @@
-<nav [hidden]=false class="navbar navbar-expand-lg lgu container-fluid mb-3">
-  <div class="container-fluid">
-    <a class="navbar-brand Logo" (click)="mostrarCatalogo('home')">🎉 DoFest- Admin</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon">fff</span>
-    </button>
-
-    <div class="collapse navbar-collapse hola1 justify-content-end" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link TextoN" (click)="mostrarCatalogo('home')">Administrasion</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link TextoN" (click)="mostrarCatalogo('sillas')">Ordenes</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link TextoN" (click)="mostrarCatalogo('adornos')">Adornos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link TextoN" (click)="mostrarCatalogo('inflables')">Agregar Nuevo Producto</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link TextoN" (click)="mostrarCatalogo('mesas')">Usuarios</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link TextoN">
-            <mat-icon mat-icon-button [matMenuTriggerFor]="menu" aria-hidden="false"><span
-                class="material-symbols-sharp">
-                account_circle
-              </span></mat-icon>
-          </a>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item (click)="salir()">
-              <mat-icon>logout</mat-icon>
-              <span>salir</span>
-            </button>
-          </mat-menu>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-<nav [hidden]="mostrar" class="navbar navbar-expand-lg lgu container-fluid mb-3">
-  <div class="container-fluid">
-    <a class="navbar-brand Logo" (click)="mostrarCatalogo('home')">🎉 DoFest</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon">fff</span>
-    </button>
-
-    <div class="collapse navbar-collapse hola1 justify-content-end" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link TextoN" (click)="mostrarCatalogo('home')">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link TextoN" (click)="mostrarCatalogo('sillas')">Sillas</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link TextoN" (click)="mostrarCatalogo('adornos')">Adornos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link TextoN" (click)="mostrarCatalogo('inflables')">Infables</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link TextoN" (click)="mostrarCatalogo('mesas')">Mesas</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link TextoN">
-            <mat-icon (click)="mostrarCarrito()" [matBadge]="total" aria-hidden="false"><span
-                class="material-symbols-outlined">
-                local_shipping
-              </span></mat-icon>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link TextoN">
-            <mat-icon mat-icon-button [matMenuTriggerFor]="menu" aria-hidden="false"><span
-                class="material-symbols-sharp">
-                account_circle
-              </span></mat-icon>
-          </a>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item (click)="salir()">
-              <mat-icon>logout</mat-icon>
-              <span>salir</span>
-            </button>
-          </mat-menu>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <app-navegador-inicial [hidden]="iniciar"></app-navegador-inicial>
+<app-navegador-cliente [hidden]="client"></app-navegador-cliente>
+<app-navegador-administracion [hidden]="admin"></app-navegador-administracion>
+<div id="miDiv" class="breadcrumb">
+  <p class="breadcrumb-item" *ngFor="let Migagas of breadcrumb"
+    style="display: inline-block; cursor: pointer;font-size: 16px;" (click)="mostrarCatalogo(Migagas.url)">
+    {{ Migagas.nombre }}
+  </p>
+</div>
 <nz-drawer [nzClosable]="false" [nzVisible]="visibleSidebar2" nzPlacement="right" [nzWidth]="800" nzTitle="Camioncito"
   [nzExtra]="extra" (nzOnClose)="mostrarCarrito()">
   <ng-container *nzDrawerContent>
@@ -239,10 +162,21 @@
 <ng-template #extra>
   <button type="button" class="btn-close" aria-label="Close" (click)="mostrarCarrito()"></button>
 </ng-template>
-<div id="miDiv" [hidden]="mostrar" class="container-fluid breadcrumb">
-  <p class="breadcrumb-item" *ngFor="let Migagas of breadcrumb"
-    style="display: inline-block; cursor: pointer;font-size: 16px;" (click)="rout(Migagas.url)">
-    {{ Migagas.nombre }}
-  </p>
-</div>
+<div>
 <router-outlet></router-outlet>
+</div>
+<footer>
+  <div class="container">
+    <p>Copyright &copy; 2023</p>
+    <nav>
+      <ul>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Use</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+</body>
+
+</html>

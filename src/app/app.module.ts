@@ -4,7 +4,6 @@ import { InflableComponent } from './area-cliente/Component/inflable/inflable.co
 import { AdornoComponent } from './area-cliente/Component/adorno/adorno.component';
 import { MesaComponent } from './area-cliente/Component/mesa/mesa.component';
 import { SillaComponent } from './area-cliente/Component/silla/silla.component';
-import { LoginComponent } from './area-cliente/Component/login/login.component';
 import { DetallesComponent } from './area-cliente/Component/detalles/detalles.component';
 import { HomeComponent } from './area-cliente/Component/home/home.component';
 import { NgModule } from '@angular/core';
@@ -18,7 +17,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { CalendarModule } from 'primeng/calendar';
 import { NzBadgeModule } from 'ng-zorro-antd/badge';
 import { NgxPayPalModule } from 'ngx-paypal';
-import {MatBadgeModule} from '@angular/material/badge';
+import { MatBadgeModule } from '@angular/material/badge';
 import { SidebarModule } from 'primeng/sidebar';
 import { NzDrawerModule } from 'ng-zorro-antd/drawer';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
@@ -27,12 +26,17 @@ import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-
+import { NavegadorInicialComponent } from './navegadores/Component/navegador-inicial/navegador-inicial.component';
+import { NavegadorClienteComponent } from './navegadores/Component/navegador-cliente/navegador-cliente.component';
+import { NavegadorAdministracionComponent } from './navegadores/Component/navegador-administracion/navegador-administracion.component';
+import { EventService } from './services/Eventos/event-service.service';
+import { CrearUsuariosComponent } from './logiarce/Component/crear-usuarios/crear-usuarios.component';
+import { LogiComponent } from './logiarce/Component/logi/logi.component';
+import { RecupeContraComponent } from './logiarce/Component/recupe-contra/recupe-contra.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     SillaComponent,
     MesaComponent,
     AdornoComponent,
@@ -40,7 +44,13 @@ import { FormsModule } from '@angular/forms';
     ErroComponent,
     MapaSiteComponent,
     HomeComponent,
-    DetallesComponent
+    DetallesComponent,
+    NavegadorInicialComponent,
+    NavegadorClienteComponent,
+    NavegadorAdministracionComponent,
+    CrearUsuariosComponent,
+    LogiComponent,
+    RecupeContraComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,9 +70,13 @@ import { FormsModule } from '@angular/forms';
     CalendarModule,
     NzBadgeModule,
     NgxPayPalModule,
-    MatBadgeModule
+    MatBadgeModule,
   ],
-  providers: [],
+  providers: [EventService],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  constructor() {
+    localStorage.setItem('IdClient', '');
+  }
+}

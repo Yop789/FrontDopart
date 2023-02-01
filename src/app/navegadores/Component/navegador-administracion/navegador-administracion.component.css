@@ -1,0 +1,31 @@
+.Logo {
+    color:#DDDDDD;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    font-size: 25px;
+    flood-color: rgb(203, 77, 77);
+  }
+  
+  .hola1 {
+    color:#DDDDDD;
+    font-size: 18px;
+    
+  }
+  
+  .TextoN {
+    color:#DDDDDD;
+    text-align: right;
+    font-size: 18px;
+  }
+  
+  .jl {
+    position: absolute;
+    margin: left 200px;
+  }
+  
+  @media (min-width: 1025px) {
+    .h-custom {
+      height: 100vh !important;
+    }
+  }

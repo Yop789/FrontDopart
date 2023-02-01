@@ -15,7 +15,7 @@ import { UpdateCartProductsService } from './cars-services/updateCartProducts.se
 })
 export class ProcessPaymentService {
   cargaProduct: OrderProduct[] = [];
-  user = '' + localStorage.getItem('user');
+  user = '' + localStorage.getItem('idClient');
   totalPrecio = 0;
   nombre = '';
   municipio = '';
@@ -149,24 +149,6 @@ export class ProcessPaymentService {
     };
     return this.payPalConfig;
   }
-  // permite cargar y actualisar los productos al camioncito
-  cargandoProduct(product: OrderProduct) {
-    var elementIndex = this.cargaProduct.findIndex(
-      (obj) => obj.IdProducts == product.IdProducts
-    );
-    if (elementIndex > -1) {
-      this.cargaProduct[elementIndex].Amount = product.Amount;
-    } else {
-      const l = this.cargaProduct.length;
-      this.cargaProduct[l]=product;
-      this.alert('Se agrego correctamente');
-    }
-  }
-  alert(text: string) {
-    this.snackBar.open('' + text, '', {
-      duration: 3000,
-    });
-  }
   totalProduct() {
     return this.cargaProduct.length;
   }
@@ -186,7 +168,6 @@ export class ProcessPaymentService {
   }
   // Recarga el carrito para mostrarselo al usuario
   cargaAnterior() {
-    var cargaProduct: OrderProduct[] = [];
     this.cargaProduct=[]
     const l: CartCostmer = {
       IdCustomer: this.user,
@@ -203,32 +184,6 @@ export class ProcessPaymentService {
       }
     });
   }
-  eliminarProduct(Id: string) {
-    const l = '' + localStorage.getItem('idCart');
-    var elementIndex = 0;
-    if (this.cargaProduct.length > 1) {
-      this.cargaProduct.forEach(element => {
-        if (element.IdProducts===Id){
-          this.cargaProduct.splice(elementIndex, 1);
-        }
-        elementIndex++
-      });
-      
-      const cart: Cart = {
-        IdCustomer: this.user,
-        Products: this.cargaProduct,
-      };
-      this.updateCartProductsService
-        .ubdateCart(l, cart)
-        .subscribe((mensaje: any) => {});
-      this.cargaAnterior();
-    } else {
-      this.deleteCartProductsService
-        .deleteCart(l)
-        .subscribe((mensaje: any) => {});
-      this.cargaAnterior();
-    }
-    return this.cargaProduct
-  }
+  
   
 }

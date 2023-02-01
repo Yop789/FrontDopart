@@ -1,3 +1,5 @@
+import { ControllerService } from './../../../services/cart/controller.service';
+import { Router } from '@angular/router';
 
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product/product.module';
@@ -24,8 +26,9 @@ export class DetallesComponent implements OnInit, DoCheck {
   constructor(
     private productsService: ProductsService,
     private snackBar: MatSnackBar,
-    private processPaymentService: ProcessPaymentService,
-    private breadcrumbService: BreadcrumbService
+    private processPaymentService: ControllerService,
+    private breadcrumbService: BreadcrumbService,
+    private router:Router
   ) {}
   ngDoCheck(): void {
     this.idProduct = localStorage.getItem('idProduct');
@@ -61,6 +64,8 @@ export class DetallesComponent implements OnInit, DoCheck {
   }
 
   agregarCart() {
+    const id = localStorage.getItem('IdClient')
+    if(id!=''){
     if (this.cantidad >= 1) {
       const pr = this.product;
       const cart: OrderProduct = {
@@ -71,7 +76,7 @@ export class DetallesComponent implements OnInit, DoCheck {
         Total: this.total,
         UrlImage: pr.imagePath,
       };
-      this.processPaymentService.cargandoProduct(cart);
+      this.processPaymentService.addEvent(cart);
       if (this.product.TotalStock < Number(this.cantidad)) {
         this.alert('solo se le pueden ofrecer ' + this.product.TotalStock);
         this.cantidad = Number(this.product.TotalStock);
@@ -80,6 +85,7 @@ export class DetallesComponent implements OnInit, DoCheck {
       this.alert(
         'No se puede agregar al camioncito si no son mas de una pieza'
       );
+    }else this.router.navigateByUrl('/iniciarSesion')
   }
   alert(text: string) {
     this.snackBar.open('' + text, '', {

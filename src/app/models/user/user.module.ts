@@ -8,3 +8,7 @@ export interface User {
   Customer: boolean;
   Admin: boolean;
 }
+export interface email{
+  E_mail:string;
+  Password: string;
+}

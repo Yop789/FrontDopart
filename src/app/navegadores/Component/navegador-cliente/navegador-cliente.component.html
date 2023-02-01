@@ -1,0 +1,59 @@
+<nav  class="navbar navbar-expand-lg lgu container-fluid ">
+    <div class="container-fluid">
+      <a class="navbar-brand Logo pt-1"  (click)="mostrarMenu('home')">🎉 DoFest</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon">fff</span>
+      </button>
+  
+      <div class="collapse navbar-collapse hola1 justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link TextoN" (click)="mostrarMenu('home')"><mat-icon class="pt-1"> <span class="material-symbols-outlined"> house </span></mat-icon> Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link TextoN" (click)="mostrarMenu('sillas')"> <mat-icon class="pt-1"><span class="material-symbols-outlined">
+              event_seat
+              </span></mat-icon> Sillas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link TextoN" (click)="mostrarMenu('adornos')"><mat-icon class="pt-1"><span class="material-symbols-outlined">
+              yard
+              </span></mat-icon> Adornos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link TextoN" (click)="mostrarMenu('inflables')"><mat-icon class="pt-1"><span class="material-symbols-outlined">
+              mosque
+              </span></mat-icon> Infables</a>
+          </li> 
+          <li class="nav-item">
+            <a class="nav-link TextoN" (click)="mostrarMenu('mesas')"><mat-icon class="pt-1"><span class="material-symbols-outlined">
+              table_bar
+              </span></mat-icon> Mesas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link TextoN">
+              <mat-icon class="pt-1"(click)="mostrarCarrito()" [matBadge]="total" aria-hidden="false"><span
+                  class="material-symbols-outlined">
+                  local_shipping
+                </span></mat-icon>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link TextoN">
+              <mat-icon class="pt-1" mat-icon-button [matMenuTriggerFor]="menu" aria-hidden="false"><span
+                  class="material-symbols-sharp">
+                  account_circle
+                </span></mat-icon>
+            </a>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="salir()">
+                <mat-icon>logout</mat-icon>
+                <span>salir</span>
+              </button>
+            </mat-menu>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>

@@ -1,3 +1,7 @@
+import { ControllerService } from './services/cart/controller.service';
+import { ProcessPaymentService } from 'src/app/services/process-payment.service';
+import { IniciarSesionService } from './services/Login/iniciar-sesion.service';
+import { EventService } from './services/Eventos/event-service.service';
 import {
   Component,
   DoCheck,
@@ -9,7 +13,6 @@ import {
 } from '@angular/core';
 import { MostrarCatalogoService } from './services/mostrar-catalogo.service';
 import { Router } from '@angular/router';
-import { ProcessPaymentService } from './services/process-payment.service';
 import { IPayPalConfig } from 'ngx-paypal';
 import { OrderProduct, Dta } from './models/order/order.module';
 import { Cart } from './models/cart/cart.module';
@@ -28,6 +31,9 @@ import { environment } from 'src/environments/environment';
 })
 export class AppComponent implements OnInit, DoCheck {
   url = environment.urlImagen;
+  client=true
+  admin=true
+  iniciar=false
   breadcrumb: any = []
   title = 'DoParty';
   visibleSidebar2 = false;
@@ -53,43 +59,53 @@ export class AppComponent implements OnInit, DoCheck {
   @ViewChild('alInputCodigoP') codigoP: ElementRef | undefined;
   public payPalConfig?: IPayPalConfig;
   constructor(
-    private mostrarCatalogoService: MostrarCatalogoService,
     private router: Router,
     private updateCartProductsService: UpdateCartProductsService,
-    private ProcessPaymentService: ProcessPaymentService,
     private setCartProductsService: SetCartProductsService,
     private codigoPostalService: CodigoPostalService,
     private renderer2: Renderer2,
-    private breadcrumbService:BreadcrumbService
-
-  ) {}
+    private breadcrumbService:BreadcrumbService,
+    private eventService: EventService,
+    private ini:IniciarSesionService,
+    private ProcessPaymentService:ProcessPaymentService,
+    private controllerService:ControllerService
+  ) {
+    this.controllerService.events$.subscribe(events => {
+      this.carga=events.list
+      this.total=events.list.length
+    });
+  }
   ngDoCheck() {
-    this.mostrar = this.mostrarCatalogoService.estadoButton();
-    this.total = this.ProcessPaymentService.totalProduct();
-    this.totalPrecio = this.ProcessPaymentService.verPrecioTotal();
-    this.totalObjet = this.ProcessPaymentService.totalProduct();
+    
     this.breadcrumb = this.breadcrumbService.getBreadcrumb() 
     
   }
 
   ngOnInit() {
+    this.eventService.listen().subscribe(data => {
+        this.mostrarCarrito()
+    });
+    this.ini.listen().subscribe((data)=>{
+        this.client=data.cliente
+        this.admin=data.admin 
+        this.iniciar=data.sinSesion
+    })
     
-    this.mostrarCatalogoService.Mostrab(false);
-    if (localStorage.getItem('user') === '') {
+    if (localStorage.getItem('idClient') === '') {
     }
     this.payPalConfig = this.ProcessPaymentService.initConfig();
-    this.ProcessPaymentService.cargaAnterior();
     this.breadcrumbService.setBreadcrumb('Home','home');
   }
   
   mostrarCarrito() {
-    this.carga = this.ProcessPaymentService.verCargaProduct();
+    
+    
     if (this.visibleSidebar2) {
-      this.ProcessPaymentService.cargaAnterior();
+      
       this.visibleSidebar2 = false;
     } else {
       this.visibleSidebar2 = true;
-      this.ProcessPaymentService.cargaAnterior();
+      
     }
 
     // Se agrega o se actualiza el carrito en la base de datos
@@ -111,18 +127,14 @@ export class AppComponent implements OnInit, DoCheck {
       };
       this.setCartProductsService.postCart(cart).subscribe((mensaje: any) => {
         if (mensaje != '') {
-          this.ProcessPaymentService.cargaAnterior();
+         
         }
       });
     }
   }
-  salir() {
-    localStorage.setItem('user', '');
-    localStorage.setItem('e_mail', '');
-    this.router.navigateByUrl('/login');
-  }
+ 
   eliminar(id: string) {
-    this.carga=this.ProcessPaymentService.eliminarProduct(id);
+    this.controllerService.eliminarProduct(id)
   }
   detalle(idPoduct: string) {
     localStorage.setItem('idProduct', idPoduct);
@@ -154,7 +166,7 @@ export class AppComponent implements OnInit, DoCheck {
   }
   resume() {
     this.totalPrecio = Number(this.totalPrecio) * Number(this.dias);
-    this.ProcessPaymentService.setPrecio(this.totalPrecio);
+   
   }
   getCodigoPostal() {
     this.LimpiarDireccio();
@@ -205,11 +217,6 @@ export class AppComponent implements OnInit, DoCheck {
     this.estado = '';
     this.municipio = "";
   }
-  
-  rout(pagine: string){
-    this.router.navigateByUrl(pagine)
-  }
-
   mostrarCatalogo(pagina:string) {
     this.router.navigateByUrl(`/${pagina}`);
   }
