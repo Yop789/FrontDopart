@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mapa-site',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mapa-site.component.css']
 })
 export class MapaSiteComponent implements OnInit {
-
+  private router: Router | any
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  home(){
+    this.router.navigateByUrl("/home")
+  }
 }

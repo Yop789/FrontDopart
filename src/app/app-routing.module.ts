@@ -9,7 +9,11 @@ import { SillaComponent } from './area-cliente/Component/silla/silla.component';
 import { MesaComponent } from './area-cliente/Component/mesa/mesa.component';
 import { InflableComponent } from './area-cliente/Component/inflable/inflable.component';
 import { AdornoComponent } from './area-cliente/Component/adorno/adorno.component';
+<<<<<<< HEAD
 import { LogiComponent } from './logiarce/Component/logi/logi.component';
+=======
+import { MapaSiteComponent } from './area-cliente/Component/mapa-site/mapa-site.component';
+>>>>>>> f52c5f3ca7774486e4d02f534f1cf69e120697e7
 
 const routes: Routes = [
   
@@ -43,6 +47,7 @@ const routes: Routes = [
     component: AdornoComponent,
   },
   {
+<<<<<<< HEAD
     path: 'registrarce',
     component: CrearUsuariosComponent
   },
@@ -57,6 +62,14 @@ const routes: Routes = [
   {
     path: 'recuperarContraceña',
     component: CrearUsuariosComponent
+=======
+    path: 'mapaSitio',
+    component: MapaSiteComponent,
+  },
+  {
+    path: 'error',
+    component: ErroComponent,
+>>>>>>> f52c5f3ca7774486e4d02f534f1cf69e120697e7
   },
   { path: 'Admin', loadChildren: () => import('./area-admin/area-admin.module').then(m => m.AreaAdminModule) },
   {
