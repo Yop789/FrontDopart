@@ -18,7 +18,9 @@
   .textoMolde{
     text-shadow: 1px 1px #3c3b3b;
   }
-
+  .example-spacer {
+    flex: 1 1 auto;
+  }
 
 
 

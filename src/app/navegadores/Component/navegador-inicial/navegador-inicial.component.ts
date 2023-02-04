@@ -21,7 +21,11 @@ export class NavegadorInicialComponent implements OnInit {
     this.router.navigateByUrl(`/${pagina}`);
   }
   btnIniciarSesion(){
-    this.dialog.open(LogiComponent)
+    this.dialog.open(LogiComponent),{
+      enterAnimationDuration:'700ms',
+      exitAnimationDuration:'1000ms'
+    }
+    
   }
   btnRegistrarce(){
     this.router.navigateByUrl('/registrarce')

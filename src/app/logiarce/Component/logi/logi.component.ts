@@ -1,5 +1,6 @@
+import { RecupeContraComponent } from './../recupe-contra/recupe-contra.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { IniciarSesionService } from './../../../services/Login/iniciar-sesion.service';
 import { environment } from './../../../../environments/environment';
 import { Component, OnInit } from '@angular/core';
@@ -15,11 +16,13 @@ export class LogiComponent implements OnInit {
   secretKey = environment.secretKey;
   email = '';
   password = '';
+
   constructor(
     private router:Router,
     private iniciarSesionService: IniciarSesionService,
     private snackBar: MatSnackBar,
-    private snackDialogRer: MatDialogRef<LogiComponent>
+    private snackDialogRer: MatDialogRef<LogiComponent>,
+    private dialog: MatDialog
     ) {}
 
   ngOnInit(): void {
@@ -51,8 +54,17 @@ export class LogiComponent implements OnInit {
   }
   btnQUC(){
     this.router.navigateByUrl('/registrarce')
+    this.cerrarDialog()
   }
   cerrarDialog(){
     this.snackDialogRer.close()
   }
+  recuperar(){
+    this.dialog.open(RecupeContraComponent,{
+        enterAnimationDuration:'700ms',
+        exitAnimationDuration:'700ms'
+      })
+    this.cerrarDialog()
+  }
+  
 }

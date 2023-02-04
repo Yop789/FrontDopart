@@ -36,6 +36,7 @@ import { LogiComponent } from './logiarce/Component/logi/logi.component';
 import { RecupeContraComponent } from './logiarce/Component/recupe-contra/recupe-contra.component';
 import {DialogModule} from 'primeng/dialog';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { CodigoRecuperacionComponent } from './logiarce/Component/codigo-recuperacion/codigo-recuperacion.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,6 +54,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     CrearUsuariosComponent,
     LogiComponent,
     RecupeContraComponent,
+    CodigoRecuperacionComponent,
   ],
   imports: [
     MatDialogModule,

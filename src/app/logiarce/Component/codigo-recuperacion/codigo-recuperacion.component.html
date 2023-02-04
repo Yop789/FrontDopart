@@ -2,18 +2,20 @@
     <div class="row justify-content-center ">
         <div class="Login">
             <div id="txtIS">
-                Recuperar contraseña
+                Codigo de verificacion
             </div>
             <div class="row conRecuperar">
                 <div class="col" style="margin-top: 30px;">
-                    <label class="form-label lbRecuperar">Email</label>
-                    <input class="inRecuperar" type="email" [(ngModel)]="email">
+                    <div style="margin-left: 40px;">
+                        <label style="font-size: 50px;">DO-</label>
+                        <input class="inRecuperarC" type="text" [(ngModel)]="email">
+                    </div>
                     <div class="col " style="align-items: center;margin-top: 30px;">
-                        <button (click)="cancelar()" id="btnRecuperarCancelar">
+                        <button (click)="cancelarC()" id="btnRecuperarCancelar">
                             Cancelar
                         </button>
-                        <button (click)="recuperar()" id="btnRecuperar">
-                            Recuperar contraseña
+                        <button (click)="recuperarC()" id="btnRecuperar">
+                            Recuperarla
                         </button>
                     </div>
                 </div>
