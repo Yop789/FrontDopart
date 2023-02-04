@@ -1,24 +1,17 @@
-<nav class="navbar navbar-expand-lg lgu container-fluid mb-3">
-    <div class="container-fluid">
-        <a class="navbar-brand Logo" (click)="mostrarMenu('home')">🎉 DoFest</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon">fff</span>
-        </button>
+<div class="nBar">
+    <div class="container">
+        <div class="row  justify-content-center">
 
-        <div class="collapse navbar-collapse hola1 justify-content-end" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link TextoN" (click)="mostrarMenu('iniciarSesion')"> <mat-icon class="pt-1"><span class="material-symbols-outlined">
-                        login
-                        </span> </mat-icon> Inicir sesion</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link TextoN"><mat-icon class="pt-1"><span class="material-symbols-outlined">
-                        rule
-                        </span></mat-icon>Registrarce</a>
-                </li>
-            </ul>
+            <mat-toolbar style="background-color: #0ec3e0;">
+                <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+                    <mat-icon>menu</mat-icon>
+                </button> -->
+                <span (click)="mostrarMenu('home')"><img class="imag" src="assets/img/Logo blanco (3).png" ></span>
+                <span class="example-spacer"></span>
+                    <button mat-icon-button id="btnInicio" (click)="btnIniciarSesion()">Iniciar Sesión</button>
+                    <button mat-icon-button id="btnRegis" (click)="btnRegistrarce()">Registrarce</button>
+                
+            </mat-toolbar>
         </div>
     </div>
-</nav>
+</div>

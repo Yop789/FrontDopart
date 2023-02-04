@@ -1,21 +1,31 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <app-navegador-inicial [hidden]="iniciar"></app-navegador-inicial>
+<app-navegador-inicial [hidden]="iniciar"></app-navegador-inicial>
 <app-navegador-cliente [hidden]="client"></app-navegador-cliente>
 <app-navegador-administracion [hidden]="admin"></app-navegador-administracion>
-<div id="miDiv" class="breadcrumb">
-  <p class="breadcrumb-item" *ngFor="let Migagas of breadcrumb"
-    style="display: inline-block; cursor: pointer;font-size: 16px;" (click)="mostrarCatalogo(Migagas.url)">
-    {{ Migagas.nombre }}
-  </p>
+
+<div class="container textoMolde">
+  <div class="row">
+    <div class="col " style="margin-top: 70px;">
+      <div id="miDiv" class="breadcrumb">
+        <p class="breadcrumb-item" *ngFor="let Migagas of breadcrumb"
+          style="display: inline-block; cursor: pointer;font-size: 16px;" (click)="mostrarCatalogo(Migagas.url)">
+          {{ Migagas.nombre }}
+        </p>
+      </div>
+      <router-outlet></router-outlet>
+      <footer>
+        <div class="container">
+          <p>Copyright &copy; 2023</p>
+          <nav>
+            <ul>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Use</a></li>
+            </ul>
+          </nav>
+        </div>
+      </footer>
+    </div>
+  </div>
 </div>
 <nz-drawer [nzClosable]="false" [nzVisible]="visibleSidebar2" nzPlacement="right" [nzWidth]="800" nzTitle="Camioncito"
   [nzExtra]="extra" (nzOnClose)="mostrarCarrito()">
@@ -164,20 +174,8 @@
   <button type="button" class="btn-close" aria-label="Close" (click)="mostrarCarrito()"></button>
 </ng-template>
 <div>
-<router-outlet></router-outlet>
-</div>
-<footer>
-  <div class="container">
-    <p>Copyright &copy; 2023</p>
-    <nav>
-      <ul>
-        <li><a href="#">Contact Us</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Terms of Use</a></li>
-      </ul>
-    </nav>
-  </div>
-</footer>
-</body>
 
-</html>
+  
+
+  
+  

@@ -1,65 +1,37 @@
-<section class="h-100 gradient-form" style="background-color: #eee;">
-  <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-xl-10">
-        <div class="card rounded-3 text-black">
-          <div class="row g-0">
-            <div class="col-lg-6">
-              <div class="card-body p-md-5 mx-md-4">
-
-                <div class="text-center">
-
-                  <h1 style="font-size: 60px;">🎉</h1>
-                  <h4 class="mt-1 mb-5 pb-1" style="font-size: 60px;">Dofest</h4>
-                </div>
-
-                <p style="font-size: 25px;">Ingresa con tu cuenta.</p>
-                <form action="">
-                  <div class="form-outline mb-4">
-                    <input type="email" style="border-radius: 10px; font-size: 12px" name="email" [(ngModel)]="email"
-                      id="form2Example1" class="form-control bg-secondary border-0 text-center"
-                      placeholder="Email como usuario" />
-                    <label class="form-label" for="form2Example11">Usuario Email</label>
-                    <!-- <div *ngIf="emailCtrl.invalid && emailCtrl.touched">
-                        <div *ngIf="emailCtrl.errors?.['required']" style="color: red;">El nombre es obligatorio.</div>
-                      </div> -->
-                  </div>
-
-                  <div class="form-outline mb-4">
-                    <input type="password" style="border-radius: 10px; font-size: 12px" [(ngModel)]="password"
-                      class="form-control bg-secondary border-0 text-center" placeholder="contraseña" name="password" />
-                    <label class="form-label" for="form2Example11">Contraseña</label>
-                    <!-- <div *ngIf="emailCtrl.invalid && emailCtrl.touched">
-                        <div *ngIf="emailCtrl.errors?.['required']" style="color: red;">El nombre es obligatorio.</div>
-                      </div> -->
-                  </div>
-
-                  <div class="text-center pt-1 mb-5 pb-1">
-                    <button (click)="log_in()" style="font-size: 22px; "
-                      class="btn btn-dark btn-block fa-lg gradient-custom-2 mb-3" type="button">Iniciar Sesión</button>
-                    <a class="text-muted" href="#!">Olvide mi contraseña</a>
-                  </div>
-
-                  <div class="d-flex align-items-center justify-content-center pb-4">
-                    <p class="mb-0 me-2">¿No tienes una cuenta?</p>
-                    <button type="button" class="btn btn-outline-danger">Create un usuario</button>
-                  </div>
-                </form>
-
-
-              </div>
-            </div>
-            <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
-              <div class="text-white px-3 py-4 p-md-5 mx-md-4">
-                <h4 class="mb-4">We are more than just a company</h4>
-                <p class="small mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                  exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-              </div>
-            </div>
+<div class="container rtp textoMolde">
+  <div class="row justify-content-center ">
+    <div class="Login">
+      <div id="txtIS">
+        Iniciar Sesión
+      </div>
+      <div class="row conLogin">
+        <div class="col" style="margin-top: 50px;">
+          <div>
+            <label class="form-label lbLogin">Email</label>
+            <input class="inLogin" type="email" [(ngModel)]="email">
+          </div>
+          <div style="margin-top: 10px;">
+            <label class="form-label lbLogin">Contraseña</label>
+            <input class="inLogin" [(ngModel)]="password" type="password">
+          </div>
+          <div style="margin-top: 10px;">
+            <p style="color: #0ec3e0;cursor:pointer; text-shadow: 1px 1px #3c3b3b;"> Olvide mi contraseña</p>
+            <p style="color: #0ec3e0;cursor:pointer; text-shadow: 1px 1px #3c3b3b;" (click)="btnQUC()"> Quiero una cuenta</p>
+          </div>
+          <div class="col-10 " style="align-items: center; margin-left: 30px;">
+            <button (click)="log_in()" id="btnLogin">
+              iniciar Sesion
+            </button>
           </div>
         </div>
       </div>
+      <div class="row">
+      <div id="fLogin">
+        Este servisio tiene el objetibo de bridarte u servisio con el
+        mas alto nivel de seguridad por lo que es nesesario logiarte,
+        al igual que tienes mejores benefisios,. Grasias
+      </div>
+    </div>
     </div>
   </div>
-</section>
+</div>

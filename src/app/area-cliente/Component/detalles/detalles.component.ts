@@ -1,3 +1,4 @@
+import { MatDialog } from '@angular/material/dialog';
 import { ControllerService } from './../../../services/cart/controller.service';
 import { Router } from '@angular/router';
 
@@ -6,9 +7,9 @@ import { Product } from 'src/app/models/product/product.module';
 import { ProductsService } from 'src/app/services/products.service';
 import { OrderProduct } from 'src/app/models/order/order.module';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ProcessPaymentService } from 'src/app/services/process-payment.service';
 import { environment } from 'src/environments/environment';
 import { BreadcrumbService } from 'src/app/services/breadcrumb.service';
+import { LogiComponent } from 'src/app/logiarce/Component/logi/logi.component';
 @Component({
   selector: 'app-detalles',
   templateUrl: './detalles.component.html',
@@ -28,7 +29,8 @@ export class DetallesComponent implements OnInit, DoCheck {
     private snackBar: MatSnackBar,
     private processPaymentService: ControllerService,
     private breadcrumbService: BreadcrumbService,
-    private router:Router
+    private router:Router,
+    private dialog:MatDialog
   ) {}
   ngDoCheck(): void {
     this.idProduct = localStorage.getItem('idProduct');
@@ -85,11 +87,16 @@ export class DetallesComponent implements OnInit, DoCheck {
       this.alert(
         'No se puede agregar al camioncito si no son mas de una pieza'
       );
-    }else this.router.navigateByUrl('/iniciarSesion')
+    }else this.btnIniciarSesion()
   }
   alert(text: string) {
     this.snackBar.open('' + text, '', {
       duration: 3000,
     });
+  }
+  btnIniciarSesion(){
+    this.dialog.open(LogiComponent, {
+      panelClass: 'custom'
+    })
   }
 }

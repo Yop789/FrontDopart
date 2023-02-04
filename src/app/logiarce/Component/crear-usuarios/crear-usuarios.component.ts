@@ -1,3 +1,4 @@
+import { BreadcrumbService } from 'src/app/services/breadcrumb.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CrearUsuariosComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private breadcrumbService:BreadcrumbService
+  ) {
+    this.PaginaName()
+   }
 
   ngOnInit(): void {
+    
   }
+  PaginaName(){
+    this.breadcrumbService.setBreadcrumb('Registrarce','registrarce')
+  }
+
 
 }

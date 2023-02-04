@@ -7,6 +7,7 @@ import { SillaComponent } from './area-cliente/Component/silla/silla.component';
 import { DetallesComponent } from './area-cliente/Component/detalles/detalles.component';
 import { HomeComponent } from './area-cliente/Component/home/home.component';
 import { NgModule } from '@angular/core';
+import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserModule } from '@angular/platform-browser';
 import { NzCalendarModule } from 'ng-zorro-antd/calendar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -33,7 +34,8 @@ import { EventService } from './services/Eventos/event-service.service';
 import { CrearUsuariosComponent } from './logiarce/Component/crear-usuarios/crear-usuarios.component';
 import { LogiComponent } from './logiarce/Component/logi/logi.component';
 import { RecupeContraComponent } from './logiarce/Component/recupe-contra/recupe-contra.component';
-
+import {DialogModule} from 'primeng/dialog';
+import {MatToolbarModule} from '@angular/material/toolbar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,6 +55,9 @@ import { RecupeContraComponent } from './logiarce/Component/recupe-contra/recupe
     RecupeContraComponent,
   ],
   imports: [
+    MatDialogModule,
+    MatToolbarModule,
+    DialogModule,
     BrowserModule,
     NzDatePickerModule,
     NzModalModule,

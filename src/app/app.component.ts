@@ -11,7 +11,6 @@ import {
   ViewChild,
   
 } from '@angular/core';
-import { MostrarCatalogoService } from './services/mostrar-catalogo.service';
 import { Router } from '@angular/router';
 import { IPayPalConfig } from 'ngx-paypal';
 import { OrderProduct, Dta } from './models/order/order.module';
@@ -22,6 +21,8 @@ import { CodigoPostalService } from './services/codigo-postal.service';
 import { Comunidad } from './models/comunidad/comunidad.module';
 import { BreadcrumbService } from './services/breadcrumb.service';
 import { environment } from 'src/environments/environment';
+import { HttpClient } from '@angular/common/http';
+
 
 
 @Component({
@@ -31,6 +32,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AppComponent implements OnInit, DoCheck {
   url = environment.urlImagen;
+  isVisibleTop=true
   client=true
   admin=true
   iniciar=false
@@ -68,7 +70,8 @@ export class AppComponent implements OnInit, DoCheck {
     private eventService: EventService,
     private ini:IniciarSesionService,
     private ProcessPaymentService:ProcessPaymentService,
-    private controllerService:ControllerService
+    private controllerService:ControllerService,
+    private http: HttpClient
   ) {
     this.controllerService.events$.subscribe(events => {
       this.carga=events.list
@@ -78,7 +81,6 @@ export class AppComponent implements OnInit, DoCheck {
   ngDoCheck() {
     
     this.breadcrumb = this.breadcrumbService.getBreadcrumb() 
-    
   }
 
   ngOnInit() {
@@ -221,3 +223,4 @@ export class AppComponent implements OnInit, DoCheck {
     this.router.navigateByUrl(`/${pagina}`);
   }
 }
+
