@@ -12,17 +12,17 @@
 
     <!-- Shop Detail Start -->
     <div class="container-fluid pb-5">
-        <div class="row px-xl-5">           
+        <div class="row px-xl-5">
 
-     
+
             <div class="col h-auto mb-30">
                 <div class="h-100 bg-light p-30 lgdt">
                     <div class="row">
                         <div class="col-lg-5 h-auto p-5">
                             <div id="product-carousel" class="carousel slide" data-bs-ride="carousel">
                                 <div class="carousel-inner bg-light" style="border-radius: 15px;">
-                                    <div class="carousel-item active" >
-                                        <img [src]="url+product.imagePath" alt="" class="w-100 h-100" >
+                                    <div class="carousel-item active">
+                                        <img [src]="url+product.imagePath" alt="" class="w-100 h-100">
                                         <!-- <img class="w-100 h-100" src="img/product-1.jpg" alt="Image"> -->
                                     </div>
                                 </div>
@@ -92,7 +92,8 @@
                                             <i class="fa fa-minus" style="font-size: 21px;"></i>
                                         </button>
                                     </div>
-                                    <input [autocomplete]="resume()" type="text" style="border-radius: 10px;" class="form-control bg-secondary border-0 text-center" [(ngModel)]="cantidad">
+                                    <input [autocomplete]="resume()" type="text" style="border-radius: 10px;"
+                                        class="form-control bg-secondary border-0 text-center" [(ngModel)]="cantidad">
                                     <div class="input-group-btn">
                                         <button class="btn btn-primary btn-plus" (click)="mas()"
                                             style="border-radius: 10px;">
@@ -114,7 +115,7 @@
                             <br />
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
