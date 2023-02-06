@@ -1,7 +1,7 @@
 import { OrderProduct } from "../order/order.module";
 
 export interface Cart {
-	IdCustomer: string,
+	IdCustomer?: string,
 	Products:OrderProduct[]
 	
 } 

@@ -1,3 +1,4 @@
+import { ControllerService } from 'src/app/services/cart/controller.service';
 import { RecupeContraComponent } from './../recupe-contra/recupe-contra.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
@@ -22,7 +23,8 @@ export class LogiComponent implements OnInit {
     private iniciarSesionService: IniciarSesionService,
     private snackBar: MatSnackBar,
     private snackDialogRer: MatDialogRef<LogiComponent>,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private ControllerService:ControllerService
     ) {}
 
   ngOnInit(): void {
@@ -39,7 +41,7 @@ export class LogiComponent implements OnInit {
           if(routeName==="/registrarce"){
             this.router.navigateByUrl("/home")
           }
-          console.log(routeName)
+          this.ControllerService.cargarAnterior()
         }else this.alert(res.message)
       }else this.alert(res.message)
     });

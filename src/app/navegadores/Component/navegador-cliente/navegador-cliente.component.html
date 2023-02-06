@@ -1,58 +1,62 @@
-<div class="nBar">
+<div class="nBar ">
   <div class="container">
     <div class="row  justify-content-center">
-
       <mat-toolbar style="background-color: #0ec3e0;">
         <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
                     <mat-icon>menu</mat-icon>
                 </button> -->
         <span (click)="mostrarMenu('home')"><img class="imag" src="assets/img/Logo blanco (3).png"></span>
-        <span class="example-spacer"> <input type="text"></span>
+        <span class="example-spacer">
+          <div class="container">
+            <div class="input-group mb-3">
+              <input type="text" class="inpSearch" placeholder="Search" aria-label="Username">
+              <span class="input-group-text"><i class="pi pi-search"></i></span>
+              <mat-icon (click)="mostrarCarrito()" [matBadge]="total" aria-hidden="false"
+                style="margin-left: 5%; margin-top: 5px;"><span style="font-size: 35px;"
+                  class="material-symbols-outlined">
+                  local_shipping
+                </span></mat-icon>
+            </div>
+          </div>
+        </span>
 
-        <a class="nav-link TextoN" (click)="mostrarMenu('home')"><mat-icon class="pt-1"> <span
-              class="material-symbols-outlined"> house </span></mat-icon> Home</a>
-        <a class="nav-link TextoN" (click)="mostrarMenu('sillas')"> <mat-icon class="pt-1"><span
-              class="material-symbols-outlined"> event_seat </span></mat-icon> Sillas</a>
+        <a class=" TextoN">
 
-
-        <a class="nav-link TextoN" (click)="mostrarMenu('adornos')"><mat-icon class="pt-1"><span
-              class="material-symbols-outlined">
-              yard
-            </span></mat-icon> Adornos</a>
-
-
-        <a class="nav-link TextoN" (click)="mostrarMenu('inflables')"><mat-icon class="pt-1"><span
-              class="material-symbols-outlined">
-              mosque
-            </span></mat-icon> Infables</a>
-
-
-        <a class="nav-link TextoN" (click)="mostrarMenu('mesas')"><mat-icon class="pt-1"><span
-              class="material-symbols-outlined">
-              table_bar
-            </span></mat-icon> Mesas</a>
-
-
-        <a class="nav-link TextoN">
-          <mat-icon class="pt-1" (click)="mostrarCarrito()" [matBadge]="total" aria-hidden="false"><span
-              class="material-symbols-outlined">
-              local_shipping
-            </span></mat-icon>
         </a>
+      </mat-toolbar>
+      <mat-toolbar style="background-color: #0ec3e0; height: 18px;">
+        <span></span>
+        <span class="example-spacer rowApartados">
+          <div class="row">
+            <div class="col">
+              <div class="row" style="width: 400px;">
+                <div class="col-2" > <a class=" TextoN" (click)="mostrarMenu('home')"> Home</a></div>
+                <div class="col-3">
+                  <a class="dButton TextoN" data-bs-toggle="dropdown">
+                    Categorias<span class="dropdown-arrow">&#9660;</span>
+                  </a>
+                  <ul class=" dropdown-menu ">
+                    <li class="liCategoria" (click)="mostrarMenu('sillas')"><a class="TextoN"> Sillas</a></li>
+                    <li class="liCategoria" (click)="mostrarMenu('adornos')"><a class="TextoN">Adornos</a></li>
+                    <li class="liCategoria" (click)="mostrarMenu('inflables')"><a class="TextoN">Infables</a></li>
+                    <li class="liCategoria" (click)="mostrarMenu('mesas')"><a class="TextoN"> Mesas</a></li>
+                  </ul>
+                </div>
+                <div class="col-3"> <a class="TextoN" (click)="mostrarMenu('home')"> Mis Ordenes</a></div>
+                <div class="col-2">
+                  <a class="dButton TextoN" data-bs-toggle="dropdown">
+                    Cuenta<span class="dropdown-arrow">&#9660;</span>
+                  </a>
+                  <ul class=" dropdown-menu ">
+                    <li class="liCategoria" (click)="salir()"><a class="TextoN"> Salir</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
 
+          </div>
 
-        <a class="nav-link TextoN">
-          <mat-icon class="pt-1" mat-icon-button [matMenuTriggerFor]="menu" aria-hidden="false"><span
-              class="material-symbols-sharp">
-              account_circle
-            </span></mat-icon>
-        </a>
-        <mat-menu #menu="matMenu">
-          <button mat-menu-item (click)="salir()">
-            <mat-icon>logout</mat-icon>
-            <span>salir</span>
-          </button>
-        </mat-menu>
+        </span>
       </mat-toolbar>
     </div>
   </div>

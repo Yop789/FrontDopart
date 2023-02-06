@@ -1,0 +1,22 @@
+.colTextReg {
+    text-align: center;
+    box-shadow: 10px 10px 20px #888888;
+    border-radius: 10px;
+  }
+  .Cart
+{
+  box-shadow: 10px 10px 20px #888888;
+border-radius: 10px;
+margin-bottom: 30px;
+}
+@media (max-width: 500px) {
+  #colCaracteristicas {
+    display: none;
+
+  }
+  .cart{
+    width: 500px;
+    height: 100%;
+  }
+  
+}

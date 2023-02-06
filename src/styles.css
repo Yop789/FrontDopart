@@ -1,9 +1,9 @@
 .nBar {
   background-color: #0ec3e0;
-  height: 65px;
+  height: 90px;
   box-shadow: 10px 10px 20px #888888;
   position: fixed;
-  z-index: 109;
+  z-index: 99;
   width: 100%;
 }
 .imag{
@@ -21,8 +21,15 @@
   .example-spacer {
     flex: 1 1 auto;
   }
-
-
+  .inpSearch{
+  outline: 0px;border: 0px;
+  width: 70%;
+  }
+.material-symbols-rounded {
+  background-color: transparent;
+  font-size: 40px;
+ 
+}
 
 
 /* You can add global styles to this file, and also import other style files */

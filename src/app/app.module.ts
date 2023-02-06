@@ -7,6 +7,7 @@ import { SillaComponent } from './area-cliente/Component/silla/silla.component';
 import { DetallesComponent } from './area-cliente/Component/detalles/detalles.component';
 import { HomeComponent } from './area-cliente/Component/home/home.component';
 import { NgModule } from '@angular/core';
+import {MenuModule} from 'primeng/menu';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserModule } from '@angular/platform-browser';
 import { NzCalendarModule } from 'ng-zorro-antd/calendar';
@@ -37,6 +38,8 @@ import { RecupeContraComponent } from './logiarce/Component/recupe-contra/recupe
 import {DialogModule} from 'primeng/dialog';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { CodigoRecuperacionComponent } from './logiarce/Component/codigo-recuperacion/codigo-recuperacion.component';
+import { CartComponent } from './area-cliente/Component/cart/cart.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,10 +58,12 @@ import { CodigoRecuperacionComponent } from './logiarce/Component/codigo-recuper
     LogiComponent,
     RecupeContraComponent,
     CodigoRecuperacionComponent,
+    CartComponent,
   ],
   imports: [
     MatDialogModule,
     MatToolbarModule,
+    MenuModule,
     DialogModule,
     BrowserModule,
     NzDatePickerModule,

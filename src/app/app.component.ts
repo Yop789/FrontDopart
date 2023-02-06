@@ -9,6 +9,7 @@ import {
   ElementRef,
   Renderer2,
   ViewChild,
+  HostListener,
   
 } from '@angular/core';
 import { Router } from '@angular/router';
@@ -31,6 +32,16 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit, DoCheck {
+  @HostListener('window:beforeunload', ['$event'])
+unloadHandler(event: BeforeUnloadEvent) {
+  event.preventDefault();
+  this.controllerService.setCarController()
+  const confirmationMessage = '¿Está seguro de que desea cerrar la ventana del navegador?';
+  const result = confirm(confirmationMessage);
+  if (result) {
+    window.close();
+  }
+}
   url = environment.urlImagen;
   isVisibleTop=true
   client=true
@@ -84,6 +95,9 @@ export class AppComponent implements OnInit, DoCheck {
   }
 
   ngOnInit() {
+    window.onbeforeunload = function(e) {
+      return '¿Está seguro de que desea cerrar la ventana del navegador?';
+    };
     this.eventService.listen().subscribe(data => {
         this.mostrarCarrito()
     });
