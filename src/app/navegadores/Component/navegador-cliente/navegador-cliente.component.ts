@@ -31,7 +31,7 @@ export class NavegadorClienteComponent implements OnInit {
     this.iniciarSesionService.emit(true,true,false)
     localStorage.setItem('IdClient','')
     this.router.navigateByUrl('/home')
-    
+
   }
   mostrarCarrito(){
     this.event.emit(false)

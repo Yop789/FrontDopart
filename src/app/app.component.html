@@ -11,22 +11,35 @@
           {{ Migagas.nombre }}
         </p>
       </div>
+
       <router-outlet></router-outlet>
-      <footer>
-        <div class="container">
-          <p>Copyright &copy; 2023</p>
-          <nav>
-            <ul>
-              <li><a href="#">Contact Us</a></li>
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Terms of Use</a></li>
-            </ul>
-          </nav>
-        </div>
-      </footer>
+       <!--  -->
+
+
     </div>
   </div>
 </div>
+
+<div class="baja">
+
+  <footer>
+    <div class="col-8">
+      <p class="texto1">Copyright &copy; 2023</p>
+      <nav>
+        <ul>
+          <li><a class="texto" href="#">Contact Us</a></li>
+          <li><a class="texto" href="#">Privacy Policy</a></li>
+          <li><a class="texto" href="#">Terms of Use</a></li>
+
+        </ul>
+      </nav>
+    </div>
+
+  </footer>
+
+
+</div>
+
 <nz-drawer [nzClosable]="false" [nzVisible]="visibleSidebar2" nzPlacement="right" [nzWidth]="800" nzTitle="Camioncito"
   [nzExtra]="extra" (nzOnClose)="mostrarCarrito()">
   <ng-container *nzDrawerContent>
@@ -175,7 +188,6 @@
 </ng-template>
 <div>
 
-  
 
-  
-  
+
+
