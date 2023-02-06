@@ -33,7 +33,6 @@ export class IniciarSesionService {
       let l= this.http.post<User>(this.url1,user,{headers:header}); 
       l.subscribe((date:any)=>{
         let _id=date.doc[0]._id
-        console.log(_id)
         this.cartControllers.setId(_id)
       })
       return l  

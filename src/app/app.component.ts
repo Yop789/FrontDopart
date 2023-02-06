@@ -10,7 +10,6 @@ import {
   Renderer2,
   ViewChild,
   HostListener,
-  
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { IPayPalConfig } from 'ngx-paypal';
@@ -24,8 +23,6 @@ import { BreadcrumbService } from './services/breadcrumb.service';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 
-
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -33,17 +30,27 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent implements OnInit, DoCheck {
   @HostListener('window:beforeunload', ['$event'])
-unloadHandler(event: BeforeUnloadEvent) {
-  event.preventDefault();
-  this.controllerService.setCarController()
-  
-}
+  unloadHandler(event: BeforeUnloadEvent) {
+    event.preventDefault();
+    this.controllerService.setCarController();
+  }
+  @HostListener('window:beforeunload', ['$event'])
+  unloadHandle(event: BeforeUnloadEvent) {
+    event.preventDefault();
+    this.controllerService.setCarController();
+    const confirmationMessage = '¿Está seguro de que desea recargar la página?';
+    const result = confirm(confirmationMessage);
+    if (result) {
+      window.location.reload();
+    }
+  }
+
   url = environment.urlImagen;
-  isVisibleTop=true
-  client=true
-  admin=true
-  iniciar=false
-  breadcrumb: any = []
+  isVisibleTop = true;
+  client = true;
+  admin = true;
+  iniciar = false;
+  breadcrumb: any = [];
   title = 'DoParty';
   visibleSidebar2 = false;
   loandingCP1 = true;
@@ -73,51 +80,46 @@ unloadHandler(event: BeforeUnloadEvent) {
     private setCartProductsService: SetCartProductsService,
     private codigoPostalService: CodigoPostalService,
     private renderer2: Renderer2,
-    private breadcrumbService:BreadcrumbService,
+    private breadcrumbService: BreadcrumbService,
     private eventService: EventService,
-    private ini:IniciarSesionService,
-    private ProcessPaymentService:ProcessPaymentService,
-    private controllerService:ControllerService,
+    private ini: IniciarSesionService,
+    private ProcessPaymentService: ProcessPaymentService,
+    private controllerService: ControllerService,
     private http: HttpClient
   ) {
-    this.controllerService.events$.subscribe(events => {
-      this.carga=events.list
-      this.total=events.list.length
+    this.controllerService.events$.subscribe((events) => {
+      this.carga = events.list;
+      this.total = events.list.length;
     });
   }
   ngDoCheck() {
-    
-    this.breadcrumb = this.breadcrumbService.getBreadcrumb() 
+    this.breadcrumb = this.breadcrumbService.getBreadcrumb();
   }
 
   ngOnInit() {
-    window.onbeforeunload = function(e) {
+    window.onbeforeunload = function (e) {
       return '¿Está seguro de que desea cerrar la ventana del navegador?';
     };
-    this.eventService.listen().subscribe(data => {
-        this.mostrarCarrito()
+    this.eventService.listen().subscribe((data) => {
+      this.mostrarCarrito();
     });
-    this.ini.listen().subscribe((data)=>{
-        this.client=data.cliente
-        this.admin=data.admin 
-        this.iniciar=data.sinSesion
-    })
-    
+    this.ini.listen().subscribe((data) => {
+      this.client = data.cliente;
+      this.admin = data.admin;
+      this.iniciar = data.sinSesion;
+    });
+
     if (localStorage.getItem('idClient') === '') {
     }
     this.payPalConfig = this.ProcessPaymentService.initConfig();
-    this.breadcrumbService.setBreadcrumb('Home','home');
+    this.breadcrumbService.setBreadcrumb('Home', 'home');
   }
-  
+
   mostrarCarrito() {
-    
-    
     if (this.visibleSidebar2) {
-      
       this.visibleSidebar2 = false;
     } else {
       this.visibleSidebar2 = true;
-      
     }
 
     // Se agrega o se actualiza el carrito en la base de datos
@@ -139,14 +141,13 @@ unloadHandler(event: BeforeUnloadEvent) {
       };
       this.setCartProductsService.postCart(cart).subscribe((mensaje: any) => {
         if (mensaje != '') {
-         
         }
       });
     }
   }
- 
+
   eliminar(id: string) {
-    this.controllerService.eliminarProduct(id)
+    this.controllerService.eliminarProduct(id);
   }
   detalle(idPoduct: string) {
     localStorage.setItem('idProduct', idPoduct);
@@ -178,7 +179,6 @@ unloadHandler(event: BeforeUnloadEvent) {
   }
   resume() {
     this.totalPrecio = Number(this.totalPrecio) * Number(this.dias);
-   
   }
   getCodigoPostal() {
     this.LimpiarDireccio();
@@ -214,7 +214,7 @@ unloadHandler(event: BeforeUnloadEvent) {
             this.renderer2.setStyle(inputCodigoP, 'border', '2px solid red');
           }
         });
-    }else{
+    } else {
       this.LimpiarDireccio();
       const inputCodigoP = this.codigoP?.nativeElement;
       this.renderer2.setStyle(inputCodigoP, 'border', '2px solid red');
@@ -225,12 +225,11 @@ unloadHandler(event: BeforeUnloadEvent) {
       this.renderer2.setStyle(inputCodigoP, 'border', '2px solid red');
     }
   }
-  LimpiarDireccio(){
+  LimpiarDireccio() {
     this.estado = '';
-    this.municipio = "";
+    this.municipio = '';
   }
-  mostrarCatalogo(pagina:string) {
+  mostrarCatalogo(pagina: string) {
     this.router.navigateByUrl(`/${pagina}`);
   }
 }
-

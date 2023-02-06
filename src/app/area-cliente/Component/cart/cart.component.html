@@ -12,7 +12,7 @@
                         Articulor
                     </h2>
                     <hr style="height: 2px;">
-                    <h5>Num </h5>
+                    <h5>Num: {{total}} </h5>
                     <div *ngFor="let item of carga" class="card mb-3">
                         <div class="card-body">
                             <div class="d-flex justify-content-between">
@@ -49,19 +49,20 @@
                     <h2>
                         Peso de mi camionsito
                     </h2>
-    
+                    {{precioOrder}}
+                    <ngx-paypal [config]="payPalConfig"></ngx-paypal>
                 </div>
             </div>
         </div>
-    
+
     </div>
-    
-  </mat-dialog-content>
-  <mat-dialog-actions align="end">
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Cerrar</button>
     <button mat-button>Vaciar</button>
-  </mat-dialog-actions>
-  
+</mat-dialog-actions>
+
 <!-- <div class="conteiner Cart mat-dialog-fullscreen">
     <div class="row justify-content-center">
         <div class="row">

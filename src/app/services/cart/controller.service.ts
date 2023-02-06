@@ -15,6 +15,7 @@ import { Cart } from 'src/app/models/cart/cart.module';
 export class ControllerService {
   private user = '' + localStorage.getItem('idClient');
   private subject = new Subject<any>();
+  private costoOrder = new Subject<any>();
   private idCostumer = '';
 
   private events = {
@@ -32,7 +33,6 @@ export class ControllerService {
       this.list = event;
     },
   };
-
   private eventsSubject = new BehaviorSubject(this.events);
   events$ = this.eventsSubject.asObservable();
 
@@ -57,15 +57,7 @@ export class ControllerService {
     }
     this.emit();
   }
-  updateEvent(index: number, event: OrderProduct) {
-    this.events.update(index, event);
-    this.eventsSubject.next(this.events);
-  }
-  alert(text: string) {
-    this.snackBar.open('' + text, '', {
-      duration: 3000,
-    });
-  }
+  
   eliminarProduct(Id: string) {
     const l = '' + localStorage.getItem('idCart');
     let elementIndex = 0;
@@ -77,19 +69,9 @@ export class ControllerService {
         elementIndex++;
       });
     }
-    this.emit();
+    this.eventosCart();
   }
-  emit() {
-    let items = this.events.list.length;
-    this.subject.next({ items });
-  }
-
-  listen(): Observable<any> {
-    return this.subject.asObservable();
-  }
-  setId(id: string) {
-    this.idCostumer = id;
-  }
+  
   cargarAnterior() {
     const idCostumer: CartCostmer = {
       IdCustomer: this.idCostumer,
@@ -97,14 +79,16 @@ export class ControllerService {
     this.getCartProductsService.getCart(idCostumer).subscribe((date: any) => {
       if (date.length > 0) {
         this.events.cargarAnt(date[0].Products);
+        this.eventosCart();
       } else {
         const j: OrderProduct[] = [];
         this.events.cargarAnt(j);
       }
-      this.emit();
+            
     });
   }
   setCarController() {
+    
     const cart: Cart = {
       IdCustomer: this.idCostumer,
       Products: this.events.list,
@@ -129,5 +113,47 @@ export class ControllerService {
         .deleteCart(this.idCostumer)
         .subscribe((mensaje: any) => {});
     }
+    
+  }
+
+
+  eventosCart(){
+    this.precio()
+    this.emit()
+  }
+
+
+  precio(){
+    let sumaCostos = 0;
+    for (const producto of this.events.list) {
+        sumaCostos += producto.Total;
+    }
+    this.costoOrder.next({ sumaCostos});
+  }
+
+   
+  updateEvent(index: number, event: OrderProduct) {
+    this.events.update(index, event);
+    this.eventsSubject.next(this.events);
+  }
+  alert(text: string) {
+    this.snackBar.open('' + text, '', {
+      duration: 3000,
+    });
+  }
+  getCostOrder(): Observable<any> {
+    return this.costoOrder.asObservable();
+  }
+  
+  emit() {
+    let items = this.events.list.length;
+    this.subject.next({ items });
+  }
+
+  listen(): Observable<any> {
+    return this.subject.asObservable();
+  }
+  setId(id: string) {
+    this.idCostumer = id;
   }
 }

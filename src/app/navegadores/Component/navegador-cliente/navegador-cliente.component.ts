@@ -24,13 +24,13 @@ export class NavegadorClienteComponent implements OnInit {
     private dialog: MatDialog,
     private snackBar: MatSnackBar
   ) {
-   
-   }
-
-  ngOnInit(): void {
     this.controllerService.listen().subscribe((date:any)=>{
       this.total=date.items
     })
+   }
+
+  ngOnInit(): void {
+    
   }
   mostrarMenu(pagina:string) {
     this.router.navigateByUrl(`/${pagina}`);
@@ -52,11 +52,12 @@ export class NavegadorClienteComponent implements OnInit {
     }else{
       this.alert('no has agregado dingun articulo al carrito')
     }
-
+    this.controllerService.precio()
   }
   alert(text: string) {
     this.snackBar.open('' + text, '', {
       duration: 3000,
     });
   }
+  
 }

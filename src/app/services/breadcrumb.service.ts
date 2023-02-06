@@ -15,6 +15,14 @@ export class BreadcrumbService {
       nombre: nomPagina,
       url: `/${ruterPgina}`
     }
+      let n=0;
+      this.breadcrumbModule.forEach((data)=>{
+        if(data.nombre==='Detalles del producto'){
+          console.log(464)
+          this.breadcrumbModule.splice(n, 1);
+        }
+        n++
+      })
     var num = this.breadcrumbModule.findIndex((obj) => obj.nombre == ob.nombre);
     if (num == -1) {
       this.breadcrumbModule.push(ob);

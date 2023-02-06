@@ -39,6 +39,7 @@ import {DialogModule} from 'primeng/dialog';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { CodigoRecuperacionComponent } from './logiarce/Component/codigo-recuperacion/codigo-recuperacion.component';
 import { CartComponent } from './area-cliente/Component/cart/cart.component';
+import { OrdenesComponent } from './area-cliente/Component/ordenes/ordenes.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { CartComponent } from './area-cliente/Component/cart/cart.component';
     RecupeContraComponent,
     CodigoRecuperacionComponent,
     CartComponent,
+    OrdenesComponent,
   ],
   imports: [
     MatDialogModule,

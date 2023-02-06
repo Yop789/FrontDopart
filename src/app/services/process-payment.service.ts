@@ -8,7 +8,7 @@ import { Cart, CartCostmer } from '../models/cart/cart.module';
 import { OrderService } from './order.service';
 import { DeleteCartProductsService } from './cars-services/deleteCartProducts.service';
 import { UpdateCartProductsService } from './cars-services/updateCartProducts.service';
-
+import { ControllerService } from './cart/controller.service';
 
 @Injectable({
   providedIn: 'root',
@@ -31,12 +31,11 @@ export class ProcessPaymentService {
   payPalConfig?: IPayPalConfig;
 
   constructor(
-    private snackBar: MatSnackBar,
     private getCartProductsService: GetCartProductsService,
     private orderService: OrderService,
     private deleteCartProductsService: DeleteCartProductsService,
-    private updateCartProductsService: UpdateCartProductsService,
-    private mensajesService:MensajesService
+    private mensajesService: MensajesService,
+    private controllerService: ControllerService
   ) {}
   setDate(date: Dta) {
     this.nombre = date.Nombre;
@@ -150,7 +149,11 @@ export class ProcessPaymentService {
     return this.payPalConfig;
   }
   totalProduct() {
-    return this.cargaProduct.length;
+    let cantidadProductos=0
+    this.controllerService.listen().subscribe((date: any) => {
+      cantidadProductos = date.items;
+    });
+    return cantidadProductos
   }
   verCargaProduct() {
     return this.cargaProduct;
@@ -168,7 +171,7 @@ export class ProcessPaymentService {
   }
   // Recarga el carrito para mostrarselo al usuario
   cargaAnterior() {
-    this.cargaProduct=[]
+    this.cargaProduct = [];
     const l: CartCostmer = {
       IdCustomer: this.user,
     };
@@ -177,13 +180,11 @@ export class ProcessPaymentService {
         localStorage.setItem('idCart', cart[0]._id);
         const products = cart[0].Products;
         products.forEach((product: any) => {
-         this.cargaProduct.push(product);
+          this.cargaProduct.push(product);
         });
       } else {
         localStorage.setItem('idCart', '');
       }
     });
   }
-  
-  
 }

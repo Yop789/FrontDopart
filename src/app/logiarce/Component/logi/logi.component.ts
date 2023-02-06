@@ -31,6 +31,13 @@ export class LogiComponent implements OnInit {
   }
   log_in() {
     const p = this.encriptar(this.password);
+    let lS =`${localStorage.getItem('userId')}`
+    let dese=`${this.desemcriptar(lS)}`
+    const deseciptad= JSON.parse(dese)
+    if(deseciptad?.Admi ){
+      this.iniciarSesionService.emit(true,false,true)
+    }else{
+    console.log(deseciptad)
     this.iniciarSesionService.login(this.email, p).subscribe((res: any) => {
       if (res.message === 'session started correctly') {
         if (res.doc[0].Customer === true) {
@@ -41,10 +48,13 @@ export class LogiComponent implements OnInit {
           if(routeName==="/registrarce"){
             this.router.navigateByUrl("/home")
           }
+          let usu=JSON.stringify(res)
+          localStorage.setItem('userId', this.encriptar(usu))
           this.ControllerService.cargarAnterior()
         }else this.alert(res.message)
       }else this.alert(res.message)
     });
+    }
   }
   encriptar(value: string) {
     return CryptoJS.AES.encrypt(value, this.secretKey.trim()).toString();
@@ -67,6 +77,13 @@ export class LogiComponent implements OnInit {
         exitAnimationDuration:'700ms'
       })
     this.cerrarDialog()
+  }
+  desemcriptar(t: string) {
+    if (t) {
+      return CryptoJS.AES.decrypt(t, this.secretKey.trim()).toString(
+        CryptoJS.enc.Utf8
+      );
+    } else return "no hay datos"
   }
   
 }
