@@ -72,7 +72,6 @@ export class AdornoComponent implements OnInit {
       Type: typ,
     };
     this.productsService.getProducts(type).subscribe((prod: any) => {
-      console.log(prod)
       for (let i = 0; i < prod.length; i++) {
         const l = prod[i];
         const pro: Product = l;

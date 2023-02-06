@@ -1,22 +1,62 @@
 .colTextReg {
-    text-align: center;
-    box-shadow: 10px 10px 20px #888888;
-    border-radius: 10px;
-  }
-  .Cart
-{
+  text-align: center;
   box-shadow: 10px 10px 20px #888888;
-border-radius: 10px;
-margin-bottom: 30px;
+  height: 50px;
+  
+}
+.Texto {
+  font-family:'Trebuchet MS';
+  color:rgb(62, 62, 62);
+  font-size: 16px;
+  text-decoration: none;
+  text-shadow: 1px 1px #0ce3e0;
+}
+.conCart {
+  height: 800px;
+  width: 80vw;
+}
+.Cart {
+  box-shadow: 10px 10px 20px #888888;
+  border-radius: 10px;
+  margin-bottom: 30px;
 }
 @media (max-width: 500px) {
   #colCaracteristicas {
     display: none;
-
   }
-  .cart{
+  .cart {
     width: 500px;
     height: 100%;
   }
-  
+}
+
+@media (max-width: 1000px) {
+  .contR{
+    display: none;
+  }
+  #colCa{
+    display: block;
+  }
+}
+
+@media (min-width: 1000px){
+  #colCa{
+    display: none;
+  }
+}
+
+#btnCartCerrar {
+  background-color: #73264d;
+  color: white;
+}
+.btnCart {
+  height: 30px;
+  outline: none;
+  border: 0px;
+  width: 150px;
+  box-shadow: 0px 0px 20px #888888;
+}
+#btnCartCerrar {
+  background-color: #73264d;
+  color: white;
 }

@@ -18,7 +18,6 @@ export class BreadcrumbService {
       let n=0;
       this.breadcrumbModule.forEach((data)=>{
         if(data.nombre==='Detalles del producto'){
-          console.log(464)
           this.breadcrumbModule.splice(n, 1);
         }
         n++

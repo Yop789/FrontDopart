@@ -38,11 +38,6 @@ export class AppComponent implements OnInit, DoCheck {
   unloadHandle(event: BeforeUnloadEvent) {
     event.preventDefault();
     this.controllerService.setCarController();
-    const confirmationMessage = '¿Está seguro de que desea recargar la página?';
-    const result = confirm(confirmationMessage);
-    if (result) {
-      window.location.reload();
-    }
   }
 
   url = environment.urlImagen;

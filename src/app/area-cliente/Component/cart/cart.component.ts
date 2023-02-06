@@ -15,6 +15,7 @@ export class CartComponent implements OnInit {
   carga: OrderProduct[] = [];
   total = 0;
   precioOrder = 0;
+  piezas = 0;
   url = environment.urlImagen;
   public payPalConfig?: IPayPalConfig;
   constructor(
@@ -43,6 +44,14 @@ export class CartComponent implements OnInit {
   precioOrderCart() {
     this.controllerService.getCostOrder().subscribe((date: any) => {
       this.precioOrder = date.sumaCostos;
+      this.piezas = date.cantidadItem;
+    });
+  }
+  btnVaciar() {
+    this.controllerService.vaciar();
+    this.controllerService.events$.subscribe((events) => {
+      this.carga = events.list;
+      this.total = events.list.length;
     });
   }
 }

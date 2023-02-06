@@ -15,11 +15,11 @@
   }
   
   .TextoN {
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family:'Trebuchet MS';
     color:rgb(62, 62, 62);
-    font-size: 15px;
+    font-size: 16px;
     text-decoration: none;
-    text-shadow: 1px 1px #3c3b3b;
+    text-shadow: 1px 1px #ffffff;
   }
   
   .jl {
@@ -32,7 +32,7 @@
       height: 100vh !important;
     }
     .rowApartados{
-      margin-left: 5%;
+      margin-left: 1%;
     }
     .cart{
       width: 10%;
@@ -50,3 +50,4 @@
   .liCategoria a{
     margin-left: 40px;
   }
+ 

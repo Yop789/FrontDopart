@@ -37,7 +37,6 @@ export class LogiComponent implements OnInit {
     if(deseciptad?.Admi ){
       this.iniciarSesionService.emit(true,false,true)
     }else{
-    console.log(deseciptad)
     this.iniciarSesionService.login(this.email, p).subscribe((res: any) => {
       if (res.message === 'session started correctly') {
         if (res.doc[0].Customer === true) {

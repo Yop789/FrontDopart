@@ -1,18 +1,24 @@
-<mat-dialog-content class="mat-typography">
-    <div class="conteiner " style="height: 600px;">
+<mat-dialog-content class="mat-typography conCart">
+    <div class="conteiner ">
         <div class="row justify-content-center">
             <div class="row">
-                <div class="col colTextReg">
-                    <h1>Mi camionsito</h1>
+                <div class="col colTextReg ">
+                    <h1> <mat-icon aria-hidden="false" style="width: 40px; height: 40px;">
+                            <span style="font-size: 40px;text-shadow: 1px 1px #3c3b3b;"
+                                class="material-symbols-outlined">
+                                local_shipping
+                            </span>
+                        </mat-icon>
+                    </h1>
                 </div>
             </div>
-            <div class="row">
+            <div class="row " style="margin-top: 30px;">
                 <div class="col">
                     <h2>
                         Articulor
                     </h2>
                     <hr style="height: 2px;">
-                    <h5>Num: {{total}} </h5>
+                    <h5>Productos: {{total}} </h5>
                     <div *ngFor="let item of carga" class="card mb-3">
                         <div class="card-body">
                             <div class="d-flex justify-content-between">
@@ -45,77 +51,61 @@
                         </div>
                     </div>
                 </div>
-                <div class="col" id="colCaracteristicas">
+                <div class="col-4 contR" id="colCaracteristicas">
                     <h2>
-                        Peso de mi camionsito
+                        Detalles Generales
                     </h2>
-                    {{precioOrder}}
+                    <hr style="height: 2px;">
+                    <div class="row ">
+                        <div class="col">
+                            <div class="d-flex mb-3">
+                                <small class="pt-0"><span class="badge text-bg-dark" style="font-size: 14.5px;">
+                                        <b>&nbsp;&nbsp;Piezas de la Orden: </b>
+                                        <span class="badge text-bg-light" style="font-size: 15px;">{{piezas}}
+                                        </span>
+                                    </span>
+                                </small>
+                            </div>
+                            <h2><span class="badge text-bg-warning"><b>Costo de Order: </b><span
+                                style="font-size:15px" class="badge text-bg-light">$
+                                {{precioOrder}}</span></span></h2>
+                        </div>
+                    </div>
+                    <div class="row Texto">
+                    </div>
+                    <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col" id="colCa">
+                    <h2>
+                        Detalles Generales
+                    </h2>
+                    <hr style="height: 2px;">
+                    <div class="row ">
+                        <div class="col">
+                            <div class="d-flex mb-3">
+                                <small class="pt-0"><span class="badge text-bg-dark" style="font-size: 14.5px;">
+                                        <b>&nbsp;&nbsp;Piezas de la Orden: </b>
+                                        <span class="badge text-bg-light" style="font-size: 15px;">{{piezas}}
+                                        </span>
+                                    </span>
+                                </small>
+                            </div>
+                            <h2><span class="badge text-bg-warning"><b>Costo de Order: </b><span
+                                style="font-size:15px" class="badge text-bg-light">$
+                                {{precioOrder}}</span></span></h2>
+                        </div>
+                    </div>
+                    <div class="row Texto">
+                    </div>
                     <ngx-paypal [config]="payPalConfig"></ngx-paypal>
                 </div>
             </div>
         </div>
-
     </div>
-
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close>Cerrar</button>
-    <button mat-button>Vaciar</button>
+    <button mat-button mat-dialog-close class="btnCart">Cerrar</button>
+    <button mat-button id="btnCartCerrar" (click)="btnVaciar()" class="btnCart">Vaciar</button>
 </mat-dialog-actions>
-
-<!-- <div class="conteiner Cart mat-dialog-fullscreen">
-    <div class="row justify-content-center">
-        <div class="row">
-            <div class="col colTextReg">
-                <h1>Mi camionsito</h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <h2>
-                    Articulor
-                </h2>
-                <hr style="height: 2px;">
-                <h5>Num </h5>
-                <div *ngFor="let item of carga" class="card mb-3">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between">
-                            <div class="d-flex flex-row align-items-center">
-                                <div>
-                                    <img [src]="url+item.UrlImage" class="img-fluid rounded-3" alt="Shopping item"
-                                        style="width: 65px" />
-                                </div>
-                                <div class="ms-3">
-                                    <h5>{{ item.Name }}</h5>
-                                    <p class="small mb-0">{{ item.Description }}</p>
-                                </div>
-                            </div>
-                            <div class="d-flex flex-row align-items-center">
-                                <div style="width: 50px">
-                                    <h5 class="fw-normal mb-0">{{ item.Amount }}</h5>
-                                </div>
-                                <div style="width: 80px">
-                                    <h5 class="mb-0">${{ item.Total }}</h5>
-                                </div>
-                                <button style="color: #cecece; outline: nano; border: none">
-                                    <i data-bs-dismiss="offcanvas" (click)="detalle(item.IdProducts)"
-                                        class="fas fa-pencil-alt"></i>
-                                </button>
-                                <button style="color: #cecece; outline: nano; border: none">
-                                    <i (click)="eliminar(item.IdProducts)" class="fas fa-trash-alt"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col" id="colCaracteristicas">
-                <h2>
-                    Peso de mi camionsito
-                </h2>
-
-            </div>
-        </div>
-    </div>
-
-</div> -->

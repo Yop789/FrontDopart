@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { MapaSiteComponent } from './area-cliente/Component/mapa-site/mapa-site.component';
 import { ErroComponent } from './area-cliente/Component/erro/erro.component';
 import { InflableComponent } from './area-cliente/Component/inflable/inflable.component';
@@ -90,7 +91,9 @@ import { OrdenesComponent } from './area-cliente/Component/ordenes/ordenes.compo
   bootstrap: [AppComponent],
 })
 export class AppModule {
-  constructor() {
+  constructor(private router:Router) {
     localStorage.setItem('IdClient', '');
+    this.router.navigateByUrl('/home')
+    
   }
 }

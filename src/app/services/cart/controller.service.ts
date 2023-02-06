@@ -57,7 +57,7 @@ export class ControllerService {
     }
     this.emit();
   }
-  
+
   eliminarProduct(Id: string) {
     const l = '' + localStorage.getItem('idCart');
     let elementIndex = 0;
@@ -71,7 +71,7 @@ export class ControllerService {
     }
     this.eventosCart();
   }
-  
+
   cargarAnterior() {
     const idCostumer: CartCostmer = {
       IdCustomer: this.idCostumer,
@@ -84,11 +84,9 @@ export class ControllerService {
         const j: OrderProduct[] = [];
         this.events.cargarAnt(j);
       }
-            
     });
   }
   setCarController() {
-    
     const cart: Cart = {
       IdCustomer: this.idCostumer,
       Products: this.events.list,
@@ -113,25 +111,23 @@ export class ControllerService {
         .deleteCart(this.idCostumer)
         .subscribe((mensaje: any) => {});
     }
-    
   }
 
-
-  eventosCart(){
-    this.precio()
-    this.emit()
+  eventosCart() {
+    this.precio();
+    this.emit();
   }
 
-
-  precio(){
+  precio() {
     let sumaCostos = 0;
+    let cantidadItem = 0;
     for (const producto of this.events.list) {
-        sumaCostos += producto.Total;
+      sumaCostos += producto.Total;
+      cantidadItem += producto.Amount;
     }
-    this.costoOrder.next({ sumaCostos});
+    this.costoOrder.next({ sumaCostos, cantidadItem });
   }
 
-   
   updateEvent(index: number, event: OrderProduct) {
     this.events.update(index, event);
     this.eventsSubject.next(this.events);
@@ -144,7 +140,7 @@ export class ControllerService {
   getCostOrder(): Observable<any> {
     return this.costoOrder.asObservable();
   }
-  
+
   emit() {
     let items = this.events.list.length;
     this.subject.next({ items });
@@ -155,5 +151,11 @@ export class ControllerService {
   }
   setId(id: string) {
     this.idCostumer = id;
+  }
+  vaciar() {
+    const j: OrderProduct[] = [];
+    this.events.cargarAnt(j);
+    this.emit();
+    this.precio();
   }
 }
