@@ -8,7 +8,7 @@
         <span (click)="mostrarMenu('home')"><img class="imag" src="assets/img/Logo blanco (3).png"></span>
         <span class="example-spacer">
           <div class="container">
-            <div class="input-group mb-3">
+            <div class="input-group mb-3" style="margin-top: 18px;">
               <input type="text" class="inpSearch" placeholder="Search" aria-label="Username">
               <span class="input-group-text"><i class="pi pi-search"></i></span>
               <mat-icon (click)="mostrarCarrito()" [matBadge]="total" aria-hidden="false"
@@ -20,13 +20,14 @@
           </div>
         </span>
       </mat-toolbar>
+      <hr style="height: 2px;">
       <mat-toolbar style="background-color: #0ec3e0; height: 18px;">
         <span></span>
         <span class="example-spacer rowApartados">
           <div class="row">
             <div class="col">
               <div class="row" style="width: 400px;">
-                <div class="col-2" > <a class=" TextoN" (click)="mostrarMenu('home')"> Home</a></div>
+                <div class="col-2"> <a class=" TextoN" (click)="mostrarMenu('home')"> Home</a></div>
                 <div class="col-3">
                   <a class="dButton TextoN" data-bs-toggle="dropdown">
                     Categorias<span class="dropdown-arrow">&#9660;</span>
@@ -41,10 +42,11 @@
                 <div class="col-3"> <a class="TextoN" (click)="mostrarMenu('home')"> Mis Ordenes</a></div>
                 <div class="col-2">
                   <a class="dButton TextoN" data-bs-toggle="dropdown">
-                    Cuenta<span class="dropdown-arrow">&#9660;</span>
+                    Opciones<span class="dropdown-arrow">&#9660;</span>
                   </a>
                   <ul class=" dropdown-menu ">
-                    <li class="liCategoria" (click)="salir()"><a class="TextoN"> Salir</a></li>
+                    <li class="liCategoria" (click)="mostrarMenu('Mapa')"><a class=" TextoN"> Mapa de sitio</a></li>
+                    <li class="liCategoria" (click)="salir()"><a class="TextoN"> Cerrar</a></li>
                   </ul>
                 </div>
               </div>

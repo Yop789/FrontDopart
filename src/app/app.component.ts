@@ -36,11 +36,7 @@ export class AppComponent implements OnInit, DoCheck {
 unloadHandler(event: BeforeUnloadEvent) {
   event.preventDefault();
   this.controllerService.setCarController()
-  const confirmationMessage = '¿Está seguro de que desea cerrar la ventana del navegador?';
-  const result = confirm(confirmationMessage);
-  if (result) {
-    window.close();
-  }
+  
 }
   url = environment.urlImagen;
   isVisibleTop=true
