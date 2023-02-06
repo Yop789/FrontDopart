@@ -91,3 +91,19 @@ input[type="number"] {
   height: 25px;
   background-color: transparent;
 }
+
+.baja{
+  margin-top: 10px;
+  background-color: #4ec3e0;
+  width: 100%;
+  height: 120px;
+
+}
+.texto{
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+}
+.texto1{
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+}
