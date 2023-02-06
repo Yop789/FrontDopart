@@ -52,7 +52,7 @@ const routes: Routes = [
     component: LogiComponent
   },
   {
-    path: 'mapa',
+    path: 'Mapa',
     component: MapaSiteComponent
   },
   {
