@@ -41,6 +41,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { CodigoRecuperacionComponent } from './logiarce/Component/codigo-recuperacion/codigo-recuperacion.component';
 import { CartComponent } from './area-cliente/Component/cart/cart.component';
 import { OrdenesComponent } from './area-cliente/Component/ordenes/ordenes.component';
+import { PagoComponent } from './Pago/Component/pago/pago.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { OrdenesComponent } from './area-cliente/Component/ordenes/ordenes.compo
     CodigoRecuperacionComponent,
     CartComponent,
     OrdenesComponent,
+    PagoComponent,
   ],
   imports: [
     MatDialogModule,

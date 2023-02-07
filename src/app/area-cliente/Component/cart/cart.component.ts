@@ -1,3 +1,5 @@
+import { PagoComponent } from './../../../Pago/Component/pago/pago.component';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IPayPalConfig } from 'ngx-paypal';
@@ -21,7 +23,9 @@ export class CartComponent implements OnInit {
   constructor(
     private controllerService: ControllerService,
     private router: Router,
-    private ProcessPaymentService: ProcessPaymentService
+    private ProcessPaymentService: ProcessPaymentService,
+    private dialog: MatDialog,
+    private snackDialogRer: MatDialogRef<CartComponent>,
   ) {
     this.controllerService.events$.subscribe((events) => {
       this.carga = events.list;
@@ -53,5 +57,12 @@ export class CartComponent implements OnInit {
       this.carga = events.list;
       this.total = events.list.length;
     });
+  }
+  pagarF(){
+    this.dialog.open(PagoComponent,{
+      enterAnimationDuration:'700ms',
+      exitAnimationDuration:'700ms'
+    })
+    this.snackDialogRer.close()
   }
 }

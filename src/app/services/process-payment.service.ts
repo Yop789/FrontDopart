@@ -9,6 +9,8 @@ import { OrderService } from './order.service';
 import { DeleteCartProductsService } from './cars-services/deleteCartProducts.service';
 import { UpdateCartProductsService } from './cars-services/updateCartProducts.service';
 import { ControllerService } from './cart/controller.service';
+import { CartComponent } from '../area-cliente/Component/cart/cart.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Injectable({
   providedIn: 'root',
@@ -35,8 +37,13 @@ export class ProcessPaymentService {
     private orderService: OrderService,
     private deleteCartProductsService: DeleteCartProductsService,
     private mensajesService: MensajesService,
-    private controllerService: ControllerService
-  ) {}
+    private controllerService: ControllerService,
+    private dialog: MatDialog,
+  ) {
+    this.controllerService.getCostOrder().subscribe((date: any) => {
+      this.totalPrecio = date.sumaCostos;
+    });
+  }
   setDate(date: Dta) {
     this.nombre = date.Nombre;
     this.municipio = date.Municipio;
@@ -55,11 +62,13 @@ export class ProcessPaymentService {
   }
 
   initConfig() {
+    
     this.payPalConfig = {
       currency: 'MXN',
       clientId:
         'AZc9ELb_wCswN4YHPXgb8RQZg25npnaEZkoWa07F-2BlRicxhS9J4FFcHZwS6ywKL5xrJPUXnEuOYNsB',
       // tslint:disable-next-line: no-angle-bracket-type-assertion
+      
       createOrderOnClient: (data) =>
         <ICreateOrderRequest>{
           intent: 'CAPTURE',
@@ -91,6 +100,7 @@ export class ProcessPaymentService {
         //   data,
         //   actions
         // );
+        
         actions.order.get().then((details: any) => {
           this.e_mail = localStorage.getItem('e_mail') + '';
           this.user = localStorage.getItem('user') + '';
@@ -119,7 +129,7 @@ export class ProcessPaymentService {
               this.deleteCartProductsService
                 .deleteCart(l)
                 .subscribe((mensaje: any) => {});
-              this.cargaAnterior();
+              
             });
           }
           // console.log('onApprove - you can get full order details inside onApprove: ', details);
@@ -141,50 +151,12 @@ export class ProcessPaymentService {
       },
       onError: (err: any) => {
         console.log('OnError', err);
+        
       },
       onClick: (data: any, actions: any) => {
         console.log('onClick', data, actions);
       },
     };
     return this.payPalConfig;
-  }
-  totalProduct() {
-    let cantidadProductos=0
-    this.controllerService.listen().subscribe((date: any) => {
-      cantidadProductos = date.items;
-    });
-    return cantidadProductos
-  }
-  verCargaProduct() {
-    return this.cargaProduct;
-  }
-  setPrecio(precio: number) {
-    this.totalPrecio = precio;
-  }
-  verPrecioTotal() {
-    this.totalPrecio = 0;
-    this.cargaProduct.forEach((mst) => {
-      const p = mst.Total;
-      this.totalPrecio += p;
-    });
-    return this.totalPrecio;
-  }
-  // Recarga el carrito para mostrarselo al usuario
-  cargaAnterior() {
-    this.cargaProduct = [];
-    const l: CartCostmer = {
-      IdCustomer: this.user,
-    };
-    this.getCartProductsService.getCart(l).subscribe((cart: any) => {
-      if (cart[0] != undefined) {
-        localStorage.setItem('idCart', cart[0]._id);
-        const products = cart[0].Products;
-        products.forEach((product: any) => {
-          this.cargaProduct.push(product);
-        });
-      } else {
-        localStorage.setItem('idCart', '');
-      }
-    });
   }
 }

@@ -4,18 +4,14 @@
 
 <div class="container textoMolde">
   <div class="row">
-    <div class="col " style="margin-top: 110px;">
+    <div class="col " style="margin-top: 110px; height: 100%;">
       <div id="miDiv" class="breadcrumb">
         <p class="breadcrumb-item" *ngFor="let Migagas of breadcrumb"
           style="display: inline-block; cursor: pointer;font-size: 16px;" (click)="mostrarCatalogo(Migagas.url)">
           {{ Migagas.nombre }}
         </p>
       </div>
-
       <router-outlet></router-outlet>
-       <!--  -->
-
-
     </div>
   </div>
 </div>
@@ -40,7 +36,7 @@
 
 </div>
 
-<nz-drawer [nzClosable]="false" [nzVisible]="visibleSidebar2" nzPlacement="right" [nzWidth]="800" nzTitle="Camioncito"
+<nz-drawer [nzClosable]="false" [nzVisible]="false" nzPlacement="right" [nzWidth]="800" nzTitle="Camioncito"
   [nzExtra]="extra" (nzOnClose)="mostrarCarrito()">
   <ng-container *nzDrawerContent>
 

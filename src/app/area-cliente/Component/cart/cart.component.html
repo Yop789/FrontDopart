@@ -66,14 +66,15 @@
                                     </span>
                                 </small>
                             </div>
-                            <h2><span class="badge text-bg-warning"><b>Costo de Order: </b><span
-                                style="font-size:15px" class="badge text-bg-light">$
-                                {{precioOrder}}</span></span></h2>
+                            <h2><span class="badge text-bg-warning"><b>Costo de Order: </b><span style="font-size:15px"
+                                        class="badge text-bg-light">$
+                                        {{precioOrder}}</span></span></h2>
                         </div>
                     </div>
                     <div class="row Texto">
                     </div>
-                    <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+                    <button class="paypal-button" (click)="pagarF()"> <i class="pi pi-paypal" style="font-size: 2rem;"></i>Pagar con
+                        PayPal</button>
                 </div>
             </div>
             <div class="row">
@@ -92,14 +93,15 @@
                                     </span>
                                 </small>
                             </div>
-                            <h2><span class="badge text-bg-warning"><b>Costo de Order: </b><span
-                                style="font-size:15px" class="badge text-bg-light">$
-                                {{precioOrder}}</span></span></h2>
+                            <h2><span class="badge text-bg-warning"><b>Costo de Order: </b><span style="font-size:15px"
+                                        class="badge text-bg-light">$
+                                        {{precioOrder}}</span></span></h2>
                         </div>
                     </div>
                     <div class="row Texto">
                     </div>
-                    <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+                    <button class="paypal-button" (click)="pagarF()"> <i class="pi pi-paypal" style="font-size: 2rem"></i>Pagar con
+                        PayPal</button>
                 </div>
             </div>
         </div>
