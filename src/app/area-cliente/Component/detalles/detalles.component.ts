@@ -1,3 +1,4 @@
+import { DetalleService } from 'src/app/services/Detalles/detalle.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ControllerService } from './../../../services/cart/controller.service';
 import { Router } from '@angular/router';
@@ -22,33 +23,26 @@ export class DetallesComponent implements OnInit, DoCheck {
   product!: Product;
   value: any;
   total = 0;
-  idProduct = localStorage.getItem('idProduct');
+  idProduct =  localStorage.getItem('idProduct');
   tr = this.idProduct;
   constructor(
-    private productsService: ProductsService,
     private snackBar: MatSnackBar,
     private processPaymentService: ControllerService,
     private breadcrumbService: BreadcrumbService,
-    private router:Router,
+    private detalleService:DetalleService,
     private dialog:MatDialog
-  ) {}
+  ) {
+    this.detalleService.listen().subscribe((date:any)=>{
+      this.product=date.products.product
+    })
+  }
   ngDoCheck(): void {
-    this.idProduct = localStorage.getItem('idProduct');
-    if (this.tr != this.idProduct) {
-      this.getProductId();
-      this.tr = localStorage.getItem('idProduct');
-    }
+    
   }
 
   ngOnInit() {
-    this.getProductId();
+    
     this.breadcrumbService.setBreadcrumb('Detalles del producto','details');
-  }
-  getProductId() {
-    this.productsService
-      .getProductId('' + this.idProduct).subscribe((products: any) => {
-        this.product = products.product;
-      });
   }
   mas() {
     this.cantidad = Number(this.cantidad) + 1;

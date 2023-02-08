@@ -1,8 +1,8 @@
+import { DetalleService } from './../../../services/Detalles/detalle.service';
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { Product, Type } from 'src/app/models/product/product.module';
 import { ProductsService } from 'src/app/services/products.service';
 import { Router } from '@angular/router';
-import { MostrarCatalogoService } from 'src/app/services/mostrar-catalogo.service';
 import { environment } from 'src/environments/environment';
 import { BreadcrumbService } from 'src/app/services/breadcrumb.service';
 
@@ -28,15 +28,15 @@ export class HomeComponent implements OnInit, DoCheck {
   constructor(
     private productsService: ProductsService,
     private router: Router,
-    private mostrarCatalogoService: MostrarCatalogoService,
-    private breadcrumbService: BreadcrumbService
+    private breadcrumbService: BreadcrumbService,
+    private detalleService:DetalleService
+    
   ) {}
 
   ngOnInit() {
     this.getsillasHome('silla');
     this.getsillasHome('mesa');
     this.getsillasHome('adorno');
-    this.mostrarCatalogoService.Mostrab(false)
     this.breadcrumbService.setBreadcrumb('Home','home');
     
   }
@@ -121,6 +121,7 @@ export class HomeComponent implements OnInit, DoCheck {
     });
   }
   detalles(id: string){
+    this.detalleService.emit(id)
     localStorage.setItem('idProduct', id);
     this.router.navigateByUrl('/details')
   }

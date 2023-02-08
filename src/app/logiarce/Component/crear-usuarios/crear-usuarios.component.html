@@ -1,91 +1,176 @@
 <div class="conteiner reguistro ">
-    <div class="row justify-content-center ">
-        <div class="row">
-            <div class="col colTextReg">
-                <h1>Registrate</h1>
+    <form [formGroup]="form">
+        <div class="row justify-content-center ">
+            <div class="row">
+                <div class="col colTextReg">
+                    <h1>Registrate</h1>
+                </div>
             </div>
-        </div>
-        <div class="row" style="margin-top: 30px;">
-            <div class="col-11">
-                <h2>
-                    Formulario de reguistro
-                </h2>
-                <h3>Datos de personales</h3>
-                <div class="row">
-                    <div class="col-8">
-                        <div class="row">
-                            <div class="col">
-                                <h4>Nombre</h4>
-                                <input type="text" id="inRegisNombre" class="lbRegistro">
+
+            <div class="row" style="margin-top: 30px;">
+                <div class="col-11">
+
+                    <h2>
+                        Formulario de reguistro
+                    </h2>
+                    <h3>Datos de personales</h3>
+                    <div class="row">
+                        <div class="col-8">
+
+                            <div class="row">
+
+                                <div class="col">
+                                    <h4 class="is-required">Nombre</h4>
+                                    <input formControlName="nombre" type="text" id="inRegisNombre" class="lbRegistro">
+                                    <div *ngIf="form.get('nombre')?.invalid && form.get('nombre')?.touched || activate">
+                                        <div class="error" *ngIf="form.get('nombre')?.hasError('required')">
+                                            El nombre es requerido
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <h4 class="is-required"> Apellidos</h4>
+                                    <input formControlName="apellidos" type="text" id="inRegistApellidos"
+                                        class="lbRegistro">
+                                    <div *ngIf="form.get('apellidos')?.invalid && form.get('apellidos')?.touched || activate">
+                                        <div class="error"*ngIf="form.get('apellidos')?.hasError('required')">
+                                            El apellidoses requerido
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col">
-                                <h4> Apellidos</h4>
-                                <input type="text" id="inRegistApellidos" class="lbRegistro">
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <h4 class="is-required">Municipio</h4>
+                            <input type="text" formControlName="municipio" id="inRegistMunicipio" class="lbRegistro">
+                            <div *ngIf="form.get('municipio')?.invalid && form.get('municipio')?.touched || activate">
+                                <div class="error"*ngIf="form.get('municipio')?.hasError('required')">
+                                    El Municipio requerido
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <h4 class="is-required"> Comunidad</h4>
+                            <input type="text" formControlName="comunidad" id="inRegistComunidad" class="lbRegistro">
+                            <div *ngIf="form.get('comunidad')?.invalid && form.get('comunidad')?.touched || activate">
+                                <div class="error" *ngIf="form.get('comunidad')?.hasError('required')">
+                                    El comunidad requerido
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <h4 class="is-required"> Calle</h4>
+                            <input type="text" formControlName="calle" id="inRegistCalle" class="lbRegistro">
+                            <div *ngIf="form.get('calle')?.invalid && form.get('calle')?.touched || activate">
+                                <div class="error" *ngIf="form.get('calle')?.hasError('required')">
+                                    El calle requerido
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <h4 class="is-required"> Num.</h4>
+                            <input type="text" formControlName="num" id="inRegistNum" class="lbRegistro">
+                            <div *ngIf="form.get('num')?.invalid && form.get('num')?.touched || activate">
+                                <div class="error" *ngIf="form.get('num')?.hasError('required')">
+                                    El num requerido
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+
+                            <h4 class="is-required">Telefono</h4>
+                            <input type="tel" maxlength="10" formControlName="telefono" id="inRegistTelefono"
+                                class="lbRegistro">
+                            <div *ngIf="form.get('telefono')?.errors && form.get('telefono')?.touched || activate">
+                                <div class="error" *ngIf="form.get('telefono')?.hasError('required')">
+                                    El teléfono es requerido.
+                                </div>
+                                <div class="error" *ngIf="form.get('telefono')?.hasError('invalidPhoneNumber')">
+                                    El teléfono debe tener 10 dígitos.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <H3>Datos de usuario</H3>
+                    <div class="row">
+                        <div class="col">
+                            <h4 class="is-required">E-mail</h4>
+                            <input type="email" formControlName="email" id="inRegistE-mail" class="lbRegistro">
+                            <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched || activate">
+                                <div class="error" *ngIf="form.get('email')?.hasError('required')">
+                                    El email requerido
+                                </div>
+                                <div class="error" *ngIf="form.get('email')?.hasError('pattern')">
+                                    Por favor, ingrese un correo electrónico válido
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="row">
+                                <div class="col">
+                                    <h4 class="is-required">Contraseña</h4>
+                                    <input type="{{ showPassword ? 'text' : 'password' }}" formControlName="contraseña"
+                                        id="inRegistContraseña" class="lbRegistro"><span (click)="viciblePassword()"
+                                        class="fa fa-fw {{ showPassword ? 'fa-eye' : 'fa-eye-slash' }} password-icon show-password"></span>
+                                    <div *ngIf="form.get('contraseña')?.invalid && form.get('contraseña')?.touched || activate">
+                                        <div class="error" *ngIf="form.get('contraseña')?.hasError('required')">
+                                            La contraseña es requerida
+                                        </div>
+                                        <div class="error" *ngIf="form.get('contraseña')?.hasError('invalidPassword') ">
+                                            La contraseña debe tener al menos 8 caracteres, una letra mayúscula, una
+                                            letra minúscula y un carácter especial.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <h4 class="is-required">Verifica tu contraseña</h4>
+                                    <input  type="{{ showPassword ? 'text' : 'password' }}"
+                                        formControlName="validarContraseña" id="inRegistVerContraseña"
+                                        class="lbRegistro"><span (click)="viciblePassword()"
+                                        class="fa fa-fw {{ showPassword ? 'fa-eye' : 'fa-eye-slash' }} password-icon show-password"></span>
+                                    <div  *ngIf="form.get('validarContraseña')?.invalid && form.get('validarContraseña')?.touched || activate">
+                                        <div class="error" *ngIf="form.get('validarContraseña')?.hasError('required')">
+                                            La contraseña es requerida
+                                        </div>
+                                        <div class="error" *ngIf="form?.hasError('notSame')">
+                                            Las contraseñas no coinciden
+                                        </div>
+                                    </div>
+                                   
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="roe">
+                <div class="col colBtnRegistrarce">
+                    <input formControlName="aceptaTerminos" type="checkbox" id="password-toggle"> Aseptar terminos y condiciones
+                    <div class="error" *ngIf="form.get('aceptaTerminos')?.invalid && form.get('aceptaTerminos')?.touched || activate">
+                        <div *ngIf="form.get('aceptaTerminos')?.hasError('required')">
+                            Por favor, acepte los términos y condiciones.
+                          </div>
+                      </div>
+                </div>
+            </div>
+            <div class="row  justify-content-end colBtnRegistrarce" style="transform: translateY(50%);">
+                <div class="col-md-6">
+                    <button id="btnRegistLimpiar" class="btnRegistro" (click)="limpiar()">Limpiar</button>
+                    <button id="btnRegistCancelar" class="btnRegistro">Cancelar</button>
+                    <button id="btnRegistRegistrarce" class="btnRegistro" (click)="agregarDatos()">Registrarce</button>
+                </div>
+            </div>
 
-                <div class="row">
-                    <div class="col">
-                        <h4>Municipio</h4>
-                        <input type="text" id="inRegistMunicipio" class="lbRegistro">
-                    </div>
-                    <div class="col">
-                        <h4> Comunidad</h4>
-                        <input type="text" id="inRegistComunidad" class="lbRegistro">
-                    </div>
-                    <div class="col">
-                        <h4> Calle</h4>
-                        <input type="text" id="inRegistCalle" class="lbRegistro">
-                    </div>
-                    <div class="col">
-                        <h4> Num.</h4>
-                        <input type="number" id="inRegistNum" class="lbRegistro">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <h4>Telefono</h4>
-                        <input type="tel" id="inRegistTelefono" class="lbRegistro">
-                    </div>
-                </div>
-
-                <H3>Datos de usuario</H3>
-                <div class="row">
-                    <div class="col">
-                        <h4>E-mail</h4>
-                        <input type="email" id="inRegistE-mail" class="lbRegistro">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-8">
-                        <div class="row">
-                            <div class="col">
-                                <h4>Contraseña</h4>
-                                <input type="password" id="inRegistContraseña" class="lbRegistro">
-                            </div>
-                            <div class="col">
-                                <h4>Verifica tu contraseña</h4>
-                                <input type="password" id="inRegistVerContraseña" class="lbRegistro">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
-        <div class="roe">
-            <div class="col colBtnRegistrarce">
-            <input type="checkbox" id="password-toggle"> Aseptar terminos y condiciones
-            </div>
-        </div>
-        <div class="row  justify-content-end colBtnRegistrarce" style="transform: translateY(50%);">
-            <div class="col-md-6">
-                <button id="btnRegistLimpiar" class="btnRegistro">Limpiar</button>
-                <button id="btnRegistCancelar" class="btnRegistro">Cancelar</button>
-                <button id="btnRegistRegistrarce" class="btnRegistro">Registrarce</button>
-            </div>
-        </div>
-        
-    </div>
+    </form>
 </div>

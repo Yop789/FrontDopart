@@ -3,6 +3,12 @@
   box-shadow: 10px 10px 20px #888888;
   border-radius: 10px;
 }
+.is-required:after {
+  content: '*';
+  margin-left: 3px;
+  color: red;
+  font-weight: bold;
+}
 .lbRegistro {
   border-radius: 44pt;
   border: 2px solid #73264d;
@@ -11,6 +17,16 @@
   width: 300px;
   text-indent: 10px;
 
+}
+.error{
+  color: red;
+}
+.password-icon {
+  float: right;
+  width: 30px;
+  position: relative;
+  margin: -23px 16px 0 0;
+  cursor: pointer;
 }
 .btnRegistro{
     height: 30px;

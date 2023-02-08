@@ -6,7 +6,7 @@ import { IniciarSesionService } from './../../../services/Login/iniciar-sesion.s
 import { environment } from './../../../../environments/environment';
 import { Component, OnInit } from '@angular/core';
 import * as CryptoJS from 'crypto-js';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-logi',

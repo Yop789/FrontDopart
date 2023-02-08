@@ -1,4 +1,5 @@
 import { Router } from '@angular/router';
+import {PasswordModule} from 'primeng/password';
 import { MapaSiteComponent } from './area-cliente/Component/mapa-site/mapa-site.component';
 import { ErroComponent } from './area-cliente/Component/erro/erro.component';
 import { InflableComponent } from './area-cliente/Component/inflable/inflable.component';
@@ -28,7 +29,7 @@ import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavegadorInicialComponent } from './navegadores/Component/navegador-inicial/navegador-inicial.component';
 import { NavegadorClienteComponent } from './navegadores/Component/navegador-cliente/navegador-cliente.component';
 import { NavegadorAdministracionComponent } from './navegadores/Component/navegador-administracion/navegador-administracion.component';
@@ -42,6 +43,7 @@ import { CodigoRecuperacionComponent } from './logiarce/Component/codigo-recuper
 import { CartComponent } from './area-cliente/Component/cart/cart.component';
 import { OrdenesComponent } from './area-cliente/Component/ordenes/ordenes.component';
 import { PagoComponent } from './Pago/Component/pago/pago.component';
+
 
 @NgModule({
   declarations: [
@@ -66,6 +68,8 @@ import { PagoComponent } from './Pago/Component/pago/pago.component';
     PagoComponent,
   ],
   imports: [
+    PasswordModule,
+    ReactiveFormsModule,
     MatDialogModule,
     MatToolbarModule,
     MenuModule,

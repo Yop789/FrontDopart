@@ -2,6 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { Product, Type } from 'src/app/models/product/product.module';
 import { BreadcrumbService } from 'src/app/services/breadcrumb.service';
+import { DetalleService } from 'src/app/services/Detalles/detalle.service';
 import { ProductsService } from 'src/app/services/products.service';
 import { environment } from 'src/environments/environment';
 
@@ -50,7 +51,8 @@ export class SillaComponent implements OnInit {
   constructor(
     private router: Router,
     private productsService: ProductsService,
-    private breadcrumbService:BreadcrumbService
+    private breadcrumbService:BreadcrumbService,
+    private detalleService:DetalleService
   ) {}
 
   ngOnInit(): void {
@@ -81,6 +83,7 @@ export class SillaComponent implements OnInit {
     this.breadcrumbService.setBreadcrumb('Sillas','sillas');
   }
   detalles(id: string) {
+    this.detalleService.emit(id)
     localStorage.setItem('idProduct', id);
     this.router.navigateByUrl('/details');
   }

@@ -1,3 +1,4 @@
+import { DetalleService } from 'src/app/services/Detalles/detalle.service';
 import { PagoComponent } from './../../../Pago/Component/pago/pago.component';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
@@ -23,14 +24,18 @@ export class CartComponent implements OnInit {
   constructor(
     private controllerService: ControllerService,
     private router: Router,
+    private detalleService:DetalleService,
     private ProcessPaymentService: ProcessPaymentService,
     private dialog: MatDialog,
     private snackDialogRer: MatDialogRef<CartComponent>,
+    
   ) {
     this.controllerService.events$.subscribe((events) => {
       this.carga = events.list;
-      this.total = events.list.length;
     });
+    this.controllerService.listen().subscribe((date:any)=>{
+      this.total=date.items
+    })
 
     this.precioOrderCart();
   }
@@ -40,10 +45,14 @@ export class CartComponent implements OnInit {
   }
   eliminar(id: string) {
     this.controllerService.eliminarProduct(id);
+    if(this.total===0){
+      this.snackDialogRer.close()
+    }
   }
   detalle(idPoduct: string) {
-    localStorage.setItem('idProduct', idPoduct);
+    this.detalleService.emit(idPoduct)
     this.router.navigateByUrl('/details');
+    this.snackDialogRer.close()
   }
   precioOrderCart() {
     this.controllerService.getCostOrder().subscribe((date: any) => {
@@ -56,6 +65,7 @@ export class CartComponent implements OnInit {
     this.controllerService.events$.subscribe((events) => {
       this.carga = events.list;
       this.total = events.list.length;
+      this.snackDialogRer.close()
     });
   }
   pagarF(){

@@ -1,3 +1,4 @@
+import { DetalleService } from './../../../services/Detalles/detalle.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product, Type } from 'src/app/models/product/product.module';
@@ -49,7 +50,8 @@ export class InflableComponent implements OnInit {
   constructor(
     private router: Router,
     private productsService: ProductsService,
-    private breadcrumbService: BreadcrumbService
+    private breadcrumbService: BreadcrumbService,
+    private detalleService:DetalleService
   ) {}
 
   ngOnInit(): void {
@@ -69,6 +71,7 @@ export class InflableComponent implements OnInit {
     });
   }
   detalles(id: string) {
+    this.detalleService.emit(id)
     localStorage.setItem('idProduct', id);
     this.router.navigateByUrl('/details');
   }

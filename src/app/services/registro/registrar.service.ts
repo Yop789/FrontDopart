@@ -1,13 +1,13 @@
-import { environment } from './../../environments/environment';
+import { environment } from '../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient , HttpHeaders } from '@angular/common/http';
-import { User } from '../models/user/user.module';
+import { User } from '../../models/user/user.module';
 import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
 export class RegistrarService {
-  url = environment.urlApi+'Users';
+  url = `${environment.urlApi}Users`;
 
   constructor(private http: HttpClient) {}
   
