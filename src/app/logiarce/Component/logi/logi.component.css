@@ -20,7 +20,7 @@
 }
 .inLogin {
   border-radius: 44pt;
-  border: 2px solid #73264d;
+  border: 2px solid #374342;
   outline: none;
   height: 30px;
   width: 100%;
@@ -37,7 +37,7 @@
   outline: none;
   height: 40px;
   width: 100%;
-  background-color: #73264d;
+  background-color: #374342;
   color: white;
   margin-bottom: 50px;
   box-shadow: 0px 10px 20px #5a5858;

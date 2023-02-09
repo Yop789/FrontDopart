@@ -1,7 +1,7 @@
 <div class="nBar ">
   <div class="container">
     <div class="row  justify-content-center">
-      <mat-toolbar style="background-color: #0ec3e0;">
+      <mat-toolbar style="background-color: #374342;">
         <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
                     <mat-icon>menu</mat-icon>
                 </button> -->
@@ -12,7 +12,7 @@
               <input type="text" class="inpSearch" placeholder="Search" aria-label="Username">
               <span class="input-group-text"><i class="pi pi-search"></i></span>
               <mat-icon (click)="mostrarCarrito()" [matBadge]="total" aria-hidden="false"
-                style="margin-left: 5%; margin-top: 5px; text-shadow: 1px 1px #ffffff;"><span style="font-size: 35px;"
+                style="margin-left: 5%; margin-top: 5px; text-shadow: 1px 1px #ffffff;"><span style="font-size: 36px;"
                   class="material-symbols-outlined">
                   local_shipping
                 </span></mat-icon>
@@ -21,15 +21,15 @@
         </span>
       </mat-toolbar>
       <hr style="height: 2px;">
-      <mat-toolbar style="background-color: #0ec3e0; height: 18px;">
+      <mat-toolbar style="background-color: #374342; height: 18px;">
         <span></span>
         <span class="example-spacer rowApartados">
           <div class="row">
             <div class="col">
-              <div class="row" style="width: 400px;">
-                <div class="col-2"> <a class=" TextoN" (click)="mostrarMenu('home')"> Home</a></div>
+              <div class="row" style="width: 500px;">
+                <div class="col-2"> <a class=" Texto" (click)="mostrarMenu('home')"> Home</a></div>
                 <div class="col-3">
-                  <a class="dButton TextoN" data-bs-toggle="dropdown">
+                  <a class="dButton Texto" data-bs-toggle="dropdown">
                     Categorias<span class="dropdown-arrow">&#9660;</span>
                   </a>
                   <ul class=" dropdown-menu ">
@@ -39,9 +39,9 @@
                     <li class="liCategoria" (click)="mostrarMenu('mesas')"><a class="TextoN"> Mesas</a></li>
                   </ul>
                 </div>
-                <div class="col-3"> <a class="TextoN" (click)="mostrarMenu('home')"> Mis Ordenes</a></div>
-                <div class="col-2">
-                  <a class="dButton TextoN" data-bs-toggle="dropdown">
+                <div class="col-3"> <a class="Texto" (click)="mostrarMenu('home')"> Mis Ordenes</a></div>
+                <div class="col-3">
+                  <a class="dButton Texto" data-bs-toggle="dropdown">
                     Opciones<span class="dropdown-arrow">&#9660;</span>
                   </a>
                   <ul class=" dropdown-menu ">

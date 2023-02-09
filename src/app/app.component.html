@@ -1,38 +1,48 @@
-<app-navegador-inicial [hidden]="iniciar"></app-navegador-inicial>
-<app-navegador-cliente [hidden]="client"></app-navegador-cliente>
-<app-navegador-administracion [hidden]="admin"></app-navegador-administracion>
+<!DOCTYPE html>
+<html lang="en">
 
-<div class="container textoMolde">
-  <div class="row">
-    <div class="col " style="margin-top: 110px; height: 100%;">
-      <div id="miDiv" class="breadcrumb">
-        <p class="breadcrumb-item" *ngFor="let Migagas of breadcrumb"
-          style="display: inline-block; cursor: pointer;font-size: 16px;" (click)="mostrarCatalogo(Migagas.url)">
-          {{ Migagas.nombre }}
-        </p>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body style="height: 100%; position: fixed; overflow-x: none; overflow-y:scroll ;">
+  <app-navegador-inicial [hidden]="iniciar"></app-navegador-inicial>
+  <app-navegador-cliente [hidden]="client"></app-navegador-cliente>
+  <app-navegador-administracion [hidden]="admin"></app-navegador-administracion>
+
+  <div class="container textoMolde">
+    <div class="row">
+      <div class="col " style="margin-top: 110px;">
+        <div id="miDiv" class="breadcrumb">
+          <p class="breadcrumb-item" *ngFor="let Migagas of breadcrumb"
+            style="display: inline-block; cursor: pointer;font-size: 16px;" (click)="mostrarCatalogo(Migagas.url)">
+            {{ Migagas.nombre }}
+          </p>
+        </div>
+        <router-outlet></router-outlet>
       </div>
-      <router-outlet></router-outlet>
     </div>
+    
   </div>
-</div>
-
-<div class="baja">
-
-  <footer>
-    <div class="col-8">
-      <p class="texto1">Copyright &copy; 2023</p>
-      <nav>
-        <ul>
-          <li><a class="texto" href="#">Contact Us</a></li>
-          <li><a class="texto" href="#">Privacy Policy</a></li>
-          <li><a class="texto" href="#">Terms of Use</a></li>
-        </ul>
-      </nav>
+  <footer style="margin-top: 40px; box-shadow: 0px -10px 20px #888888;">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <p class="texto1">Copyright &copy; 2023</p>
+          <nav>
+            <ul>
+              <li><a class="texto" href="#">Contact Us</a></li>
+              <li><a class="texto" href="#">Privacy Policy</a></li>
+              <li><a class="texto" href="#">Terms of Use</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
     </div>
   </footer>
-</div>
+</body>
 
-
-
-
-
+ </html>

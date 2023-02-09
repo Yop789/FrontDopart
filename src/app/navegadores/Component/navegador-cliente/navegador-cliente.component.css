@@ -16,10 +16,15 @@
   
   .TextoN {
     font-family:'Trebuchet MS';
-    color:rgb(62, 62, 62);
-    font-size: 16px;
+    color:rgb(0, 0, 0);
+    font-size: 18px;
     text-decoration: none;
-    text-shadow: 1px 1px #ffffff;
+  }
+  .Texto {
+    font-family:'Trebuchet MS';
+    color:rgb(255, 255, 255);
+    font-size: 18px;
+    text-decoration: none;
   }
   
   .jl {

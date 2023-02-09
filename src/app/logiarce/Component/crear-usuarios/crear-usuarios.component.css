@@ -11,7 +11,7 @@
 }
 .lbRegistro {
   border-radius: 44pt;
-  border: 2px solid #73264d;
+  border: 2px solid #374342;
   outline: none;
   height: 30px;
   width: 300px;
@@ -33,10 +33,11 @@
     outline: none;
     border: 0px;
     width: 150px;
+    
     box-shadow: 0px 0px 20px #888888;
 }
 #btnRegistRegistrarce{
-    background-color: #73264d;
+    background-color: #374342;
     color: white;
 }
 #btnRegistLimpiar{

@@ -107,3 +107,15 @@ input[type="number"] {
   color: rgb(0, 0, 0);
   font-size: 20px;
 }
+body{
+  background-image: url('../assets/img/dddd.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-color: transparent;
+}
+footer {
+  height: 400px;
+  background:#374342;;
+}

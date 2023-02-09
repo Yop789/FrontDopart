@@ -99,7 +99,7 @@ import { PagoComponent } from './Pago/Component/pago/pago.component';
 export class AppModule {
   constructor(private router:Router) {
     localStorage.setItem('IdClient', '');
-    this.router.navigateByUrl('/home')
+  
     
   }
 }
