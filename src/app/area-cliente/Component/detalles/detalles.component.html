@@ -23,12 +23,12 @@
                                         <img [src]="url+product.imagePath" alt="" class="w-100 h-100">
                                     </div>
                                 </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#product-carousel"
+                                <button class="carousel-control-prev btnAnimatio" type="button" data-bs-target="#product-carousel"
                                     data-bs-slide="prev" style="color: black;">
                                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                     <span class="visually-hidden">Previous</span>
                                 </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#product-carousel"
+                                <button class="carousel-control-next btnAnimatio" type="button" data-bs-target="#product-carousel"
                                     data-bs-slide="next" style="color: black;">
                                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                     <span class="visually-hidden">Next</span>
@@ -84,7 +84,7 @@
                                 <div class="input-group quantity"
                                     style="width: 130px; text-align:center;justify-content: center; align-items: center;">
                                     <div class="input-group-btn">
-                                        <button class="btn btn-primary btn-minus" (click)="menos()"
+                                        <button class="btn btn-primary btn-minus btnAnimatio" (click)="menos()"
                                             style="border-radius: 10px;">
                                             <i class="fa fa-minus" style="font-size: 21px;"></i>
                                         </button>
@@ -92,7 +92,7 @@
                                     <input [autocomplete]="resume()" type="text" style="border-radius: 10px;"
                                         class="form-control bg-secondary border-0 text-center" [(ngModel)]="cantidad">
                                     <div class="input-group-btn">
-                                        <button class="btn btn-primary btn-plus" (click)="mas()"
+                                        <button class="btn btn-primary btn-plus btnAnimatio" (click)="mas()"
                                             style="border-radius: 10px;">
                                             <i class="fa fa-plus" style="font-size: 21px;"></i>
                                         </button>
@@ -101,7 +101,7 @@
                             </div>
 
                             <br />
-                            <button class="btn btn-primary px-3" (click)="agregarCart()" style="border-radius: 10px;">
+                            <button class="btn btn-primary px-3 btnAnimatio" (click)="agregarCart()" style="border-radius: 10px;">
                                 <mat-icon class="pt-1">
                                     <span class="material-symbols-outlined">
                                         local_shipping

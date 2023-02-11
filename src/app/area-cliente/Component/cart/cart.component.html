@@ -39,11 +39,11 @@
                                     <div style="width: 80px">
                                         <h5 class="mb-0">${{ item.Total }}</h5>
                                     </div>
-                                    <button style="color: #cecece; outline: nano; border: none">
-                                        <i data-bs-dismiss="offcanvas" (click)="detalle(item.IdProducts)"
+                                    <button class="btnAnimatio" (click)="detalle(item.IdProducts)" style="color: #cecece;  border: none">
+                                        <i data-bs-dismiss="offcanvas" 
                                             class="fas fa-pencil-alt"></i>
                                     </button>
-                                    <button style="color: #cecece; outline: nano; border: none">
+                                    <button class="btnAnimatio" (click)="detalle(item.IdProducts)" style="color: #cecece;  border: none">
                                         <i (click)="eliminar(item.IdProducts)" class="fas fa-trash-alt"></i>
                                     </button>
                                 </div>
@@ -100,7 +100,7 @@
                     </div>
                     <div class="row Texto">
                     </div>
-                    <button class="paypal-button" (click)="pagarF()"> <i class="pi pi-paypal" style="font-size: 2rem"></i>Pagar con
+                    <button class="paypal-button btnAnimatio" (click)="pagarF()"> <i class="pi pi-paypal" style="font-size: 2rem"></i>Pagar con
                         PayPal</button>
                 </div>
             </div>
@@ -108,6 +108,6 @@
     </div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close class="btnCart">Cerrar</button>
-    <button mat-button id="btnCartCerrar" (click)="btnVaciar()" class="btnCart">Vaciar</button>
+    <button mat-button mat-dialog-close class="btnCart btnAnimatio">Cerrar</button>
+    <button mat-button id="btnCartCerrar" (click)="btnVaciar()" class="btnCart btnAnimatio">Vaciar</button>
 </mat-dialog-actions>

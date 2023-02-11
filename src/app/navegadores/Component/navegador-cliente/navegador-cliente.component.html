@@ -11,9 +11,9 @@
             <div class="input-group mb-3" style="margin-top: 18px;">
               <input type="text" class="inpSearch" placeholder="Search" aria-label="Username">
               <span class="input-group-text"><i class="pi pi-search"></i></span>
-              <mat-icon (click)="mostrarCarrito()" [matBadge]="total" aria-hidden="false"
+              <mat-icon class="btnAnimatio" (click)="mostrarCarrito()" [matBadge]="total" aria-hidden="false"
                 style="margin-left: 5%; margin-top: 5px; text-shadow: 1px 1px #ffffff;"><span style="font-size: 36px;"
-                  class="material-symbols-outlined">
+                  class="material-symbols-outlined ">
                   local_shipping
                 </span></mat-icon>
             </div>
@@ -27,26 +27,26 @@
           <div class="row">
             <div class="col">
               <div class="row" style="width: 500px;">
-                <div class="col-2"> <a class=" Texto" (click)="mostrarMenu('home')"> Home</a></div>
-                <div class="col-3">
+                <div class="col-2 btnAnimatio"> <a class=" Texto " (click)="mostrarMenu('home')"> Home</a></div>
+                <div class="col-3 btnAnimatio">
                   <a class="dButton Texto" data-bs-toggle="dropdown">
                     Categorias<span class="dropdown-arrow">&#9660;</span>
                   </a>
                   <ul class=" dropdown-menu ">
-                    <li class="liCategoria" (click)="mostrarMenu('sillas')"><a class="TextoN"> Sillas</a></li>
-                    <li class="liCategoria" (click)="mostrarMenu('adornos')"><a class="TextoN">Adornos</a></li>
-                    <li class="liCategoria" (click)="mostrarMenu('inflables')"><a class="TextoN">Infables</a></li>
-                    <li class="liCategoria" (click)="mostrarMenu('mesas')"><a class="TextoN"> Mesas</a></li>
+                    <li class="liCategoria btnAnimatio" (click)="mostrarMenu('sillas')"><a class="TextoN"> Sillas</a></li>
+                    <li class="liCategoria btnAnimatio" (click)="mostrarMenu('adornos')"><a class="TextoN">Adornos</a></li>
+                    <li class="liCategoria btnAnimatio" (click)="mostrarMenu('inflables')"><a class="TextoN">Infables</a></li>
+                    <li class="liCategoria btnAnimatio" (click)="mostrarMenu('mesas')"><a class="TextoN"> Mesas</a></li>
                   </ul>
                 </div>
-                <div class="col-3"> <a class="Texto" (click)="mostrarMenu('home')"> Mis Ordenes</a></div>
-                <div class="col-3">
+                <div class="col-3 btnAnimatio"> <a class="Texto" (click)="mostrarMenu('home')"> Mis Ordenes</a></div>
+                <div class="col-3 btnAnimatio">
                   <a class="dButton Texto" data-bs-toggle="dropdown">
                     Opciones<span class="dropdown-arrow">&#9660;</span>
                   </a>
                   <ul class=" dropdown-menu ">
-                    <li class="liCategoria" (click)="mostrarMenu('Mapa')"><a class=" TextoN"> Mapa de sitio</a></li>
-                    <li class="liCategoria" (click)="salir()"><a class="TextoN"> Cerrar</a></li>
+                    <li class="liCategoria btnAnimatio" (click)="mostrarMenu('Mapa')"><a class=" TextoN"> Mapa de sitio</a></li>
+                    <li class="liCategoria btnAnimatio" (click)="salir()"><a class="TextoN"> Cerrar</a></li>
                   </ul>
                 </div>
               </div>

@@ -19,7 +19,7 @@
   
 }
 .inLogin {
-  border-radius: 44pt;
+  border-radius: 5px;
   border: 2px solid #374342;
   outline: none;
   height: 30px;
@@ -34,22 +34,25 @@
 #btnLogin{
   border-radius: 44pt;
   border: 0;
-  outline: none;
   height: 40px;
   width: 100%;
   background-color: #374342;
   color: white;
   margin-bottom: 50px;
-  box-shadow: 0px 10px 20px #5a5858;
+  box-shadow: 10px 10px 20px #888888;
   text-shadow: 1px 1px #3c3b3b;
-
+  transition: transform 0.3s ease-out;
+}
+#btnLogin:active{
+  
+  transform: scale(0.95);
+ 
 }
 #fLogin{
   font-size: 12px;
   text-align: justify;
   color: black;
   font-weight: bold;
-  
   height: 100px;
   border-bottom-left-radius:20px;
   border-bottom-right-radius:20px;
