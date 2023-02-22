@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  urlApi: 'http://localhost:4400/api/',
+  urlApi: 'http://localhost:4400/api/Dofest',
   urlImagen: 'http://localhost:4400/',
   secretKey : 'YourSecretKeyForEncryption&Descryption'
 };

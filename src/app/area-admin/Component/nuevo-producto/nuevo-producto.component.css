@@ -1,0 +1,35 @@
+.colTextReg {
+  text-align: center;
+  box-shadow: 10px 10px 20px #888888;
+  border-radius: 10px;
+}
+
+.btn {
+  border: none;
+  background-color: transparent;
+  color: white;
+}
+#table{
+  border: 3px solid white;
+  margin-top: 20px;
+}
+#tableEncabesado{
+  align-items: center;
+  box-shadow: 2.5px 2.5px 5px #cdcaca;
+  height: 40px;
+  color: white;
+  background-color:rgb(255, 123, 0) ;
+}
+#tableRow {
+  color: white;
+  align-items: center;
+}
+#tableRow:hover {
+  cursor: pointer;
+  color: black;
+  background-color: rgba(255, 255, 255, 1);
+}
+#tableRow:hover .btn {
+  color: black;
+}
+

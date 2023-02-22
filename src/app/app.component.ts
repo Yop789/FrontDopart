@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { BreadcrumbService } from './services/breadcrumb.service';
+import * as jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'app-root',
@@ -35,8 +36,10 @@ export class AppComponent implements OnInit, DoCheck {
     private breadcrumbService: BreadcrumbService,
     private ini: IniciarSesionService,
     private controllerService: ControllerService,
+    private iniciarSesionService:IniciarSesionService
 
   ) {
+    
   }
   ngDoCheck() {
     this.breadcrumb = this.breadcrumbService.getBreadcrumb();
@@ -50,6 +53,13 @@ export class AppComponent implements OnInit, DoCheck {
       this.iniciar = data.sinSesion;
     });
     this.breadcrumbService.setBreadcrumb('Home', 'home');
+    const token = `${localStorage.getItem("token")}`;
+      const decodedToken: any = jwt_decode.default(token);
+      if (decodedToken.roles[0] == 'user') {
+        this.iniciarSesionService.emit(false,true,true)
+      } else {
+        this.iniciarSesionService.emit(true,false,true)
+      }
   }
 
   mostrarCatalogo(pagina: string) {

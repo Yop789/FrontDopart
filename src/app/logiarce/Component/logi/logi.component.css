@@ -43,11 +43,7 @@
   text-shadow: 1px 1px #3c3b3b;
   transition: transform 0.3s ease-out;
 }
-#btnLogin:active{
-  
-  transform: scale(0.95);
- 
-}
+
 #fLogin{
   font-size: 12px;
   text-align: justify;

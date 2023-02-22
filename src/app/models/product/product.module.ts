@@ -1,13 +1,14 @@
 export interface Product {
   _id?: string,
-  Name: string;
-  Description: string;
-  TotalProduct: number;
-  TotalStock: number;
-  TotalService: number;
-  Type: string;
-  Price: number;
-  imagePath: string;
+  nameProduct:string,
+  description:string,
+  totalProduct:number,
+  totalStock:number,
+  totalService:number,
+  totalSillas?:number,
+  type:string,
+  price:number,
+  imagePath?: File,
 }
 export interface Type {
   Type: string;

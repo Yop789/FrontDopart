@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg lgu container-fluid mb-3">
+<!-- <nav class="navbar navbar-expand-lg lgu ">
     <div class="container-fluid">
-      <a class="navbar-brand Logo" >🎉 DoFest- Admin</a>
+      <a class="navbar-brand Logo" ><img class="imag" src="assets/img/Logo blanco (3).png">DoFest- Admin</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon">fff</span>
@@ -29,13 +29,57 @@
                 </span></mat-icon>
             </a>
             <mat-menu #menu="matMenu">
-              <button mat-menu-item >
+              <button mat-menu-item (click)="salir()" >
                 <mat-icon>logout</mat-icon>
-                <span>salir</span>
+                <span >salir</span>
               </button>
             </mat-menu>
           </li>
         </ul>
       </div>
     </div>
-  </nav>
+  </nav> -->
+<div class="nBar">
+  <div class="container">
+    <div class="row  justify-content-center" style="margin-top: 20px;">
+
+      <mat-toolbar style="background-color: rgb(255, 123, 0)">
+        <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+                    <mat-icon>menu</mat-icon>
+                </button> -->
+        <span><img class="imag" src="assets/img/Logo blanco (3).png"></span>
+        <span class="example-spacer"></span>
+        <span class="example-spacer"></span>
+        <button (click)="opcionesAdminds('/admin/Administrativo')" mat-icon-button id="btn"
+          class="btnAnimatio  TextoN">
+          Administrasion
+        </button>
+        <button (click)="opcionesAdminds('/admin/nuevosProductos')" mat-icon-button id="btn"
+          class="btnAnimatio  TextoN">
+          Agregar Nuevo Producto
+        </button>
+        <button (click)="opcionesAdminds('/admin/pedidos')" mat-icon-button id="btn"
+          class="btnAnimatio  TextoN">
+          Pedidos
+        </button>
+        <button (click)="opcionesAdminds('/admin/usuarios')" mat-icon-button id="btn"
+          class="btnAnimatio  TextoN">
+          Usuarios
+        </button>
+
+
+        <mat-icon mat-icon-button [matMenuTriggerFor]="menu" aria-hidden="false" style="height: 40px;width: 40px;"><span
+            class="material-symbols-sharp  " style="color: white; font-size: 30px;">
+            account_circle
+          </span></mat-icon>
+
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="salir()">
+            <mat-icon>logout</mat-icon>
+            <span>salir</span>
+          </button>
+        </mat-menu>
+      </mat-toolbar>
+    </div>
+  </div>
+</div>

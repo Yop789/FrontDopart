@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { IniciarSesionService } from './../services/Login/iniciar-sesion.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -13,6 +15,8 @@ export class AreaAdminComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
+    
   }
 
 }

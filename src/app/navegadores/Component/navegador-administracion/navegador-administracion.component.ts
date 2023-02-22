@@ -1,3 +1,6 @@
+import { Router } from '@angular/router';
+import { ControllerService } from './../../../services/cart/controller.service';
+import { IniciarSesionService } from './../../../services/Login/iniciar-sesion.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavegadorAdministracionComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router,private iniciarSesionService:IniciarSesionService,private controllerService:ControllerService) {
+     
+   }
 
   ngOnInit(): void {
   }
-
+  salir() {
+    this.iniciarSesionService.emit(true, true, false);
+    localStorage.setItem('token', '');
+    this.router.navigateByUrl('/home');
+    this.controllerService.setCarController();
+  }
+  opcionesAdminds(ruta:string){
+    this.router.navigateByUrl(ruta);
+  }
 }

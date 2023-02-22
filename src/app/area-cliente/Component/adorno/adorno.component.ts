@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { Product, Type } from 'src/app/models/product/product.module';
 import { BreadcrumbService } from 'src/app/services/breadcrumb.service';
 import { DetalleService } from 'src/app/services/Detalles/detalle.service';
-import { ProductsService } from 'src/app/services/products.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -36,12 +35,12 @@ import { environment } from 'src/environments/environment';
                 </div>
                 <div class="text-center py-4">
                   <a class="h6 text-decoration-none text-truncate">{{
-                    adorno.Name
+                    adorno
                   }}</a>
                   <div
                     class="d-flex align-items-center justify-content-center mt-2"
                   >
-                    <h5>{{ adorno.Description }}</h5>
+                    <h5>{{ adorno }}</h5>
                     <h6 class="text-muted ml-2"><del></del></h6>
                   </div>
                 </div>
@@ -60,7 +59,6 @@ export class AdornoComponent implements OnInit {
   url = environment.urlImagen;
   constructor(
     private router: Router,
-    private productsService: ProductsService,
     private breadcrumbService: BreadcrumbService,
     private detalleService:DetalleService
   ) {}
@@ -73,13 +71,7 @@ export class AdornoComponent implements OnInit {
     const type: Type = {
       Type: typ,
     };
-    this.productsService.getProducts(type).subscribe((prod: any) => {
-      for (let i = 0; i < prod.length; i++) {
-        const l = prod[i];
-        const pro: Product = l;
-        this.adornos[i] = pro;
-      }
-    });
+
   }
   detalles(id: string) {
     this.detalleService.emit(id)

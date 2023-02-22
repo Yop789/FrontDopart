@@ -1,17 +1,21 @@
 export interface User {
-  Name: String;
-  LastName: String;
-  E_mail: String;
-  Password: String;
-  Municipio: String;
-  Comunidad: String;
-  Calle: String;
-  Numero: String;
-  Telefone: string;
-  Customer: Boolean;
-  Admin: Boolean;
+  username: string;
+  lastName: string;
+  email: string;
+  password: string;
+  municipio: string;
+  comunidad: string;
+  calle: string;
+  numero: string;
+  telefone: string;
+  roles?: [],
 }
 export interface email {
-  E_mail: string;
-  Password: string;
+  email: string;
+  password: string;
+}
+export interface emailCodigo {
+  correoElectronico: string;
+  password?:string
+  codigo?:string
 }

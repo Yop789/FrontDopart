@@ -29,6 +29,7 @@ import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavegadorInicialComponent } from './navegadores/Component/navegador-inicial/navegador-inicial.component';
 import { NavegadorClienteComponent } from './navegadores/Component/navegador-cliente/navegador-cliente.component';
@@ -43,6 +44,10 @@ import { CodigoRecuperacionComponent } from './logiarce/Component/codigo-recuper
 import { CartComponent } from './area-cliente/Component/cart/cart.component';
 import { OrdenesComponent } from './area-cliente/Component/ordenes/ordenes.component';
 import { PagoComponent } from './Pago/Component/pago/pago.component';
+import { SucetfullComponent } from './Dalogos/Sucetfull/sucetfull/sucetfull.component';
+import { ErrorComponent } from './Dalogos/Error/error/error.component';
+
+
 
 
 @NgModule({
@@ -66,11 +71,16 @@ import { PagoComponent } from './Pago/Component/pago/pago.component';
     CartComponent,
     OrdenesComponent,
     PagoComponent,
+    SucetfullComponent,
+    ErrorComponent,
+    
   ],
   imports: [
+    
     PasswordModule,
     ReactiveFormsModule,
     MatDialogModule,
+    MatFormFieldModule,
     MatToolbarModule,
     MenuModule,
     DialogModule,
@@ -97,9 +107,6 @@ import { PagoComponent } from './Pago/Component/pago/pago.component';
   bootstrap: [AppComponent],
 })
 export class AppModule {
-  constructor(private router:Router) {
-    localStorage.setItem('IdClient', '');
-  
-    
+  constructor() {    
   }
 }

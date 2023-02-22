@@ -1,4 +1,4 @@
-import { ProductsService } from 'src/app/services/products.service';
+// import { ProductsService } from 'src/app/services/products.service';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 
@@ -9,14 +9,14 @@ export class DetalleService {
   private subject = new Subject<any>();
 
   constructor(
-    private productsService:ProductsService
+    // private productsService:ProductsService
   ){}
 
   emit(event: string) {
-    this.productsService
-      .getProductId('' + event).subscribe((products: any) => {
-        this.subject.next({products});
-      });
+    // this.productsService
+    //   .getProductId('' + event).subscribe((products: any) => {
+    //     this.subject.next({products});
+    //   });
   }
 
   listen(): Observable<any> {

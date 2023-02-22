@@ -116,6 +116,8 @@ body{
   background-color: transparent;
 }
 footer {
-  height: 400px;
-  background:#374342;;
+  height: 200px;
+  background:#374342;
+  z-index: 99;
+  position: relative;
 }

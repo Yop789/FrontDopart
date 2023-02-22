@@ -4,22 +4,32 @@
             <div id="txtIS">
                 Recuperar contraseña
             </div>
+            <form [formGroup]="form" >
             <div class="row conRecuperar">
                 <div class="col" style="margin-top: 30px;">
-                    <label class="form-label lbRecuperar">Email</label>
-                    <input class="inRecuperar" type="email" [(ngModel)]="email">
+                    <label  class="form-label lbRecuperar">Email</label>
+                    <input  formControlName="email" id="inRegistE-mail" class="inRecuperar" type="email" >
+                    <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched || activate">
+                        <div class="error" *ngIf="form.get('email')?.hasError('required')">
+                            El email requerido
+                        </div>
+                        <div class="error" *ngIf="form.get('email')?.hasError('pattern')">
+                            Por favor, ingrese un correo electrónico válido
+                        </div>
+                    </div>
                     <div class="col " style="align-items: center;margin-top: 30px;">
-                        <button (click)="cancelar()" id="btnRecuperarCancelar">
+                        <button class="btnAnimatio" (click)="cancelar()" id="btnRecuperarCancelar">
                             Cancelar
                         </button>
-                        <button (click)="recuperar()" id="btnRecuperar">
-                            Recuperar contraseña
+                        <button (click)=" enviar()" class="btnAnimatio" id="btnRecuperar">
+                            Enviar Codigo
                         </button>
                     </div>
                 </div>
                 <div>
                 </div>
             </div>
+        </form>
             <div class="row">
                 <div id="fRecuperar">
                     Este servisio tiene el objetibo de bridarte u servisio con el

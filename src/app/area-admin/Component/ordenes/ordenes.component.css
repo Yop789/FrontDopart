@@ -1,0 +1,27 @@
+.colTextReg {
+    text-align: center;
+    box-shadow: 10px 10px 20px #888888;
+    border-radius: 10px;
+  }
+  .is-required:after {
+    content: '*';
+    margin-left: 3px;
+    color: red;
+    font-weight: bold;
+  }
+  .lbRegistro {
+    border-radius: 44pt;
+    border: 2px solid #374342;
+    outline: none;
+    height: 30px;
+    width: 300px;
+    text-indent: 10px;
+  
+  }
+  .reguistro
+  {
+    box-shadow: 10px 10px 20px #888888;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  }
+  

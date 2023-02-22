@@ -1,34 +1,88 @@
-<div class="container rtp textoMolde">
-    <div class="row justify-content-center ">
-        <div class="Login">
-            <div id="txtIS">
-                Codigo de verificacion
-            </div>
-            <div class="row conRecuperar">
-                <div class="col" style="margin-top: 30px;">
-                    <div style="margin-left: 40px;">
-                        <label style="font-size: 50px;">DO-</label>
-                        <input class="inRecuperarC" type="text" [(ngModel)]="email">
-                    </div>
-                    <div class="col " style="align-items: center;margin-top: 30px;">
-                        <button (click)="cancelarC()" id="btnRecuperarCancelar">
-                            Cancelar
-                        </button>
-                        <button (click)="recuperarC()" id="btnRecuperar">
-                            Recuperarla
-                        </button>
-                    </div>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container rtp textoMolde">
+        <div class="row justify-content-center ">
+            <div class="Login">
+                <div id="txtIS">
+                    Codigo de verificacion
                 </div>
-                <div>
-                </div>
-            </div>
-            <div class="row">
-                <div id="fRecuperar">
-                    Este servisio tiene el objetibo de bridarte u servisio con el
-                    mas alto nivel de seguridad por lo que es nesesario logiarte,
-                    al igual que tienes mejores benefisios,. Grasias
+                <form [formGroup]="form">
+                    <div class="row conRecuperar">
+                        <div class="col" style="margin-top: 30px;">
+
+
+                            <h4 class="is-required" style="color: rgb(0, 0, 0);">Nuva Contraseña</h4>
+                            <input type="{{ showPassword ? 'text' : 'password' }}" formControlName="contraseña"
+                                id="inRegistContraseña" class="lbRegistro"><span (click)="viciblePassword()"
+                                class="fa fa-fw {{ showPassword ? 'fa-eye' : 'fa-eye-slash' }} password-icon show-password"></span>
+                            <div *ngIf="form.get('contraseña')?.invalid && form.get('contraseña')?.touched || activate">
+                                <div class="error" *ngIf="form.get('contraseña')?.hasError('required')">
+                                    La contraseña es requerida
+                                </div>
+                                <div class="error" *ngIf="form.get('contraseña')?.hasError('invalidPassword') ">
+                                    La contraseña debe tener al menos 8 caracteres, una letra mayúscula, una
+                                    letra minúscula y un carácter especial.
+                                </div>
+                            </div>
+                            <h4 class="is-required" style="color: rgb(0, 0, 0);">Verifica tu contraseña</h4>
+                            <input type="{{ showPassword ? 'text' : 'password' }}" formControlName="validarContraseña"
+                                id="inRegistVerContraseña" class="lbRegistro"><span (click)="viciblePassword()"
+                                class="fa fa-fw {{ showPassword ? 'fa-eye' : 'fa-eye-slash' }} password-icon show-password"></span>
+                            <div
+                                *ngIf="form.get('validarContraseña')?.invalid && form.get('validarContraseña')?.touched || activate">
+                                <div class="error" *ngIf="form.get('validarContraseña')?.hasError('required')">
+                                    La contraseña es requerida
+                                </div>
+                                <div class="error" *ngIf="form?.hasError('notSame')">
+                                    Las contraseñas no coinciden
+                                </div>
+                            </div>
+                            <h4 class="is-required" style="color: rgb(0, 0, 0);">Codigo de verificacion {{ minutos
+                                }}:{{segundos < 10 ? "0" + segundos : segundos }}</h4>
+                                    <div [hidden]="tiempo" style="margin-left: 40px;">
+
+                                        <label style="font-size: 20px;">DO-</label>
+                                        <input class="inRecuperarC" formControlName="codigo" maxlength="6" type="text">
+
+                                    </div>
+                                    <div
+                                        *ngIf="form.get('codigo')?.invalid && form.get('codigo')?.touched || activate">
+                                        <div class="error" *ngIf="form.get('codigo')?.hasError('required')">
+                                            Codigo Requerido
+                                        </div>
+                                    </div>
+                                    <div class="col " style="align-items: center;margin-top: 30px;">
+                                        <button (click)="cancelarC()" id="btnRecuperarCancelar">
+                                            Cancelar
+                                        </button>
+                                        <button [hidden]="tiempo" (click)="recuperarC()" id="btnRecuperar">
+                                            Recuperarla
+                                        </button>
+                                    </div>
+                        </div>
+                        <div>
+                        </div>
+                    </div>
+                </form>
+                <div class="row">
+                    <div id="fRecuperar">
+                        Este servisio tiene el objetibo de bridarte u servisio con el
+                        mas alto nivel de seguridad por lo que es nesesario logiarte,
+                        al igual que tienes mejores benefisios,. Grasias
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</body>
+
+</html>

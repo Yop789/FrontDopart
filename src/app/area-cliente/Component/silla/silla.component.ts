@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Product, Type } from 'src/app/models/product/product.module';
 import { BreadcrumbService } from 'src/app/services/breadcrumb.service';
 import { DetalleService } from 'src/app/services/Detalles/detalle.service';
-import { ProductsService } from 'src/app/services/products.service';
+
 import { environment } from 'src/environments/environment';
 
 
@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-silla',
   template: `
-    <div class="lgd">
+    <!-- <div class="lgd">
       <div class="container-fluid pt-5 pb-3 ">
         <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4" style="color:white;"><span
             class="pr-3">Sillas</span></h2>
@@ -40,7 +40,7 @@ import { environment } from 'src/environments/environment';
         </div>
       </div>
     </div>
-    <div class="container-fluid pb-3 "></div>
+    <div class="container-fluid pb-3 "></div> -->
   `,
   styleUrls: ['./silla.component.css']
 })
@@ -50,38 +50,38 @@ export class SillaComponent implements OnInit {
   
   constructor(
     private router: Router,
-    private productsService: ProductsService,
+
     private breadcrumbService:BreadcrumbService,
     private detalleService:DetalleService
   ) {}
 
   ngOnInit(): void {
-    this.getProductsType('silla');
+    // this.getProductsType('silla');
 
   }
-  getProductsType(typ: string) {
-    const type: Type = {
-      Type: typ,
-    };
-    this.productsService.getProducts(type).subscribe((prod: any) => {
-      for (let i = 0; i < prod.length; i++) {
-        const l = prod[i];
-        const pro: Product = {
-          _id: l._id,
-          Name: l.Name,
-          Description: l.Description,
-          TotalProduct: l.TotalProduct,
-          TotalStock: l.TotalStock,
-          TotalService: l.TotalService,
-          Type: l.Type,
-          Price: l.Price,
-          imagePath: this.url + l.imagePath,
-        };
-        this.sillas[i] = pro;
-      }
-    });
-    this.breadcrumbService.setBreadcrumb('Sillas','sillas');
-  }
+  // getProductsType(typ: string) {
+  //   const type: Type = {
+  //     Type: typ,
+  //   };
+  //   this.productsService.getProducts(type).subscribe((prod: any) => {
+  //     for (let i = 0; i < prod.length; i++) {
+  //       const l = prod[i];
+  //       const pro: Product = {
+  //         _id: l._id,
+  //         Name: l.Name,
+  //         Description: l.Description,
+  //         TotalProduct: l.TotalProduct,
+  //         TotalStock: l.TotalStock,
+  //         TotalService: l.TotalService,
+  //         Type: l.Type,
+  //         Price: l.Price,
+  //         imagePath: this.url + l.imagePath,
+  //       };
+  //       this.sillas[i] = pro;
+  //     }
+  //   });
+  //   this.breadcrumbService.setBreadcrumb('Sillas','sillas');
+  // }
   detalles(id: string) {
     this.detalleService.emit(id)
     localStorage.setItem('idProduct', id);

@@ -3,13 +3,13 @@ import { Router } from '@angular/router';
 import { Product, Type } from 'src/app/models/product/product.module';
 import { BreadcrumbService } from 'src/app/services/breadcrumb.service';
 import { DetalleService } from 'src/app/services/Detalles/detalle.service';
-import { ProductsService } from 'src/app/services/products.service';
+
 import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-mesa',
   template: `
-    <!DOCTYPE html>
+    <!-- <!DOCTYPE html>
     <html lang="en">
       <head>
         <meta charset="UTF-8" />
@@ -69,7 +69,7 @@ import { environment } from 'src/environments/environment';
         </div>
         <div class="container-fluid pb-3 "></div>
       </body>
-    </html>
+    </html> -->
   `,
   styleUrls: ['./mesa.component.css'],
 })
@@ -79,37 +79,36 @@ export class MesaComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private productsService: ProductsService,
     private breadcrumbService: BreadcrumbService,
     private detalleService: DetalleService
   ) {}
 
   ngOnInit(): void {
-    this.getProductsType('mesa');
+    // this.getProductsType('mesa');
     this.breadcrumbService.setBreadcrumb('Mesas', 'mesas');
   }
-  getProductsType(typ: string) {
-    const type: Type = {
-      Type: typ,
-    };
-    this.productsService.getProducts(type).subscribe((prod: any) => {
-      for (let i = 0; i < prod.length; i++) {
-        const l = prod[i];
-        const pro: Product = {
-          _id: l._id,
-          Name: l.Name,
-          Description: l.Description,
-          TotalProduct: l.TotalProduct,
-          TotalStock: l.TotalStock,
-          TotalService: l.TotalService,
-          Type: l.Type,
-          Price: l.Price,
-          imagePath: this.url + l.imagePath,
-        };
-        this.mesas[i] = pro;
-      }
-    });
-  }
+  // getProductsType(typ: string) {
+  //   const type: Type = {
+  //     Type: typ,
+  //   };
+  //   this.productsService.getProducts(type).subscribe((prod: any) => {
+  //     for (let i = 0; i < prod.length; i++) {
+  //       const l = prod[i];
+  //       const pro: Product = {
+  //         _id: l._id,
+  //         Name: l.Name,
+  //         Description: l.Description,
+  //         TotalProduct: l.TotalProduct,
+  //         TotalStock: l.TotalStock,
+  //         TotalService: l.TotalService,
+  //         Type: l.Type,
+  //         Price: l.Price,
+  //         imagePath: this.url + l.imagePath,
+  //       };
+  //       this.mesas[i] = pro;
+  //     }
+  //   });
+  // }
   detalles(id: string) {
     this.detalleService.emit(id);
     localStorage.setItem('idProduct', id);

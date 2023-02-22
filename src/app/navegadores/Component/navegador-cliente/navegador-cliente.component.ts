@@ -11,54 +11,49 @@ import { CartComponent } from 'src/app/area-cliente/Component/cart/cart.componen
 @Component({
   selector: 'app-navegador-cliente',
   templateUrl: './navegador-cliente.component.html',
-  styleUrls: ['./navegador-cliente.component.css']
+  styleUrls: ['./navegador-cliente.component.css'],
 })
 export class NavegadorClienteComponent implements OnInit {
-  total=0
-  items: MenuItem[]=[];
+  total = 0;
+  items: MenuItem[] = [];
   constructor(
-    private router:Router,
-    private event:EventService,
-    private iniciarSesionService:IniciarSesionService,
-    private controllerService:ControllerService,
+    private router: Router,
+    private event: EventService,
+    private iniciarSesionService: IniciarSesionService,
+    private controllerService: ControllerService,
     private dialog: MatDialog,
     private snackBar: MatSnackBar
   ) {
-    this.controllerService.listen().subscribe((date:any)=>{
-      this.total=date.items
-    })
-   }
-
-  ngOnInit(): void {
-    
+    this.controllerService.listen().subscribe((date: any) => {
+      this.total = date.items;
+    });
   }
-  mostrarMenu(pagina:string) {
+
+  ngOnInit(): void {}
+  mostrarMenu(pagina: string) {
     this.router.navigateByUrl(`/${pagina}`);
   }
   salir() {
-    this.iniciarSesionService.emit(true,true,false)
-    localStorage.setItem('IdClient','')
-    this.router.navigateByUrl('/home')
-    this.controllerService.setCarController()
-
+    this.iniciarSesionService.emit(true, true, false);
+    localStorage.setItem('token', '');
+    this.router.navigateByUrl('/home');
+    this.controllerService.setCarController();
   }
-  mostrarCarrito(){
-    if(this.total>0){
-    this.dialog.open(CartComponent,{
-      panelClass:'cart',
-      enterAnimationDuration:'700ms',
-      exitAnimationDuration:'700ms'
-    })
-    }else{
-      this.alert('no has agregado dingun articulo al carrito')
+  mostrarCarrito() {
+    if (this.total > 0) {
+      this.dialog.open(CartComponent, {
+        panelClass: 'cart',
+        enterAnimationDuration: '700ms',
+        exitAnimationDuration: '700ms',
+      });
+    } else {
+      this.alert('no has agregado dingun articulo al carrito');
     }
-    this.controllerService.precio()
+    this.controllerService.precio();
   }
   alert(text: string) {
     this.snackBar.open('' + text, '', {
       duration: 3000,
     });
   }
-  
-  
 }

@@ -1,5 +1,4 @@
 import { User } from 'src/app/models/user/user.module';
-import { MensajesService } from './../../../services/mensajes.service';
 import { BreadcrumbService } from 'src/app/services/breadcrumb.service';
 import { Component, OnInit } from '@angular/core';
 import {
@@ -11,6 +10,10 @@ import {
 import { environment } from 'src/environments/environment';
 import { RegistrarService } from 'src/app/services/registro/registrar.service';
 import * as CryptoJS from 'crypto-js';
+import { HttpResponse } from '@angular/common/http';
+import { MatDialog } from '@angular/material/dialog';
+import { SucetfullComponent } from 'src/app/Dalogos/Sucetfull/sucetfull/sucetfull.component';
+import { ErrorComponent } from 'src/app/Dalogos/Error/error/error.component';
 
 @Component({
   selector: 'app-crear-usuarios',
@@ -25,8 +28,8 @@ export class CrearUsuariosComponent implements OnInit {
   constructor(
     private breadcrumbService: BreadcrumbService,
     private formBuilder: FormBuilder,
-    private mensaje:MensajesService,
-    private registro:RegistrarService
+    private registro:RegistrarService,
+    public dialog: MatDialog
   ) {
     this.PaginaName();
     this.form = this.formBuilder.group(
@@ -74,24 +77,28 @@ export class CrearUsuariosComponent implements OnInit {
       const email = this.form.get('email')?.value;
       const contraseña = this.form.get('contraseña')?.value;
       const data:User={
-        Name: nombre,
-        LastName: apellidos,
-        E_mail: email,
-        Password: this.encriptar(contraseña),
-        Municipio: municipio,
-        Comunidad: comunidad,
-        Calle: calle,
-        Numero: num,
-        Customer: true,
-        Admin: false,
-        Telefone: telefono
+        username: nombre,
+        lastName: apellidos,
+        email: email,
+        password: contraseña,
+        municipio: municipio,
+        comunidad: comunidad,
+        calle: calle,
+        numero: num,
+        telefone: telefono
       }
-      this.mensaje.showConfirm()
-      this.registro.postNewUsuari(data).subscribe((result:any)=>{
-        
-      })
+      this.registro.postNewUsuari(data).subscribe((response: HttpResponse<User>)=>{
+        if (response.ok) {
+          this.openDialog("¡Bienvenido! Ahora puedes explorar nuestro catálogo y reservar para tu próxima fiesta.")
+        } 
+      },
+      (error) => {
+      console.log(error)
+       this.openDialogError("Lo siento, ese correo ya está registrado. Intenta iniciar sesión o contáctanos para más ayuda.")
+      }
+      )
     } else {
-      console.log('erro')
+      this.openDialogError("Lo sentimos, no se pudo validar correctamente los campos del formulario. Por favor, verifica tus datos o contáctanos para más ayuda.")
     }
   }
   checkPasswords(group: FormGroup) {
@@ -137,5 +144,17 @@ export class CrearUsuariosComponent implements OnInit {
   }
   encriptar(value: string) {
     return CryptoJS.AES.encrypt(value, this.secretKey.trim()).toString();
+  }
+
+  openDialog(texto:string): void {
+    const dialogRef = this.dialog.open(SucetfullComponent, {
+      data: { texto: texto }
+    });
+  }
+
+  openDialogError(texto:string): void {
+    const dialogRef = this.dialog.open(ErrorComponent, {
+      data: { texto: texto }
+    });
   }
 }

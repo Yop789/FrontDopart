@@ -11,12 +11,14 @@ import { InflableComponent } from './area-cliente/Component/inflable/inflable.co
 import { AdornoComponent } from './area-cliente/Component/adorno/adorno.component';
 import { LogiComponent } from './logiarce/Component/logi/logi.component';
 import { CartComponent } from './area-cliente/Component/cart/cart.component';
+import { UserGuard } from './services/authe/user.guard';
 
 const routes: Routes = [
   
   {
     path: 'home',
     component: HomeComponent,
+    canActivate: [UserGuard]
   },
   {
     path: '',
@@ -26,22 +28,27 @@ const routes: Routes = [
   {
     path: 'details',
     component: DetallesComponent,
+    canActivate: [UserGuard]
   },
   {
     path: 'sillas',
     component: SillaComponent,
+    canActivate: [UserGuard]
   },
   {
     path: 'mesas',
     component: MesaComponent,
+    canActivate: [UserGuard]
   },
   {
     path: 'inflables',
     component: InflableComponent,
+    canActivate: [UserGuard]
   },
   {
     path: 'adornos',
     component: AdornoComponent,
+    canActivate: [UserGuard]
   },
   {
     path: 'registrarce',
@@ -53,13 +60,15 @@ const routes: Routes = [
   },
   {
     path: 'Mapa',
-    component: MapaSiteComponent
+    component: MapaSiteComponent,
+    canActivate: [UserGuard]
   },
   {
     path:'cart',
-    component: CartComponent
+    component: CartComponent,
+    canActivate: [UserGuard]
   },
-  { path: 'Admin', loadChildren: () => import('./area-admin/area-admin.module').then(m => m.AreaAdminModule) },
+  { path: 'admin', loadChildren: () => import('./area-admin/area-admin.module').then(m => m.AreaAdminModule) },
   {
     path: '**',
     component:ErroComponent,

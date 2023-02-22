@@ -3,13 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product, Type } from 'src/app/models/product/product.module';
 import { BreadcrumbService } from 'src/app/services/breadcrumb.service';
-import { ProductsService } from 'src/app/services/products.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-inflable',
   template: `
-  <div class="lgd">
+  <!-- <div class="lgd">
     
     <div class="container-fluid pt-5 pb-3 ">
       <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4" style="color:white;"><span
@@ -39,7 +38,7 @@ import { environment } from 'src/environments/environment';
       </div>
     </div>
   </div>
-  <div class="container-fluid pb-3 "></div>
+  <div class="container-fluid pb-3 "></div> -->
   `,
   styleUrls: ['./inflable.component.css']
 })
@@ -49,7 +48,7 @@ export class InflableComponent implements OnInit {
   url = environment.urlImagen;
   constructor(
     private router: Router,
-    private productsService: ProductsService,
+    
     private breadcrumbService: BreadcrumbService,
     private detalleService:DetalleService
   ) {}
@@ -62,13 +61,13 @@ export class InflableComponent implements OnInit {
     const type: Type = {
       Type: typ,
     };
-    this.productsService.getProducts(type).subscribe((prod: any) => {
-      for (let i = 0; i < prod.length; i++) {
-        const l = prod[i];
-        const pro: Product = l;
-        this.inflables[i] = pro;
-      }
-    });
+    // this.productsService.getProducts(type).subscribe((prod: any) => {
+    //   for (let i = 0; i < prod.length; i++) {
+    //     const l = prod[i];
+    //     const pro: Product = l;
+    //     this.inflables[i] = pro;
+    //   }
+    // });
   }
   detalles(id: string) {
     this.detalleService.emit(id)
