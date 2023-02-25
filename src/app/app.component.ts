@@ -52,12 +52,14 @@ export class AppComponent implements OnInit, DoCheck {
       this.admin = data.admin;
       this.iniciar = data.sinSesion;
     });
-    this.breadcrumbService.setBreadcrumb('Home', 'home');
+    this.breadcrumbService.setBreadcrumb('Principal', 'principal');
     const token = `${localStorage.getItem("token")}`;
       const decodedToken: any = jwt_decode.default(token);
       if (decodedToken.roles[0] == 'user') {
+        this.router.navigateByUrl('/home')
         this.iniciarSesionService.emit(false,true,true)
       } else {
+        this.router.navigateByUrl('/admin')
         this.iniciarSesionService.emit(true,false,true)
       }
   }

@@ -1,3 +1,4 @@
+import { BreadcrumbService } from 'src/app/services/breadcrumb.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsuariosComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private breadcrumbService:BreadcrumbService
+  ) {
+    this.breadcrumbService.setBreadcrumb('Usuarios','admin/usuarios')
+   }
 
   ngOnInit(): void {
   }

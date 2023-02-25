@@ -46,6 +46,7 @@ export class IniciarSesionService {
       const decodedToken: any = jwt_decode.default(token);
       if (decodedToken.roles[0] == 'user') {
         localStorage.setItem('token', `${token}`);
+        this.router.navigateByUrl('/home');
         this.emit(false, true, true);
       } else {
         this.emit(true, false, true);
@@ -57,23 +58,23 @@ export class IniciarSesionService {
   }
   admin(): boolean {
     const token = `${localStorage.getItem('token')}`;
-    if (token == '') {
+    if (token == '' || token == null) {
+      this.router.navigateByUrl('/principal');
       this.emit(true, true, false);
       return false
     } else {
       const decodedToken: any = jwt_decode.default(token);
-      if (decodedToken.roles[0] == 'user') {
-        this.router.navigateByUrl('/home');
-        return false;
-      } else {
+      if (decodedToken.roles[0] != 'user') {
         this.emit(true, false, true);
         return true;
       }
+      return false
     }
   }
   user(): boolean {
     const token = `${localStorage.getItem('token')}`;
-    if (token == '') {
+    if (token == '' || token == null) {
+      this.router.navigateByUrl('/principal');
       this.emit(true, true, false);
       return false
     } else {
@@ -81,10 +82,7 @@ export class IniciarSesionService {
       if (decodedToken.roles[0] == 'user') {
         this.emit(false, true, true);
         return true;
-      } else {
-        this.emit(true, false, true);
-        return false;
-      }
+      }else return false 
     }
   }
 }

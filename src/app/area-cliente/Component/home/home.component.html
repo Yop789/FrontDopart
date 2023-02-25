@@ -16,9 +16,9 @@
                 <img [src]="url+sillaRandom[0].imagePath">
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                   <div class="p-3" style="max-width: 700px;">
-                    <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">{{ sillaRandom[0].Name
+                    <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">{{ sillaRandom[0].nameProduct
                       }}</h1>
-                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">{{ sillaRandom[0].Description }}</p>
+                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">{{ sillaRandom[0].description }}</p>
                     <button class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp"
                       style="border-radius: 10px;">Rentar</button>
                   </div>
@@ -28,9 +28,9 @@
                 <img [src]="url+mesaRandom[0].imagePath">
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                   <div class="p-3" style="max-width: 700px;">
-                    <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">{{ mesaRandom[0].Name }}
+                    <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">{{ mesaRandom[0].nameProduct }}
                     </h1>
-                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">{{ mesaRandom[0].Description }}</p>
+                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">{{ mesaRandom[0].description }}</p>
                     <button class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp"
                       style="border-radius: 10px;">Rentar</button>
                   </div>
@@ -40,9 +40,9 @@
                 <img [src]="url+adornoRandom[0].imagePath">
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                   <div class="p-3" style="max-width: 700px;">
-                    <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">{{ adornoRandom[0].Name
+                    <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">{{ adornoRandom[0].nameProduct
                       }}</h1>
-                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">{{ adornoRandom[0].Description }}</p>
+                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">{{ adornoRandom[0].description }}</p>
                     <button class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp"
                       style="border-radius: 10px;">Rentar</button>
                   </div>
@@ -55,16 +55,16 @@
           <div class="product-offer mb-30" style="height: 200px;" (click)="detalles('' + mesaRandom[0]._id)">
             <img class="img-fluid" [src]="url+mesaRandom[0].imagePath" alt="">
             <div class="offer-text">
-              <h6 class="text-white text-uppercase">{{ mesaRandom[0].Description }}</h6>
-              <h3 class="text-white mb-3">{{ mesaRandom[0].Name }}</h3>
+              <h6 class="text-white text-uppercase">{{ mesaRandom[0].description }}</h6>
+              <h3 class="text-white mb-3">{{ mesaRandom[0].nameProduct }}</h3>
               <a class="btn btn-primary" style="border-radius: 10px;">Rentar</a>
             </div>
           </div>
           <div class="product-offer mb-30" style="height: 200px;" (click)="detalles('' + adornoRandom[0]._id)">
             <img class="img-fluid" [src]="url+adornoRandom[0].imagePath" alt="">
             <div class="offer-text">
-              <h6 class="text-white text-uppercase">{{ adornoRandom[0].Description }}</h6>
-              <h3 class="text-white mb-3">{{ adornoRandom[0].Name }}</h3>
+              <h6 class="text-white text-uppercase">{{ adornoRandom[0].description }}</h6>
+              <h3 class="text-white mb-3">{{ adornoRandom[0].nameProduct }}</h3>
               <a class="btn btn-primary" style="border-radius: 10px;">Rentar</a>
             </div>
           </div>
@@ -84,9 +84,9 @@
                   Detalles&nbsp;&nbsp;&nbsp;<i class="fa fa-search"></i></a>
               </div>
               <div class="text-center py-4">
-                <a class="h6 text-decoration-none text-truncate">{{ prod.Name }}</a>
+                <a class="h6 text-decoration-none text-truncate">{{ prod.nameProduct }}</a>
                 <div class="d-flex align-items-center justify-content-center mt-2">
-                  <h5>{{ prod.Description }}</h5>
+                  <h5>{{ prod.description }}</h5>
                   <h6 class="text-muted ml-2"><del></del></h6>
                 </div>
 
@@ -110,9 +110,9 @@
                   Detalles&nbsp;&nbsp;&nbsp;<i class="fa fa-search"></i></a>
               </div>
               <div class="text-center py-4">
-                <a class="h6 text-decoration-none text-truncate">{{ prod.Name }}</a>
+                <a class="h6 text-decoration-none text-truncate">{{ prod.nameProduct }}</a>
                 <div class="d-flex align-items-center justify-content-center mt-2">
-                  <h5>{{ prod.Description }}</h5>
+                  <h5>{{ prod.description }}</h5>
                   <h6 class="text-muted ml-2"><del></del></h6>
                 </div>
 
@@ -137,9 +137,9 @@
                   Detalles&nbsp;&nbsp;&nbsp;<i class="fa fa-search"></i></a>
               </div>
               <div class="text-center py-4">
-                <a class="h6 text-decoration-none text-truncate">{{ prod.Name }}</a>
+                <a class="h6 text-decoration-none text-truncate">{{ prod.nameProduct }}</a>
                 <div class="d-flex align-items-center justify-content-center mt-2">
-                  <h5>{{ prod.Description }}</h5>
+                  <h5>{{ prod.description }}</h5>
                   <h6 class="text-muted ml-2"><del></del></h6>
                 </div>
 
@@ -151,5 +151,5 @@
 
       </div>
     </div>
-  </div>
- -->
+  </div> -->
+

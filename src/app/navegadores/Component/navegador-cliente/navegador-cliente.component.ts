@@ -36,7 +36,7 @@ export class NavegadorClienteComponent implements OnInit {
   salir() {
     this.iniciarSesionService.emit(true, true, false);
     localStorage.setItem('token', '');
-    this.router.navigateByUrl('/home');
+    this.router.navigateByUrl('/principal');
     this.controllerService.setCarController();
   }
   mostrarCarrito() {

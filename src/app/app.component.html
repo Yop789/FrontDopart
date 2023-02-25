@@ -8,17 +8,17 @@
   <title>Document</title>
 </head>
 
-<body style="height: 100%; position: fixed; overflow-x: none; overflow-y:scroll ;">
+<body style="height: 100%; position: fixed; overflow-x: none; overflow-y:scroll; ">
   <app-navegador-inicial [hidden]="iniciar"></app-navegador-inicial>
   <app-navegador-cliente [hidden]="client"></app-navegador-cliente>
   <app-navegador-administracion [hidden]="admin"></app-navegador-administracion>
 
-  <div class="container textoMolde">
+  <div class="container textoMolde" style="margin-bottom: 200px;">
     <div class="row">
-      <div class="col " style="margin-top: 110px;">
-        <div id="miDiv" class="breadcrumb" style="background-color: antiquewhite; height: 50px;">
-          <p class="breadcrumb-item" *ngFor="let Migagas of breadcrumb"
-            style="display: inline-block; cursor: pointer;font-size: 16px;" (click)="mostrarCatalogo(Migagas.url)">
+      <div class="col " style="margin-top: 100px;">
+        <div id="miDiv" class="breadcrumb">
+          <p class="shape d-flex align-items-center arrow-chevron to-right " *ngFor="let Migagas of breadcrumb"
+            style="display: inline-block; cursor: pointer;font-size: 16px; text-indent: 15px; " (click)="mostrarCatalogo(Migagas.url)">
             {{ Migagas.nombre }}
           </p>
         </div>
@@ -27,7 +27,7 @@
     </div>
     
   </div>
-  <footer style="margin-top: 40px; box-shadow: 0px -10px 20px #888888;">
+  <!-- <footer style="margin-top: 40px; box-shadow: 0px -10px 20px #888888;">
     <div class="container">
       <div class="row">
         <div class="col">
@@ -42,7 +42,7 @@
         </div>
       </div>
     </div>
-  </footer>
+  </footer> -->
 </body>
 
  </html>

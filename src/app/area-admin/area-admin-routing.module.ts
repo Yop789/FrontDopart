@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NuevoProductoComponent } from './Component/nuevo-producto/nuevo-producto.component';
 import { AdminGuard } from './Authe/admin.guard';
+import { PedidosComponent } from './Component/pedidos/pedidos.component';
 
 const routes: Routes = [
 {
@@ -25,7 +26,7 @@ const routes: Routes = [
 },
 {
   path: 'pedidos',
-  component: OrdenesComponent,
+  component: PedidosComponent,
   canActivate: [AdminGuard]
 },
 {

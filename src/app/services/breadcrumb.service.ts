@@ -41,4 +41,7 @@ export class BreadcrumbService {
   getBreadcrumb() {
     return this.breadcrumbModule;
   }
+  vaciarBreadcrumb(){
+    this.breadcrumbModule=[]
+  }
 }

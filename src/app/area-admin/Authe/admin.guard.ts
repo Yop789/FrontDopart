@@ -29,7 +29,10 @@ export class AdminGuard implements CanActivate {
     if (this.iniciarSesionService.admin()) {
       return true; // El usuario es un administrador, permitir acceso a la ruta
     } else {
-      return false // El usuario no es un administrador, redirigir a la página de no autorizado
+      const token = localStorage.getItem('token')
+      if(token == "" || token ==null){
+        return this.router.navigateByUrl('/principal'); // El usuario no es un administrador, redirigir a la página de no autorizado
+      } return this.router.navigateByUrl("/home") // El usuario no es un administrador, redirigir a la página de no autorizado
     }
   }
 }

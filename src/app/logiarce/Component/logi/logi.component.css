@@ -1,8 +1,6 @@
 .Login {  
-  height: 550px;
+  height: 590px;
   width: 350px;
-  
-  border-radius: 20px;
 }
 
 #txtIS {
@@ -54,3 +52,9 @@
   border-bottom-right-radius:20px;
 }
 
+@media (max-width: 400px) {
+  .Login {  
+  height: 590px;
+  width: 350px;
+}
+}
