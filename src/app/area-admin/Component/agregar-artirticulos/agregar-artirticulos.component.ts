@@ -141,6 +141,7 @@ export class AgregarArtirticulosComponent implements OnInit {
         totalSer: l.totalService,
         preciArt: l.price,
         select: l.type,
+        totalSill: l.totalSillas
       });
       this.id =""+l._id
       this.imag = environment.urlApi + '/' + l.imagePath;
