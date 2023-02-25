@@ -1,3 +1,4 @@
+import { BreadcrumbService } from 'src/app/services/breadcrumb.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -8,11 +9,14 @@ import { Router } from '@angular/router';
 })
 export class MapaSiteComponent implements OnInit {
   private router: Router | any
-  constructor() { }
+  constructor(private breadcrumbService:BreadcrumbService) { 
+    this.breadcrumbService.setBreadcrumb('Mapa dofest','Mapa')
+  }
 
   ngOnInit(): void {
   }
   home(){
     this.router.navigateByUrl("/home")
+    
   }
 }

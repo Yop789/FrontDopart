@@ -35,6 +35,7 @@ export class HomeComponent implements OnInit, DoCheck {
     // this.getsillasHome('silla');
     // this.getsillasHome('mesa');
     // this.getsillasHome('adorno');
+    this.breadcrumbService.vaciarBreadcrumb()
     this.breadcrumbService.setBreadcrumb('Home','home');
     
   }

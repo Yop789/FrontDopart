@@ -12,18 +12,23 @@ import { AdornoComponent } from './area-cliente/Component/adorno/adorno.componen
 import { LogiComponent } from './logiarce/Component/logi/logi.component';
 import { CartComponent } from './area-cliente/Component/cart/cart.component';
 import { UserGuard } from './services/authe/user.guard';
+import { PagPrincipalComponent } from './pag-principal/pag-principal.component';
 
 const routes: Routes = [
   
   {
-    path: 'home',
-    component: HomeComponent,
-    canActivate: [UserGuard]
+    path: 'principal',
+    component: PagPrincipalComponent
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'principal',
     pathMatch: 'full',
+  },
+  {
+    path: 'home',
+    component: HomeComponent,
+    canActivate: [UserGuard]
   },
   {
     path: 'details',

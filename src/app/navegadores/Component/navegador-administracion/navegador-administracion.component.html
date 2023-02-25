@@ -1,49 +1,8 @@
-<!-- <nav class="navbar navbar-expand-lg lgu ">
-    <div class="container-fluid">
-      <a class="navbar-brand Logo" ><img class="imag" src="assets/img/Logo blanco (3).png">DoFest- Admin</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon">fff</span>
-      </button>
-  
-      <div class="collapse navbar-collapse hola1 justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link TextoN" >Administrasion</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link TextoN">Agregar Nuevo Producto</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link TextoN" >Ordenes</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link TextoN" >Usuarios</a>
-          </li>
-  
-          <li class="nav-item">
-            <a class="nav-link TextoN">
-              <mat-icon mat-icon-button [matMenuTriggerFor]="menu" aria-hidden="false"><span
-                  class="material-symbols-sharp">
-                  account_circle
-                </span></mat-icon>
-            </a>
-            <mat-menu #menu="matMenu">
-              <button mat-menu-item (click)="salir()" >
-                <mat-icon>logout</mat-icon>
-                <span >salir</span>
-              </button>
-            </mat-menu>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav> -->
-<div class="nBar">
-  <div class="container">
-    <div class="row  justify-content-center" style="margin-top: 20px;">
 
-      <mat-toolbar style="background-color: rgb(255, 123, 0)">
+<div class="nBar">
+    <div class="row  justify-content-center" >
+
+      <mat-toolbar style="background-color: rgba(55, 67, 66,.8) ;">
         <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
                     <mat-icon>menu</mat-icon>
                 </button> -->
@@ -51,35 +10,46 @@
         <span class="example-spacer"></span>
         <span class="example-spacer"></span>
         <button (click)="opcionesAdminds('/admin/Administrativo')" mat-icon-button id="btn"
-          class="btnAnimatio  TextoN">
-          Administrasion
+          class="btnAnimatio  TextoN d-flex align-items-center">
+          <mat-icon><span class="material-symbols-outlined">
+            home_work
+            </span></mat-icon>
+          Administración
         </button>
         <button (click)="opcionesAdminds('/admin/nuevosProductos')" mat-icon-button id="btn"
-          class="btnAnimatio  TextoN">
-          Agregar Nuevo Producto
+          class="btnAnimatio  TextoN d-flex align-items-center">
+          <mat-icon><span class="material-symbols-outlined">
+            conveyor_belt
+            </span></mat-icon>
+          Articulos
         </button>
         <button (click)="opcionesAdminds('/admin/pedidos')" mat-icon-button id="btn"
-          class="btnAnimatio  TextoN">
+          class="btnAnimatio  TextoN d-flex align-items-center">
+          <mat-icon><span  class="material-symbols-outlined">
+            grading
+          </span></mat-icon>
           Pedidos
         </button>
-        <button (click)="opcionesAdminds('/admin/usuarios')" mat-icon-button id="btn"
-          class="btnAnimatio  TextoN">
+        <button  (click)="opcionesAdminds('/admin/usuarios')" mat-icon-button id="btn"
+          class="btnAnimatio  TextoN d-flex align-items-center">
+          <mat-icon><span class="material-symbols-outlined">
+            group
+            </span></mat-icon>
           Usuarios
         </button>
 
 
         <mat-icon mat-icon-button [matMenuTriggerFor]="menu" aria-hidden="false" style="height: 40px;width: 40px;"><span
-            class="material-symbols-sharp  " style="color: white; font-size: 30px;">
+            class="material-symbols-sharp d-flex align-items-center  " style="color: white; font-size: 30px;">
             account_circle
           </span></mat-icon>
 
         <mat-menu #menu="matMenu">
-          <button mat-menu-item (click)="salir()">
+          <button mat-menu-item (click)="salir()" >
             <mat-icon>logout</mat-icon>
             <span>salir</span>
           </button>
         </mat-menu>
       </mat-toolbar>
     </div>
-  </div>
 </div>

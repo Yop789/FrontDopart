@@ -1,68 +1,71 @@
-.Login {  
-    height: 450px;
-    width: 350px;
-    
-    border-radius: 40px;
-  }
-  
-  #txtIS {
-    margin-top: 40px;
-    font-family: Myriad Pro;
-    font-size: 25px;
-    text-align: center;
-    font-weight: bold;
-    text-shadow: 1px 1px #3c3b3b;
-  }
-  .conRecuperar{
-    background-color: white; 
-    margin-top: 50px;
-    
-  }
-  .inRecuperar {
-    border-radius: 5px;
-    border: 2px solid #374342;
-    outline: none;
-    height: 30px;
-    width: 100%;
-    text-indent: 10px;
-  }
-  .lbRecuperar{
-      font-size: 15pt;
-      color: black;
-      text-shadow: 1px 1px #3c3b3b;
-  }
-  #btnRecuperar{
-    border-radius: 44pt;
-    border: 0;
-    outline: none;
-    height: 40px;
-    background-color: #374342;
-    color: white;
-    margin-bottom: 50px;
-    box-shadow: 0px 10px 20px #5a5858;
-    text-shadow: 1px 1px #3c3b3b;
-    width: 165px;
-  
-  }
-  #fRecuperar{
-    font-size: 12px;
-    text-align: justify;
-    color: black;
-    font-weight: bold;
-    height: 100px;
-    border-bottom-left-radius:20px;
-    border-bottom-right-radius:20px;
-  }
-  #btnRecuperarCancelar{
-    border-radius: 44pt;
-    border: 0;
-    outline: none;
-    height: 40px;
-    width: 125px;
-    background-color:white;
-    color: black;
-    margin-bottom: 50px;
-    box-shadow: 0px 10px 20px #5a5858;
-    text-shadow: 1px 1px #3c3b3b;
-  }
-  
+.Login {
+  height: 450px;
+  width: 350px;
+
+  border-radius: 40px;
+}
+
+#txtIS {
+  margin-top: 40px;
+  font-family: Myriad Pro;
+  font-size: 25px;
+  text-align: center;
+  font-weight: bold;
+  text-shadow: 1px 1px #3c3b3b;
+}
+.conRecuperar {
+  background-color: white;
+  margin-top: 50px;
+}
+.inRecuperar {
+  border-radius: 5px;
+  border: 2px solid #374342;
+  outline: none;
+  height: 30px;
+  width: 100%;
+  text-indent: 10px;
+}
+.lbRecuperar {
+  font-size: 15pt;
+  color: black;
+  text-shadow: 1px 1px #3c3b3b;
+}
+#btnRecuperar {
+  border-radius: 44pt;
+  border: 0;
+  outline: none;
+  height: 40px;
+  background-color: #374342;
+  color: white;
+  margin-bottom: 50px;
+  box-shadow: 0px 10px 20px #5a5858;
+  text-shadow: 1px 1px #3c3b3b;
+  width: 165px;
+}
+#fRecuperar {
+  font-size: 12px;
+  text-align: justify;
+  color: black;
+  font-weight: bold;
+  height: 100px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+#btnRecuperarCancelar {
+  border-radius: 44pt;
+  border: 0;
+  outline: none;
+  height: 40px;
+  width: 125px;
+  background-color: white;
+  color: black;
+  margin-bottom: 50px;
+  box-shadow: 0px 10px 20px #5a5858;
+  text-shadow: 1px 1px #3c3b3b;
+}
+.btnEmail {
+  align-items: center;
+  margin-top: 30px;
+}
+
+

@@ -46,6 +46,10 @@ import { OrdenesComponent } from './area-cliente/Component/ordenes/ordenes.compo
 import { PagoComponent } from './Pago/Component/pago/pago.component';
 import { SucetfullComponent } from './Dalogos/Sucetfull/sucetfull/sucetfull.component';
 import { ErrorComponent } from './Dalogos/Error/error/error.component';
+import { PagPrincipalComponent } from './pag-principal/pag-principal.component';
+import { ConfirmarComponent } from './Dalogos/confirmar/confirmar.component';
+
+
 
 
 
@@ -73,7 +77,9 @@ import { ErrorComponent } from './Dalogos/Error/error/error.component';
     PagoComponent,
     SucetfullComponent,
     ErrorComponent,
-    
+    PagPrincipalComponent,
+    ConfirmarComponent
+
   ],
   imports: [
     

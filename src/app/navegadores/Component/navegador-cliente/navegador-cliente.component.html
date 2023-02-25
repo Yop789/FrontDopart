@@ -1,61 +1,81 @@
 <div class="nBar ">
-  <div class="container">
-    <div class="row  justify-content-center">
-      <mat-toolbar style="background-color: rgb(255, 123, 0)">
-        <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+  <div class="row  justify-content-center">
+    <mat-toolbar style="background-color: rgba(55, 67, 66,.8) ;">
+      <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
                     <mat-icon>menu</mat-icon>
                 </button> -->
-        <span (click)="mostrarMenu('home')"><img class="imag" src="assets/img/Logo blanco (3).png"></span>
-        <span class="example-spacer">
-          <div class="container">
-            <div class="input-group mb-3" style="margin-top: 18px;">
-              <input type="text" class="inpSearch" placeholder="Search" aria-label="Username">
-              <span class="input-group-text"><i class="pi pi-search"></i></span>
-              <mat-icon class="btnAnimatio" (click)="mostrarCarrito()" [matBadge]="total" aria-hidden="false"
-                style="margin-left: 5%; margin-top: 5px; text-shadow: 1px 1px #ffffff;"><span style="font-size: 36px;"
-                  class="material-symbols-outlined ">
-                  local_shipping
-                </span></mat-icon>
-            </div>
+      <span (click)="mostrarMenu('home')"><img class="imag" src="assets/img/Logo blanco (3).png"></span>
+      <span class="example-spacer">
+        <div class="container">
+          <div class="input-group mb-3">
+            <input type="text" class="inpSearch" placeholder="Search" aria-label="Username">
+            <span class="input-group-text"><i class="pi pi-search"></i></span>
+            <mat-icon class="btnAnimatio" (click)="mostrarCarrito()" [matBadge]="total" aria-hidden="false"
+              style="margin-left: 5%; margin-top: 5px; text-shadow: 1px 1px #ffffff;"><span style="font-size: 36px;"
+                class="material-symbols-outlined ">
+                local_shipping
+              </span></mat-icon>
           </div>
-        </span>
-      </mat-toolbar>
-      <hr style="height: 2px;">
-      <mat-toolbar style="background-color: rgb(255, 123, 0); height: 18px;">
-        <span></span>
-        <span class="example-spacer rowApartados">
-          <div class="row">
-            <div class="col">
-              <div class="row" style="width: 500px;">
-                <div class="col-2 btnAnimatio"> <a class=" Texto " (click)="mostrarMenu('home')"> Home</a></div>
-                <div class="col-3 btnAnimatio">
-                  <a class="dButton Texto" data-bs-toggle="dropdown">
-                    Categorias<span class="dropdown-arrow">&#9660;</span>
-                  </a>
-                  <ul class=" dropdown-menu ">
-                    <li class="liCategoria btnAnimatio" (click)="mostrarMenu('sillas')"><a class="TextoN"> Sillas</a></li>
-                    <li class="liCategoria btnAnimatio" (click)="mostrarMenu('adornos')"><a class="TextoN">Adornos</a></li>
-                    <li class="liCategoria btnAnimatio" (click)="mostrarMenu('inflables')"><a class="TextoN">Infables</a></li>
-                    <li class="liCategoria btnAnimatio" (click)="mostrarMenu('mesas')"><a class="TextoN"> Mesas</a></li>
-                  </ul>
-                </div>
-                <div class="col-3 btnAnimatio"> <a class="Texto" (click)="mostrarMenu('home')"> Mis Ordenes</a></div>
-                <div class="col-3 btnAnimatio">
-                  <a class="dButton Texto" data-bs-toggle="dropdown">
-                    Opciones<span class="dropdown-arrow">&#9660;</span>
-                  </a>
-                  <ul class=" dropdown-menu ">
-                    <li class="liCategoria btnAnimatio" (click)="mostrarMenu('Mapa')"><a class=" TextoN"> Mapa de sitio</a></li>
-                    <li class="liCategoria btnAnimatio" (click)="salir()"><a class="TextoN"> Cerrar</a></li>
-                  </ul>
-                </div>
+        </div>
+      </span>
+    </mat-toolbar>
+    <mat-toolbar style="background-color: rgba(55, 67, 66,.8) ; height: 35px;">
+      <span class="example-spacer rowApartados">
+        <div class="row">
+          <div class="col">
+            <div class="row" style="width: 600px;">
+              <div class="col btnAnimatio"> <a class=" Texto d-flex align-items-center " (click)="mostrarMenu('home')"> <mat-icon><span class="material-symbols-outlined">
+                home
+                </span></mat-icon> Home</a></div>
+              <div class="col btnAnimatio">
+                <a class="dButton Texto d-flex align-items-center" data-bs-toggle="dropdown">
+                  <mat-icon><span class="material-symbols-outlined">
+                    category
+                    </span></mat-icon>
+                  Categorias<span class="dropdown-arrow">&#9660;</span>
+                </a>
+                <ul class=" dropdown-menu ">
+                  <li class="liCategoria btnAnimatio" (click)="mostrarMenu('sillas')"><a class="TextoN d-flex align-items-center  ">  <mat-icon><span class="material-symbols-outlined">
+                    chair_alt
+                    </span></mat-icon> Sillas</a></li>
+                  <li class="liCategoria btnAnimatio" (click)="mostrarMenu('adornos')"><a class="TextoN d-flex align-items-center  "> <mat-icon><span class="material-symbols-outlined">
+                    local_florist
+                    </span></mat-icon> Adornos</a>
+                  </li>
+                  <li class="liCategoria btnAnimatio" (click)="mostrarMenu('inflables')"><a class="TextoN d-flex align-items-center  "> <mat-icon><span class="material-symbols-outlined">
+                    fort
+                    </span></mat-icon> Infables</a>
+                  </li>
+                  <li class="liCategoria btnAnimatio" (click)="mostrarMenu('mesas')"><a class="TextoN d-flex align-items-center "> <mat-icon><span class="material-symbols-outlined">
+                    table_bar
+                    </span></mat-icon> Mesas</a></li>
+                </ul>
+              </div>
+              <div class="col btnAnimatio "> <a class="Texto d-flex align-items-center" (click)="mostrarMenu('home')" > <mat-icon><span  class="material-symbols-outlined">
+                grading
+              </span></mat-icon> Mis pedidos</a></div>
+              <div class="col btnAnimatio">
+                <a class="dButton Texto d-flex align-items-center" data-bs-toggle="dropdown"><mat-icon><span class="material-symbols-outlined">
+                      help
+                    </span></mat-icon>
+                  Opciones<span class="dropdown-arrow">&#9660;</span>
+                </a>
+                <ul class=" dropdown-menu ">
+                  <li class="liCategoria btnAnimatio " (click)="mostrarMenu('Mapa')"><a class=" TextoN  d-flex align-items-center "> <mat-icon><span class="material-symbols-outlined">
+                    local_library
+                    </span></mat-icon> Mapa de
+                      sitio</a></li>
+                  <li class="liCategoria btnAnimatio " (click)="salir()"><a class="TextoN  d-flex align-items-center"> <mat-icon><span class="material-symbols-outlined">
+                    logout
+                    </span></mat-icon> Cerrar</a></li>
+                </ul>
               </div>
             </div>
-
           </div>
 
-        </span>
-      </mat-toolbar>
-    </div>
+        </div>
+
+      </span>
+    </mat-toolbar>
   </div>
 </div>
