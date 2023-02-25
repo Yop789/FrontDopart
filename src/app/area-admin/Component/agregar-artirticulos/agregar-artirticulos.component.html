@@ -164,7 +164,7 @@
             <div class="row  justify-content-end colBtnRegistrarce" style="transform: translateY(50%);">
                 <div class="col-md-8">
                     <button id="btnRegistLimpiar" class="btnRegistro btnAnimatio">Limpiar</button>
-                    <button mat-dialog-close id="btnRegistCancelar" class="btnRegistro btnAnimatio">Cancelar</button>
+                    <button mat-dialog-close id="btnRegistCancelar" class="btnRegistro btnAnimatio"(click)="onYesClick()">Cancelar</button>
                     <button id="btnRegistRegistrarce" class="btnRegistro btnAnimatio" (click)="guardar()">Guardar</button>
                 </div>
             </div>
