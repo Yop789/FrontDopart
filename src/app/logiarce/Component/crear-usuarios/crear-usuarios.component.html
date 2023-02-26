@@ -15,9 +15,9 @@
                 <div class="row" style="margin-top: 30px;">
                     <div class="col-11">
                         <h2 style="color: whitesmoke;">
-                            Formulario de reguistro
+                            Formulario de registro
                         </h2>
-                        <h3 style="color: whitesmoke;">Datos de personales</h3>
+                        <h3 style="color: whitesmoke;">Datos personales</h3>
                         <div class="row">
                             <div class="col-8">
                                 <div class="row">
@@ -41,14 +41,14 @@
                                         <div
                                             *ngIf="form.get('apellidos')?.invalid && form.get('apellidos')?.touched || activate">
                                             <div class="error" *ngIf="form.get('apellidos')?.hasError('required')">
-                                                El apellidoses requerido
+                                                Los apellidos son requeridos
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <H3 style="color: whitesmoke;">Datos de domicilio</H3>
+                        <H3 style="color: whitesmoke;">Datos del domicilio</H3>
                         <div class="row">
                             <div class="col">
 
@@ -58,7 +58,7 @@
                                 <div
                                     *ngIf="form.get('municipio')?.invalid && form.get('municipio')?.touched || activate">
                                     <div class="error" *ngIf="form.get('municipio')?.hasError('required')">
-                                        El Municipio requerido
+                                        El Municipio es requerido
                                     </div>
                                 </div>
                             </div>
@@ -69,7 +69,7 @@
                                 <div
                                     *ngIf="form.get('comunidad')?.invalid && form.get('comunidad')?.touched || activate">
                                     <div class="error" *ngIf="form.get('comunidad')?.hasError('required')">
-                                        El comunidad requerido
+                                        La comunidad es requerida
                                     </div>
                                 </div>
                             </div>
@@ -78,16 +78,16 @@
                                 <h4 class="is-required" style="color: whitesmoke;"> Calle</h4>
                                 <div *ngIf="form.get('calle')?.invalid && form.get('calle')?.touched || activate">
                                     <div class="error" *ngIf="form.get('calle')?.hasError('required')">
-                                        El calle requerido
+                                        La calle es requerida
                                     </div>
                                 </div>
                             </div>
                             <div class="col">
                                 <input type="text" formControlName="num" id="inRegistNum" class="lbRegistro">
-                                <h4 class="is-required" style="color: whitesmoke;"> Num.</h4>
+                                <h4 class="is-required" style="color: whitesmoke;"> # exterior</h4>
                                 <div *ngIf="form.get('num')?.invalid && form.get('num')?.touched || activate">
                                     <div class="error" *ngIf="form.get('num')?.hasError('required')">
-                                        El num requerido
+                                        El # exterior es requerido
                                     </div>
                                 </div>
                             </div>
@@ -98,7 +98,7 @@
 
                                 <input type="tel" maxlength="10" formControlName="telefono" id="inRegistTelefono"
                                     class="lbRegistro">
-                                <h4 class="is-required" style="color: whitesmoke;">Telefono</h4>
+                                <h4 class="is-required" style="color: whitesmoke;">Teléfono</h4>
                                 <div *ngIf="form.get('telefono')?.errors && form.get('telefono')?.touched || activate">
                                     <div class="error" *ngIf="form.get('telefono')?.hasError('required')">
                                         El teléfono es requerido.
@@ -117,7 +117,7 @@
                                 <h4 class="is-required" style="color: whitesmoke;">E-mail</h4>
                                 <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched || activate">
                                     <div class="error" *ngIf="form.get('email')?.hasError('required')">
-                                        El email requerido
+                                        El email es requerido
                                     </div>
                                     <div class="error" *ngIf="form.get('email')?.hasError('pattern')">
                                         Por favor, ingrese un correo electrónico válido
@@ -147,7 +147,7 @@
                                         </div>
                                     </div>
                                     <div class="col">
-                                        
+
                                         <input type="{{ showPassword ? 'text' : 'password' }}"
                                             formControlName="validarContraseña" id="inRegistVerContraseña"
                                             class="lbRegistro"><span (click)="viciblePassword()"
@@ -171,7 +171,7 @@
                 </div>
                 <div class="roe">
                     <div class="col colBtnRegistrarce" style="color: whitesmoke;">
-                        <input formControlName="aceptaTerminos" type="checkbox" id="password-toggle"> Aseptar terminos y
+                        <input formControlName="aceptaTerminos" type="checkbox" id="password-toggle"> Aceptar terminos y
                         condiciones
                         <div class="error"
                             *ngIf="form.get('aceptaTerminos')?.invalid && form.get('aceptaTerminos')?.touched || activate">
@@ -187,7 +187,7 @@
                             (click)="limpiar()">Limpiar</button>
                         <button id="btnRegistCancelar" class="btnRegistro btnAnimatio">Cancelar</button>
                         <button id="btnRegistRegistrarce" class="btnRegistro btnAnimatio"
-                            (click)="agregarDatos()">Registrarce</button>
+                            (click)="agregarDatos()">Aceptar</button>
                     </div>
                 </div>
             </div>

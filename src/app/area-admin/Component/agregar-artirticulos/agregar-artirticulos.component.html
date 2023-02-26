@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agregar Articulos</title>
+    <title>Agregar Artículos</title>
 </head>
 
 <body style="width: 70vw;height: 85vh;">
@@ -27,7 +27,7 @@
                     <div class="col">
                         <div class="row">
                             <div class="col">
-                                <h4 class="is-required">Nombre del articulo</h4>
+                                <h4 class="is-required">Nombre del artículo</h4>
                                 <input formControlName="nombre" type="text" id="inRegisNombre" class="lbRegistro"
                                     placeholder="Nombre del articulo">
                                 <div *ngIf="form.get('nombre')?.invalid && form.get('nombre')?.touched || activate">
@@ -45,19 +45,19 @@
                                 <div
                                     *ngIf="form.get('descripción')?.invalid && form.get('descripción')?.touched || activate">
                                     <div class="error" *ngIf="form.get('descripción')?.hasError('required')">
-                                        La descripción es requerido
+                                        La descripción es requerida
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
-                                <h4 class="is-required">Total de articulos</h4>
+                                <h4 class="is-required">Total de artículos</h4>
                                 <input formControlName="totalArt" type="number" id="totalArt" placeholder="Cuntos articulos son..."
                                     class="lbRegistro">
                                 <div *ngIf="form.get('totalArt')?.invalid && form.get('totalArt')?.touched || activate">
                                     <div class="error" *ngIf="form.get('totalArt')?.hasError('required')">
-                                        El campo total de articulos es requerido
+                                        El total artículos es requerido
                                     </div>
                                     <div class="error" *ngIf="form.get('totalArt')?.hasError('min')">
                                         Este campo debe de ser mayor a 1
@@ -72,7 +72,7 @@
                                     class="lbRegistro">
                                 <div *ngIf="form.get('totalSt')?.invalid && form.get('totalSt')?.touched || activate">
                                     <div class="error" *ngIf="form.get('totalSt')?.hasError('required')">
-                                        El campo total en stock es requerido
+                                        El total en stock es requerido
                                     </div>
                                     <div class="error" *ngIf="form.get('totalSt')?.hasError('min')">
                                         Este campo debe de ser mayor a 1
@@ -112,10 +112,10 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <h4 class="is-required">Tipo de articulo</h4>
+                                <h4 class="is-required">Tipo de artículo</h4>
                                 <select formControlName="select" (change)="gf($event)"
                                     style="height: 30px; width: 190px;" class="form lbRegistro">
-                                    <option selected>Selecciona un typo</option>
+                                    <option selected>Selecciona un tipo</option>
                                     <option>Silla</option>
                                     <option>Mesa</option>
                                     <option>Inflable</option>
@@ -123,7 +123,7 @@
                                 </select>
                                 <div *ngIf="form.get('select')?.invalid && form.get('select')?.touched || activate">
                                     <div class="error" *ngIf="form.get('select')?.hasError('required')">
-                                        El apellidoses requerido
+                                        los apellidos son requeridos
                                     </div>
                                 </div>
 
@@ -137,7 +137,7 @@
                                 <div
                                     *ngIf="form.get('totalSill')?.invalid && form.get('totalSill')?.touched || activate">
                                     <div class="error" *ngIf="form.get('totalSill')?.hasError('required')">
-                                        El campo precio de articulo es requerido
+                                        El campo precio de artículo es requerido
                                     </div>
                                     <div class="error" *ngIf="form.get('totalSill')?.hasError('min')">
                                         Este campo debe de ser mayor a 1
@@ -155,7 +155,7 @@
                             (change)="onFileSelected($event)">
                         <div *ngIf="form.get('inputImg')?.invalid && form.get('inputImg')?.touched || activate">
                             <div class="error" *ngIf="form.get('inputImg')?.hasError('required')">
-                                Agrega una imagen para agregar el articulo
+                                Agrega una imagen para agregar el artículo
                             </div>
                         </div>
                     </div>
