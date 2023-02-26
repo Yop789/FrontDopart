@@ -13,14 +13,14 @@
         <div class="row justify-content-center ">
             <div class="Login">
                 <div id="txtIS">
-                    Codigo de verificacion
+                    Codígo de verificación
                 </div>
                 <form [formGroup]="form">
                     <div class="row conRecuperar">
                         <div class="col" style="margin-top: 30px;">
 
 
-                            <h4 class="is-required" style="color: rgb(0, 0, 0);">Nuva Contraseña</h4>
+                            <h4 class="is-required" style="color: rgb(0, 0, 0);">Nueva Contraseña</h4>
                             <input type="{{ showPassword ? 'text' : 'password' }}" formControlName="contraseña"
                                 id="inRegistContraseña" class="lbRegistro"><span (click)="viciblePassword()"
                                 class="fa fa-fw {{ showPassword ? 'fa-eye' : 'fa-eye-slash' }} password-icon show-password"></span>
@@ -46,7 +46,7 @@
                                     Las contraseñas no coinciden
                                 </div>
                             </div>
-                            <h4 class="is-required" style="color: rgb(0, 0, 0);">Codigo de verificacion {{ minutos
+                            <h4 class="is-required" style="color: rgb(0, 0, 0);">Codígo de verificación {{ minutos
                                 }}:{{segundos < 10 ? "0" + segundos : segundos }}</h4>
                                     <div [hidden]="tiempo" style="margin-left: 40px;">
 
@@ -57,7 +57,7 @@
                                     <div
                                         *ngIf="form.get('codigo')?.invalid && form.get('codigo')?.touched || activate">
                                         <div class="error" *ngIf="form.get('codigo')?.hasError('required')">
-                                            Codigo Requerido
+                                            Codígo requerido
                                         </div>
                                     </div>
                                     <div class="col " style="align-items: center;margin-top: 30px;">
@@ -65,7 +65,7 @@
                                             Cancelar
                                         </button>
                                         <button [hidden]="tiempo" (click)="recuperarC()" id="btnRecuperar">
-                                            Recuperarla
+                                            Aceptar
                                         </button>
                                     </div>
                         </div>
