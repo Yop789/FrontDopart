@@ -20,14 +20,30 @@
   margin-bottom: 30px;
   text-align: center;
   color: rgb(255, 255, 255);
-  background-color: #e6b400;
+  background-color: #3c3b3b;
 }
 
 .lbRegistro {
-    border: 2px solid #374342;
+    border: none;
+    border-radius: 2px;
+    box-shadow: 10px 10px 20px #888888;
     outline: none;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #374342;
     text-indent: 10px;
+    margin-bottom: 20px;
   
+  }
+  .lRegistro{
+    border: none;
+    border-radius: 2px;
+    outline: none;
+    width: 100%;
+    box-shadow: 10px 10px 20px #888888;
+    border-bottom: 2px solid #374342;
+    text-indent: 10px;
+    margin-bottom: 20px;
   }
   .is-required:after {
     content: '*';

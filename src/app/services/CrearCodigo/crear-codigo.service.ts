@@ -8,9 +8,10 @@ import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
   providedIn: 'root'
 })
 export class CrearCodigoService {
-  correo=''
-  url1=`${environment.urlApi}/codigo`
-  url2=`${environment.urlApi}/cambiarC`
+  private correo=''
+  private url1=`${environment.urlApi}/codigo`
+  private url2=`${environment.urlApi}/cambiarC`
+  private url3=`${environment.urlApi}/copContras`
   constructor(private http: HttpClient) { }
 
 
@@ -33,5 +34,14 @@ export class CrearCodigoService {
     let headers = new HttpHeaders()
       .set('Content-Type', 'application/json')
     return this.http.put<User>(this.url2,e, { observe: 'response', headers: headers });
+  }
+  comparCodigo(cod:string): Observable<HttpResponse<any>>{
+    const e:emailCodigo={
+      correoElectronico: this.correo,
+      codigo:cod,
+    }
+    let headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+    return this.http.post<User>(this.url3,e, { observe: 'response', headers: headers });
   }
 }

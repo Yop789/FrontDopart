@@ -16,7 +16,7 @@
                     <div class="row">
                         <div class="col colTextReg">
                             <h1>
-                                <p style="text-align: center;">Artículos </p>
+                                <p style="text-align: center; color: white;">Artículos </p>
                             </h1>
                         </div>
                     </div>
@@ -27,7 +27,7 @@
                     <div class="col">
                         <div class="row">
                             <div class="col">
-                                <h4 class="is-required">Nombre del articulo</h4>
+
                                 <input formControlName="nombre" type="text" id="inRegisNombre" class="lbRegistro"
                                     placeholder="Nombre del articulo">
                                 <div *ngIf="form.get('nombre')?.invalid && form.get('nombre')?.touched || activate">
@@ -39,9 +39,9 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <h4 class="is-required">Descripción</h4>
-                                <textarea formControlName="descripción" id="descripción" class="lbRegistro"
-                                    placeholder="Un brebe escripción" name="" id="" cols="40" rows="2"></textarea>
+
+                                <textarea formControlName="descripción" id="descripción" class="lRegistro"
+                                    placeholder="Descripción" name="" id="" cols="40" rows="4"></textarea>
                                 <div
                                     *ngIf="form.get('descripción')?.invalid && form.get('descripción')?.touched || activate">
                                     <div class="error" *ngIf="form.get('descripción')?.hasError('required')">
@@ -52,9 +52,8 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <h4 class="is-required">Total de articulos</h4>
-                                <input formControlName="totalArt" type="number" id="totalArt" placeholder="Cuntos articulos son..."
-                                    class="lbRegistro">
+                                <input formControlName="totalArt" type="number" id="totalArt"
+                                    placeholder="Total de articulos" class="lbRegistro">
                                 <div *ngIf="form.get('totalArt')?.invalid && form.get('totalArt')?.touched || activate">
                                     <div class="error" *ngIf="form.get('totalArt')?.hasError('required')">
                                         El campo total de articulos es requerido
@@ -67,9 +66,9 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <h4 class="is-required">Total en stock</h4>
-                                <input formControlName="totalSt" type="number" id="totalSt" placeholder="Cuntos articulos son..."
-                                    class="lbRegistro">
+
+                                <input formControlName="totalSt" type="number" id="totalSt"
+                                    placeholder="Total en stock" class="lbRegistro">
                                 <div *ngIf="form.get('totalSt')?.invalid && form.get('totalSt')?.touched || activate">
                                     <div class="error" *ngIf="form.get('totalSt')?.hasError('required')">
                                         El campo total en stock es requerido
@@ -82,9 +81,9 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <h4 class="is-required">Total en servicio</h4>
-                                <input formControlName="totalSer" type="number" id="totalSer" placeholder="Cuntos articulos son..."
-                                    class="lbRegistro">
+
+                                <input formControlName="totalSer" type="number" id="totalSer"
+                                    placeholder="Total en servicio" class="lbRegistro">
                                 <div *ngIf="form.get('totalSer')?.invalid && form.get('totalSer')?.touched || activate">
                                     <div class="error" *ngIf="form.get('totalSer')?.hasError('required')">
                                         El campo total en servicio es requerido
@@ -97,9 +96,9 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <h4 class="is-required">Precio de articulo</h4>
-                                <input formControlName="preciArt" type="number" id="preciArt" placeholder="Precio del articulo"
-                                    class="lbRegistro">
+
+                                <input formControlName="preciArt" type="number" id="preciArt"
+                                    placeholder="Precio de articulo" class="lbRegistro">
                                 <div *ngIf="form.get('preciArt')?.invalid && form.get('preciArt')?.touched || activate">
                                     <div class="error" *ngIf="form.get('preciArt')?.hasError('required')">
                                         El campo precio de articulo es requerido
@@ -112,9 +111,10 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <h4 class="is-required">Tipo de articulo</h4>
+
                                 <select formControlName="select" (change)="gf($event)"
                                     style="height: 30px; width: 190px;" class="form lbRegistro">
+                                    
                                     <option selected>Selecciona un typo</option>
                                     <option>Silla</option>
                                     <option>Mesa</option>
@@ -129,10 +129,10 @@
 
                             </div>
                         </div>
-                        <div class="row" >
+                        <div class="row">
                             <div class="col">
-                                <h4 class="is-required">Total de sillas por mesa</h4>
-                                <input formControlName="totalSill" type="number"  placeholder="Cuntos articulos son..."
+
+                                <input formControlName="totalSill" type="number" placeholder="Total de sillas por mesa"
                                     class="lbRegistro">
                                 <div
                                     *ngIf="form.get('totalSill')?.invalid && form.get('totalSill')?.touched || activate">
@@ -149,7 +149,7 @@
 
                     <div class="col">
                         <div class="row">
-                            <img [src]="imag" width="100%" height="100%">
+                            <img [src]="imag" width="100%" height="100%" style="box-shadow: 10px 10px 20px #888888;">
                         </div>
                         <input type="file" formControlName="inputImg" accept=".png,.jpg"
                             (change)="onFileSelected($event)">
@@ -163,9 +163,11 @@
             </div>
             <div class="row  justify-content-end colBtnRegistrarce" style="transform: translateY(50%);">
                 <div class="col-md-8">
-                    <button id="btnRegistLimpiar" class="btnRegistro btnAnimatio">Limpiar</button>
-                    <button mat-dialog-close id="btnRegistCancelar" class="btnRegistro btnAnimatio"(click)="onYesClick()">Cancelar</button>
-                    <button id="btnRegistRegistrarce" class="btnRegistro btnAnimatio" (click)="guardar()">Guardar</button>
+                    <button [hidden]="detals" id="btnRegistLimpiar" class="btnRegistro btnAnimatio">Limpiar</button>
+                    <button mat-dialog-close id="btnRegistCancelar" class="btnRegistro btnAnimatio"
+                        (click)="onYesClick()">Cancelar</button>
+                    <button [hidden]="detals" id="btnRegistRegistrarce" class="btnRegistro btnAnimatio"
+                        (click)="guardar()">Guardar</button>
                 </div>
             </div>
         </form>

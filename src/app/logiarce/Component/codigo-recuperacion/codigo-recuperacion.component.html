@@ -18,12 +18,9 @@
                 <form [formGroup]="form">
                     <div class="row conRecuperar">
                         <div class="col" style="margin-top: 30px;">
-
-
                             <h4 class="is-required" style="color: rgb(0, 0, 0);">Nuva Contraseña</h4>
                             <input type="{{ showPassword ? 'text' : 'password' }}" formControlName="contraseña"
-                                id="inRegistContraseña" class="lbRegistro"><span (click)="viciblePassword()"
-                                class="fa fa-fw {{ showPassword ? 'fa-eye' : 'fa-eye-slash' }} password-icon show-password"></span>
+                                id="inRegistContraseña" class="lbRegistro">
                             <div *ngIf="form.get('contraseña')?.invalid && form.get('contraseña')?.touched || activate">
                                 <div class="error" *ngIf="form.get('contraseña')?.hasError('required')">
                                     La contraseña es requerida
@@ -35,8 +32,7 @@
                             </div>
                             <h4 class="is-required" style="color: rgb(0, 0, 0);">Verifica tu contraseña</h4>
                             <input type="{{ showPassword ? 'text' : 'password' }}" formControlName="validarContraseña"
-                                id="inRegistVerContraseña" class="lbRegistro"><span (click)="viciblePassword()"
-                                class="fa fa-fw {{ showPassword ? 'fa-eye' : 'fa-eye-slash' }} password-icon show-password"></span>
+                                id="inRegistVerContraseña" class="lbRegistro">
                             <div
                                 *ngIf="form.get('validarContraseña')?.invalid && form.get('validarContraseña')?.touched || activate">
                                 <div class="error" *ngIf="form.get('validarContraseña')?.hasError('required')">
@@ -44,6 +40,11 @@
                                 </div>
                                 <div class="error" *ngIf="form?.hasError('notSame')">
                                     Las contraseñas no coinciden
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <input (change)="viciblePassword()" type="checkbox" >Mostrar Contraseña
                                 </div>
                             </div>
                             <h4 class="is-required" style="color: rgb(0, 0, 0);">Codigo de verificacion {{ minutos
@@ -58,6 +59,12 @@
                                         *ngIf="form.get('codigo')?.invalid && form.get('codigo')?.touched || activate">
                                         <div class="error" *ngIf="form.get('codigo')?.hasError('required')">
                                             Codigo Requerido
+                                        </div>
+                                        <div class="error" *ngIf="form.get('codigo')?.hasError('minlength') ">
+                                            El codigo deve de ser de 6 caracteres
+                                        </div>
+                                        <div class="error" *ngIf="form.get('codigo')?.hasError('pattern') ">
+                                            Solo permite numeros
                                         </div>
                                     </div>
                                     <div class="col " style="align-items: center;margin-top: 30px;">

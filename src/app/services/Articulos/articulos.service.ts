@@ -38,7 +38,7 @@ export class ArticulosService {
     return this.http.delete<Product>(this.url2+id, { observe: 'response', headers: headers });
   }
 
-  getArticulo(id:string): Observable<HttpResponse<Product>> {
+  getArticulo(id:string,bandera?:boolean): Observable<HttpResponse<Product>> {
     const token = localStorage.getItem('token');
     let headers = new HttpHeaders()
       .set('Content-Type', 'application/json')
@@ -46,7 +46,7 @@ export class ArticulosService {
     const data= this.http.get<Product>(this.url2+id, { observe: 'response', headers: headers });
     data.subscribe((response:HttpResponse<any>)=>{
       if(response.statusText=="OK"){
-        this.DataArt=response.body
+        this.DataArt= {art:response.body,status:bandera}
       }
     })
     return data

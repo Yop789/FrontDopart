@@ -43,7 +43,7 @@ export class CodigoRecuperacionComponent implements OnInit {
           this.validatePassword,
         ]),
         validarContraseña: new FormControl('', [Validators.required]),
-        codigo: new FormControl('', [Validators.required]),
+        codigo: new FormControl('', [Validators.required,Validators.minLength(6),Validators.pattern('^[0-9]+$')]),
       },
       { validator: this.checkPasswords }
     );

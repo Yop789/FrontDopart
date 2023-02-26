@@ -18,11 +18,13 @@
 }
 .inLogin {
   border-radius: 5px;
-  border: 2px solid #374342;
+  border: none;
   outline: none;
-  height: 30px;
+  height: 50px;
   width: 100%;
-  text-indent: 10px;
+  border-bottom: 2px solid #3c3b3b;
+  text-indent: 16px;
+  box-shadow: 10px 10px 20px #888888;
 }
 .lbLogin{
     font-size: 15pt;

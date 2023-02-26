@@ -78,7 +78,7 @@ export class NuevoProductoComponent implements OnInit {
     });
   }
   editar(id: string) {
-    this.articulosService.getArticulo(id).subscribe(
+    this.articulosService.getArticulo(id,true).subscribe(
       (response: HttpResponse<any>) => {
         if (response.ok) {
           const l = this.dialog.open(AgregarArtirticulosComponent);
@@ -95,7 +95,24 @@ export class NuevoProductoComponent implements OnInit {
       }
     );
   }
-
+ detalles(id:string){
+  this.articulosService.getArticulo(id,false).subscribe(
+    (response: HttpResponse<any>) => {
+      if (response.ok) {
+        const l = this.dialog.open(AgregarArtirticulosComponent);
+        l.afterClosed().subscribe((result) => {
+          this.optenerArticulos()
+        });
+      }
+    },
+    (error) => {
+      this.conArticulos = true;
+      this.openDialogError(
+        'Lo siento, no se puede acceder a la base de datos en este momento. Por favor, inténtalo de nuevo más tarde o contáctanos para más información.'
+      );
+    }
+  );
+ }
   //Dialogos ---------------------------------------------------------------------------------------
   openDialog(texto: string): void {
     const dialogRef = this.dialog.open(SucetfullComponent, {

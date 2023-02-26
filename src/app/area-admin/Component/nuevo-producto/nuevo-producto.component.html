@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 
-<body style="background-color: rgb(0, 0, 0,.6)">
+<body style="background-color: transparent;">
     <div class="conteiner reguistro ">
         <div class="row justify-content-center ">
             <div class="row">
@@ -45,7 +45,7 @@
                                         </span>
                                     </mat-icon>
                                 </button>
-                                <button  class="btnAnimatio  TextoN btn">
+                                <button (click)="detalles(''+arti._id)" class="btnAnimatio  TextoN btn">
                                     <mat-icon>
                                         <span class="material-symbols-outlined">
                                             info
@@ -58,65 +58,6 @@
                     </div>
                 </div>
             </div>
-
-
-
-            <!-- <div class="col" id="table">
-                <div class="row" id="tableEncabesado">
-                    <div class="col">
-                        <div class="row">
-                            <div class="col-1">Núm</div>
-                            <div class="col">Nombre del producto</div>
-                            <div class="col">Descripción</div>
-                            <div class="col">Total en servicio</div>
-                            <div class="col">Precio</div>
-                            <div class="col">Acciones</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row " [hidden]="conArticulos" id="tableRow" *ngFor="let arti of articulos;let i = index">
-                    <div class="col-1">{{i+1}}</div>
-                    <div class="col">{{arti.nameProduct}}</div>
-                    <div class="col">{{arti.description}}</div>
-                    <div class="col">{{arti.totalService}}</div>
-                    <div class="col">${{arti.price}}</div>
-                    <div class="col">
-                        <button (click)="eliminar(''+arti._id)" class="btnAnimatio  TextoN btn">
-                            <mat-icon>
-                                <span class="material-symbols-outlined">
-                                    delete
-                                </span>
-                            </mat-icon>
-                        </button>
-                        <button  class="btnAnimatio  TextoN btn">
-                            <mat-icon>
-                                <span class="material-symbols-outlined">
-                                    edit
-                                </span>
-                            </mat-icon>
-                        </button>
-                        <button class="btnAnimatio  TextoN btn">
-                            <mat-icon>
-                                <span class="material-symbols-outlined">
-                                    info
-                                </span>
-                            </mat-icon>
-                        </button>
-                    </div>
-                </div>
-                <div class="row" [hidden]="!conArticulos" id="tableRow" style="height: 65vh;">
-                    <div class="col" style="text-align: center;">
-                        <p>NO HAY DATOS DE ARTICULO</p>
-                        <button class="btnAnimatio  TextoN btn">
-                            
-                                <i class="pi pi-database" style="font-size: 10rem"></i>
-                            
-                        </button>
-
-                    </div>
-
-                </div>
-            </div> -->
         </div>
     </div>
 

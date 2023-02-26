@@ -1,3 +1,4 @@
+import { CodigoAdminComponent } from './../codigo-admin/codigo-admin.component';
 import { RecupeContraComponent } from './../recupe-contra/recupe-contra.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
@@ -36,6 +37,10 @@ export class LogiComponent implements OnInit {
       this.iniciarSesionService
         .login(this.email, this.password).subscribe((response: HttpResponse<any>)=>{
           if (response.ok) {
+            let l=this.iniciarSesionService.decodificar(response.body.token)
+            if(l==="moderator" || l==="admin" ){
+              this.dialog.open(CodigoAdminComponent)
+            }
             this.cerrarDialog()
           } 
         },

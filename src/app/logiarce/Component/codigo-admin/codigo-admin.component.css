@@ -1,5 +1,5 @@
 .Login {  
-    height: 580px;
+    height: 450px;
     width: 350px;
     
     border-radius: 20px;
@@ -82,4 +82,3 @@
   .error{
     color: red;
   }
-  

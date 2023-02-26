@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container rtp textoMolde">
+        <div class="row justify-content-center ">
+            <div class="Login">
+                <div id="txtIS">
+                    Codigo de verificacion
+                </div>
+                <form [formGroup]="form">
+                    <div class="row conRecuperar">
+                        <div class="col" style="margin-top: 30px;">
+                            <h4 class="is-required" style="color: rgb(0, 0, 0);">Codigo de verificacion {{ minutos
+                                }}:{{segundos < 10 ? "0" + segundos : segundos }}</h4>
+                                    <div [hidden]="tiempo" style="margin-left: 40px;">
+
+                                        <label style="font-size: 20px;">DO-</label>
+                                        <input class="inRecuperarC" formControlName="codigo" maxlength="6" type="text">
+
+                                    </div>
+                                    <div *ngIf="form.get('codigo')?.invalid && form.get('codigo')?.touched || activate">
+                                        <div class="error" *ngIf="form.get('codigo')?.hasError('required')">
+                                            Codigo Requerido
+                                        </div>
+                                        <div class="error" *ngIf="form.get('codigo')?.hasError('minlength') ">
+                                            El codigo deve de ser de 6 caracteres numericos
+                                        </div>
+                                        <div class="error" *ngIf="form.get('codigo')?.hasError('pattern') ">
+                                            Solo permite numeros
+                                        </div>
+                                    </div>
+                                    <div class="col " style="align-items: center;margin-top: 30px;">
+                                        <button (click)="cancelar()" id="btnRecuperarCancelar">
+                                            cancelar
+                                        </button>
+                                        <button [hidden]="tiempo" (click)="ingresar()" id="btnRecuperar">
+                                            Recuperarla
+                                        </button>
+                                    </div>
+                        </div>
+                        <div>
+                        </div>
+                    </div>
+                </form>
+                <div class="row">
+                    <div id="fRecuperar">
+                        Este servisio tiene el objetibo de bridarte u servisio con el
+                        mas alto nivel de seguridad por lo que es nesesario logiarte,
+                        al igual que tienes mejores benefisios,. Grasias
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -23,12 +23,13 @@ import { HttpResponse } from '@angular/common/http';
 export class AgregarArtirticulosComponent implements OnInit {
   form: FormGroup;
   activate = false;
-  imag = '';
+  imag = '../assets/img/k.png';
   ts = true;
   id = ""
   files: any;
   nombreDisabled: any;
   editar = false;
+  detals= false;
   constructor(
     private formBuilder: FormBuilder,
     public dialog: MatDialog,
@@ -36,13 +37,13 @@ export class AgregarArtirticulosComponent implements OnInit {
     public dialogRef:MatDialogRef<AgregarArtirticulosComponent>
   ) {
     this.form = this.formBuilder.group({
-      nombre: new FormControl('', [Validators.required]),
-      descripción: new FormControl('', [Validators.required]),
-      totalArt: new FormControl('', [Validators.required, Validators.min(2)]),
-      totalSt: new FormControl('', [Validators.required, Validators.min(2)]),
-      totalSer: new FormControl('', [Validators.required, Validators.min(2)]),
-      preciArt: new FormControl('', [Validators.required, Validators.min(2)]),
-      select: new FormControl('Selecciona un typo', [this.validateSelect]),
+      nombre: new FormControl({ value: '', disabled: false }, [Validators.required]),
+      descripción: new FormControl({ value: '', disabled: false }, [Validators.required]),
+      totalArt: new FormControl({ value: '', disabled: false }, [Validators.required, Validators.min(2)]),
+      totalSt: new FormControl({ value: '', disabled: false }, [Validators.required, Validators.min(2)]),
+      totalSer: new FormControl({ value: '', disabled: false }, [Validators.required, Validators.min(2)]),
+      preciArt: new FormControl({ value: '', disabled: false }, [Validators.required, Validators.min(2)]),
+      select: new FormControl({ value: 'Selecciona un typo', disabled: false }, [this.validateSelect]),
       inputImg: new FormControl({ value: '', disabled: true }, [
         Validators.required,
       ]),
@@ -130,22 +131,38 @@ export class AgregarArtirticulosComponent implements OnInit {
   }
 
   set() {
-    const l: Product = this.articulosService.getDataArt();
+    const l = this.articulosService.getDataArt();
+    
     if (l) {
-      this.editar = true;
       this.form.reset({
-        nombre: l.nameProduct,
-        descripción: l.description,
-        totalArt: l.totalProduct,
-        totalSt: l.totalStock,
-        totalSer: l.totalService,
-        preciArt: l.price,
-        select: l.type,
-        totalSill: l.totalSillas
+        nombre: l.art.nameProduct,
+        descripción: l.art.description,
+        totalArt: l.art.totalProduct,
+        totalSt: l.art.totalStock,
+        totalSer: l.art.totalService,
+        preciArt: l.art.price,
+        select: l.art.type,
+        totalSill: l.art.totalSillas
       });
-      this.id =""+l._id
-      this.imag = environment.urlApi + '/' + l.imagePath;
+      this.id =""+l.art._id
+      this.imag = environment.urlApi + '/' + l.art.imagePath;
       this.form.get('inputImg')?.disable();
+      if(l.status){
+        this.editar = true;
+       
+      }else{
+        this.detals = true
+        this.form.get('nombre')?.disable();
+        this.form.get('descripción')?.disable();
+        this.form.get('totalArt')?.disable();
+        this.form.get('totalSt')?.disable();
+        this.form.get('totalSer')?.disable();
+        this.form.get('preciArt')?.disable();
+        this.form.get('select')?.disable();
+
+
+      }
+      
     } else {
       this.editar = false;
       this.form.get('inputImg')?.enable();

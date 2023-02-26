@@ -48,6 +48,7 @@ import { SucetfullComponent } from './Dalogos/Sucetfull/sucetfull/sucetfull.comp
 import { ErrorComponent } from './Dalogos/Error/error/error.component';
 import { PagPrincipalComponent } from './pag-principal/pag-principal.component';
 import { ConfirmarComponent } from './Dalogos/confirmar/confirmar.component';
+import { CodigoAdminComponent } from './logiarce/Component/codigo-admin/codigo-admin.component';
 
 
 
@@ -78,7 +79,8 @@ import { ConfirmarComponent } from './Dalogos/confirmar/confirmar.component';
     SucetfullComponent,
     ErrorComponent,
     PagPrincipalComponent,
-    ConfirmarComponent
+    ConfirmarComponent,
+    CodigoAdminComponent
 
   ],
   imports: [

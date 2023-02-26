@@ -10,22 +10,17 @@
   font-weight: bold;
 }
 .lbRegistro {
-  border: 2px solid #374342;
+  border: none;
   outline: none;
   height: 40px;
   width: 300px;
+  border-bottom: 2px solid #085851;
+  margin-bottom: 20px;
   text-indent: 10px;
-
+  box-shadow: 10px 10px 20px #888888;
 }
 .error{
   color: red;
-}
-.password-icon {
-  float: right;
-  width: 30px;
-  position: relative;
-  margin: -23px 16px 0 0;
-  cursor: pointer;
 }
 .btnRegistro{
     height: 30px;
