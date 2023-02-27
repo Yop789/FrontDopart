@@ -22,12 +22,15 @@ export class ArticulosService {
       headers: header,
     });
   }
-  postNewArticulo(articulo: any): Observable<HttpResponse<Product>> {
+  postNewArticulo(articulo: Product): Observable<HttpResponse<Product>> {
     const token = localStorage.getItem('token');
+    const fb=new FormData();
+     fb.append('imagePath',''+articulo.imagePath);
+
     let headers = new HttpHeaders()
       .set('Content-Type', 'application/json')
       .set('x-access-token', `${token}`);
-    return this.http.post<Product>(this.url1, articulo, { observe: 'response', headers: headers });
+    return this.http.post<any>(this.url1, articulo, { observe: 'response', headers: headers });
   }
 
   deleteArticulo(id:string): Observable<HttpResponse<Product>> {

@@ -53,7 +53,9 @@ export class SillaComponent implements OnInit {
 
     private breadcrumbService:BreadcrumbService,
     private detalleService:DetalleService
-  ) {}
+  ) {
+    this.breadcrumbService.setBreadcrumb('Sillas','sillas')
+  }
 
   ngOnInit(): void {
     // this.getProductsType('silla');

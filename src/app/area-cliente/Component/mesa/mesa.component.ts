@@ -81,11 +81,13 @@ export class MesaComponent implements OnInit {
     private router: Router,
     private breadcrumbService: BreadcrumbService,
     private detalleService: DetalleService
-  ) {}
+  ) {
+    this.breadcrumbService.setBreadcrumb('Mesas', 'mesas');
+  }
 
   ngOnInit(): void {
     // this.getProductsType('mesa');
-    this.breadcrumbService.setBreadcrumb('Mesas', 'mesas');
+    
   }
   // getProductsType(typ: string) {
   //   const type: Type = {

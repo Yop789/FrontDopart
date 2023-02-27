@@ -30,12 +30,13 @@ export class AppComponent implements OnInit, DoCheck {
   breadcrumb: any = [];
   constructor(
     private router: Router,
-    private breadcrumbService: BreadcrumbService,
     private ini: IniciarSesionService,
     private controllerService: ControllerService,
-    private iniciarSesionService: IniciarSesionService
+    private iniciarSesionService: IniciarSesionService,
+    private breadcrumbService:BreadcrumbService
   ) {}
   ngDoCheck() {
+    
     this.breadcrumb = this.breadcrumbService.getBreadcrumb();
   }
 
@@ -45,7 +46,6 @@ export class AppComponent implements OnInit, DoCheck {
       this.admin = data.admin;
       this.iniciar = data.sinSesion;
     });
-    this.breadcrumbService.setBreadcrumb('Principal', 'principal');
     const token = `${localStorage.getItem('token')}`;
     const decodedToken: any = jwt_decode.default(token);
     if (decodedToken.roles[0] == 'user') {

@@ -129,7 +129,8 @@ footer {
   width: 120px;
     height: 30px;
     text-align: center;
-    background: #374342;
+    background: #ffffff;
+    border: 2px solid black ;
     margin-right: 2px;
     -webkit-transition: all .5s ease-out;
     -moz-transition: all .5s ease-out;

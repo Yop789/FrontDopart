@@ -33,6 +33,7 @@ export class DetallesComponent implements OnInit, DoCheck {
     this.detalleService.listen().subscribe((date:any)=>{
       this.product=date.products.product
     })
+    this.breadcrumbService.setBreadcrumb('Detalles del producto','details');
   }
   ngDoCheck(): void {
     
@@ -40,7 +41,7 @@ export class DetallesComponent implements OnInit, DoCheck {
 
   ngOnInit() {
     
-    this.breadcrumbService.setBreadcrumb('Detalles del producto','details');
+   
   }
   // mas() {
   //   this.cantidad = Number(this.cantidad) + 1;

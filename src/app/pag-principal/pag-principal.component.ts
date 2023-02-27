@@ -12,10 +12,11 @@ export class PagPrincipalComponent implements OnInit {
     private BreadcrumbService:BreadcrumbService
   ) { 
     this.BreadcrumbService.vaciarBreadcrumb()
-    this.BreadcrumbService.setBreadcrumb('Inicio','principal')
+    this.BreadcrumbService.setBreadcrumb('Principal','principal')
   }
 
   ngOnInit(): void {
   }
-
+  
+  
 }

@@ -16,12 +16,13 @@
   <div class="container textoMolde" style="margin-bottom: 200px;">
     <div class="row">
       <div class="col " style="margin-top: 100px;">
-        <div id="miDiv" class="breadcrumb">
+        <div id="miDiv" class="breadcrumb" >
           <p class="shape d-flex align-items-center arrow-chevron to-right " *ngFor="let Migagas of breadcrumb"
             style="display: inline-block; cursor: pointer;font-size: 16px; text-indent: 15px; " (click)="mostrarCatalogo(Migagas.url)">
             {{ Migagas.nombre }}
           </p>
         </div>
+        
         <router-outlet></router-outlet>
       </div>
     </div>

@@ -51,11 +51,13 @@ export class InflableComponent implements OnInit {
     
     private breadcrumbService: BreadcrumbService,
     private detalleService:DetalleService
-  ) {}
+  ) {
+    this.breadcrumbService.setBreadcrumb('Inflables','inflables');
+  }
 
   ngOnInit(): void {
     this.getProductsType('inflable');
-    this.breadcrumbService.setBreadcrumb('Inflables','inflables');
+    
   }
   getProductsType(typ: string) {
     const type: Type = {

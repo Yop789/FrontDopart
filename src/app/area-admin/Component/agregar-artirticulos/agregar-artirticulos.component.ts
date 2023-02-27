@@ -26,7 +26,7 @@ export class AgregarArtirticulosComponent implements OnInit {
   imag = '../assets/img/k.png';
   ts = true;
   id = ""
-  files: any;
+  files!: File;
   nombreDisabled: any;
   editar = false;
   detals= false;
@@ -116,7 +116,8 @@ export class AgregarArtirticulosComponent implements OnInit {
         totalService: totalSer,
         type:select,
         price: preciArt,
-        totalSillas: totalSill + 0
+        totalSillas: totalSill + 0,
+        imagePath:this.files
       };
       if(this.editar){
         this.metodoEditar(articulo)
@@ -190,7 +191,7 @@ export class AgregarArtirticulosComponent implements OnInit {
       (response: HttpResponse<Product>) => {
         if (response.ok) {
           this.openDialog(
-            '¡Bienvenido! Ahora puedes explorar nuestro catálogo y reservar para tu próxima fiesta.'
+            'Se a aguardado correctamente en la base de datos'
           );
         }
       },
@@ -202,7 +203,7 @@ export class AgregarArtirticulosComponent implements OnInit {
           });
         }
         this.openDialogError(
-          'Lo siento, ese correo ya está registrado. Intenta iniciar sesión o contáctanos para más ayuda.'
+          'Lo siento, a sucedido un error al momento de guardar el articulo intentelo de nuevo o contacte al administrador '
         );
         console.log(error);
       }

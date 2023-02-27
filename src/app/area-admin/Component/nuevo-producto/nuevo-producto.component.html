@@ -15,18 +15,18 @@
                 <div class="col colTextReg">
                     <h1 style="color: whitesmoke;align-items: center;">
                         <p>Artículos <button (click)="agregarArticulos()" class="btnAnimatio"
-                                style="background-color:#e6b400;">Agregar Productos</button> </p>
+                                style="background-color:#374342; border: 2px solid white;">Agregar Productos</button> </p>
                     </h1>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container" style="max-width: none;">
+    <div class="container textoMolde" style="max-width: none; color: white;">
         <div class="row  justify-content-center">
-            <div class="card text-bg-dark mb-3 border-light mb-3" *ngFor="let arti of articulos;" style="width: 18rem;">
-                <img [src]="urlIm+arti.imagePath" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">{{arti.nameProduct+"$"+arti.price}}</h5>
+            <div class="card mb-3 border-light mb-3" *ngFor="let arti of articulos;" style="width: 18rem; background-color: rgba(55, 67, 66,.8) ; ">
+                <img [src]="urlIm+arti.imagePath" class="card-img-top" alt="..." style="margin-top: 15px;">
+                <div class="card-body" >
+                    <h5 style="color: white;">{{arti.nameProduct+"$"+arti.price}}</h5>
                     <p class="card-text">{{arti.description}}</p>
                     <div class="card-footer">
                         <div class="row">

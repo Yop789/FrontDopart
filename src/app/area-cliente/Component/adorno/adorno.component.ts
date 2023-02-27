@@ -61,11 +61,13 @@ export class AdornoComponent implements OnInit {
     private router: Router,
     private breadcrumbService: BreadcrumbService,
     private detalleService:DetalleService
-  ) {}
+  ) {
+    this.breadcrumbService.setBreadcrumb('Adornos','adornos');
+  }
 
   ngOnInit(): void {
     this.getProductsType('adorno');
-    this.breadcrumbService.setBreadcrumb('Adornos','adornos');
+    
   }
   getProductsType(typ: string) {
     const type: Type = {
