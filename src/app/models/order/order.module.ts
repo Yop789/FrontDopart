@@ -1,30 +1,29 @@
 export interface Order {
-  IdCustomer: string,
-  Status: string;
-  FullNameUser: string;
-  Paid: boolean;
-  Municipio: string;
-  Comunidad: string;
-  Calle: string;
-  Numero: string;
-  Email: string;
-  
-  Telefone: string;
-  DateDeliver: Date;
-  DateEvent: Date;
-  DateReturn: Date;
-  Dias: Number;
-  TotalPrecio: number;
+  idUser: string,
+  status:string,
+  fullNameUser: string,
+  paid: boolean,
+  municipio:string,
+  comunidad: string,
+  calle:string,
+  numero:string,
+  email:string,
+  telefono:string,
+  dateDeliver:Date,
+  dateEvent:Date,
+  dateReturn: Date,
+  days: number,
+  totalPrecio: number,
   Products: OrderProduct[];
 }
 export interface OrderProduct {
   _id?: string;
-  IdProducts: string;
-  Name: string;
-  Description: string;
-  Amount: number;
-  Total: number;
-  UrlImage: string;
+  idProduct: string,
+  nameProduct: string,
+  description:string,
+  amount:number,
+  total: number,
+  urlImage: string
 }
 export interface Dta{
   dias: number;

@@ -46,7 +46,7 @@ export class ControllerService {
 
   addEvent(event: OrderProduct) {
     var elementIndex = this.events.list.findIndex(
-      (obj) => obj.IdProducts == event.IdProducts
+      (obj) => obj.idProduct== event.idProduct
     );
     if (elementIndex > -1) {
       this.updateEvent(elementIndex, event);
@@ -63,7 +63,7 @@ export class ControllerService {
     let elementIndex = 0;
     if (this.events.list.length > 0) {
       this.events.list.forEach((element) => {
-        if (element.IdProducts === Id) {
+        if (element.idProduct === Id) {
           this.events.delete(elementIndex);
         }
         elementIndex++;
@@ -122,8 +122,8 @@ export class ControllerService {
     let sumaCostos = 0;
     let cantidadItem = 0;
     for (const producto of this.events.list) {
-      sumaCostos += producto.Total;
-      cantidadItem += producto.Amount;
+      sumaCostos += producto.total;
+      cantidadItem += producto.amount;
     }
     this.costoOrder.next({ sumaCostos, cantidadItem });
   }

@@ -10,6 +10,7 @@ import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 export class ArticulosService {
   private url1= `${environment.urlApi}/products`
   private url2= `${environment.urlApi}/product/`
+  private url3 = `${environment.urlApi}/carrucel`
   private DataArt:any 
   constructor(private http: HttpClient) { }
 
@@ -66,5 +67,12 @@ export class ArticulosService {
       .set('Content-Type', 'application/json')
       .set('x-access-token', `${token}`);
     return this.http.put<Product>(this.url2+id,artculo, { observe: 'response', headers: headers });
+  }
+  getCarrucel(): Observable<HttpResponse<Product>>{
+    const token = localStorage.getItem('token');
+    let headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('x-access-token', `${token}`);
+    return this.http.get<Product>(this.url3, { observe: 'response', headers: headers });
   }
 }

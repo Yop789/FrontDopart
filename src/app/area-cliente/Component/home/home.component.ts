@@ -1,9 +1,11 @@
+import { ArticulosService } from './../../../services/Articulos/articulos.service';
 import { DetalleService } from './../../../services/Detalles/detalle.service';
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { Product, Type } from 'src/app/models/product/product.module';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { BreadcrumbService } from 'src/app/services/breadcrumb.service';
+import { HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -12,8 +14,8 @@ import { BreadcrumbService } from 'src/app/services/breadcrumb.service';
 })
 export class HomeComponent implements OnInit, DoCheck {
   secretKey = 'YourSecretKeyForEncryption&Descryption';
-  url = environment.urlImagen;;
-  
+  url = `${environment.urlApi}/`;
+  carrucel:Product[]=[];
   silla: Product[] = [];
   sillaRandom: Product[] = [];
   sillas: Product[] = [];
@@ -27,11 +29,13 @@ export class HomeComponent implements OnInit, DoCheck {
   constructor(
     private router: Router,
     private breadcrumbService: BreadcrumbService,
-    private detalleService:DetalleService
+    private detalleService:DetalleService,
+    private articulosService:ArticulosService
     
   ) {
     this.breadcrumbService.vaciarBreadcrumb()
     this.breadcrumbService.setBreadcrumb('Home','home');
+    this.getcarrucel()
   }
 
   ngOnInit() {
@@ -126,5 +130,10 @@ export class HomeComponent implements OnInit, DoCheck {
     this.detalleService.emit(id)
     localStorage.setItem('idProduct', id);
     this.router.navigateByUrl('/details')
+  }
+  getcarrucel(){
+    this.articulosService.getCarrucel().subscribe((response: HttpResponse<any>)=>{
+      this.carrucel=response.body
+    })
   }
 }

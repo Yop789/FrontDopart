@@ -9,6 +9,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { environment } from 'src/environments/environment';
 import { BreadcrumbService } from 'src/app/services/breadcrumb.service';
 import { LogiComponent } from 'src/app/logiarce/Component/logi/logi.component';
+import { OrderProduct } from 'src/app/models/order/order.module';
 @Component({
   selector: 'app-detalles',
   templateUrl: './detalles.component.html',
@@ -17,7 +18,7 @@ import { LogiComponent } from 'src/app/logiarce/Component/logi/logi.component';
 
 export class DetallesComponent implements OnInit, DoCheck {
   cantidad = 0;
-  url = environment.urlImagen;
+  url = `${environment.urlApi}/`;
   product!: Product;
   value: any;
   total = 0;
@@ -31,7 +32,9 @@ export class DetallesComponent implements OnInit, DoCheck {
     private dialog:MatDialog
   ) {
     this.detalleService.listen().subscribe((date:any)=>{
-      this.product=date.products.product
+      
+      this.product=date.cp
+      console.log(this.product)
     })
     this.breadcrumbService.setBreadcrumb('Detalles del producto','details');
   }
@@ -43,45 +46,45 @@ export class DetallesComponent implements OnInit, DoCheck {
     
    
   }
-  // mas() {
-  //   this.cantidad = Number(this.cantidad) + 1;
-  //   this.total = Number(this.cantidad) * this.product.Price;
-  // }
-  // menos() {
-  //   if (this.cantidad >= 1) {
-  //     this.cantidad = Number(this.cantidad) - 1;
-  //     this.total = Number(this.cantidad) * this.product.Price;
-  //   }
-  // }
+  mas() {
+    this.cantidad = Number(this.cantidad) + 1;
+    this.total = Number(this.cantidad) * this.product.price;
+  }
+  menos() {
+    if (this.cantidad >= 1) {
+      this.cantidad = Number(this.cantidad) - 1;
+      this.total = Number(this.cantidad) * this.product.price;
+    }
+  }
 
-  // resume() {
-  //   this.total = Number(this.cantidad) * this.product.Price;
-  // }
+  resume() {
+    this.total = Number(this.cantidad) * this.product.price;
+  }
 
-  // agregarCart() {
-  //   const id = localStorage.getItem('IdClient')
-  //   if(id!=''){
-  //   if (this.cantidad >= 1) {
-  //     const pr = this.product;
-  //     const cart: OrderProduct = {
-  //       IdProducts: '' + this.idProduct,
-  //       Amount: this.cantidad,
-  //       Name: pr.Name,
-  //       Description: pr.Description,
-  //       Total: this.total,
-  //       UrlImage: pr.imagePath,
-  //     };
-  //     this.processPaymentService.addEvent(cart);
-  //     if (this.product.TotalStock < Number(this.cantidad)) {
-  //       this.alert('solo se le pueden ofrecer ' + this.product.TotalStock);
-  //       this.cantidad = Number(this.product.TotalStock);
-  //     }
-  //   } else
-  //     this.alert(
-  //       'No se puede agregar al camioncito si no son mas de una pieza'
-  //     );
-  //   }else this.btnIniciarSesion()
-  // }
+  agregarCart() {
+    const id = localStorage.getItem('IdClient')
+    if(id!=''){
+    if (this.cantidad >= 1) {
+      const pr = this.product;
+      const cart: OrderProduct = {
+        idProduct: ''+this.product._id,
+        nameProduct: ''+this.product.nameProduct,
+        description: ''+this.product.description,
+        amount: this.cantidad,
+        total: this.total,
+        urlImage:''+this.product.imagePath 
+      };
+      this.processPaymentService.addEvent(cart);
+      if (this.product.totalStock < Number(this.cantidad)) {
+        this.alert('solo se le pueden ofrecer ' + this.product.totalStock);
+        this.cantidad = Number(this.product.totalStock);
+      }
+    } else
+      this.alert(
+        'No se puede agregar al camioncito si no son mas de una pieza'
+      );
+    }else this.btnIniciarSesion()
+  }
   alert(text: string) {
     this.snackBar.open('' + text, '', {
       duration: 3000,

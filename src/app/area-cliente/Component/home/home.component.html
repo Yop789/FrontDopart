@@ -22,36 +22,36 @@
               <button type="button" data-bs-target="#header-carousel" data-bs-slide-to="2"></button>
             </div>
             <div class="carousel-inner">
-              <div class="carousel-item active" style="height: 430px;">
-                <img>
+              <div class="carousel-item active" style="height: 430px; text-align: center;">
+                <img [src]="url+carrucel[0].imagePath"  style="height: 100%;">
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                   <div class="p-3" style="max-width: 700px;">
-                    <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown"></h1>
+                    <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">{{ carrucel[0].nameProduct }}</h1>
                     <p class="mx-md-5 px-5 animate__animated animate__bounceIn"></p>
-                    <button class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp"
+                    <button (click)="detalles(''+carrucel[0]._id)" class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp"
                       style="border-radius: 10px;">Rentar</button>
                   </div>
                 </div>
               </div>
-              <div class="carousel-item" style="height: 430px;">
-                <img>
+              <div class="carousel-item"  style="height: 430px; text-align: center;">
+                <img [src]="url+carrucel[1].imagePath"  style="height: 100%;">
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                   <div class="p-3" style="max-width: 700px;">
                     <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">
                     </h1>
-                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn"></p>
-                    <button class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp"
+                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">{{ carrucel[1].nameProduct }}</p>
+                    <button (click)="detalles(''+carrucel[1]._id)" class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp"
                       style="border-radius: 10px;">Rentar</button>
                   </div>
                 </div>
               </div>
-              <div class="carousel-item" style="height: 430px;">
-                <img>
+              <div class="carousel-item" style="height: 430px; text-align: center;">
+                <img [src]="url+carrucel[2].imagePath"  style="height: 100%;">
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                   <div class="p-3" style="max-width: 700px;">
-                    <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown"></h1>
+                    <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">{{ carrucel[2].nameProduct }}</h1>
                     <p class="mx-md-5 px-5 animate__animated animate__bounceIn"></p>
-                    <button class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp"
+                    <button (click)="detalles(''+carrucel[2]._id)" class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp"
                       style="border-radius: 10px;">Rentar</button>
                   </div>
                 </div>
@@ -79,38 +79,38 @@
               <button type="button" data-bs-target="#header-carousel" data-bs-slide-to="2"></button>
             </div>
             <div class="carousel-inner">
-              <div class="carousel-item active" style="height: 430px;" (click)="detalles('' + sillaRandom[0]._id)">
-                <img [src]="url+sillaRandom[0].imagePath">
+              <div class="carousel-item active" style="height: 430px; text-align: center;" (click)="detalles('' + sillaRandom[0]._id)">
+                <img [src]="url+carrucel[0]"  [src]="url+sillaRa style="height: 100%;"ndom[0].imagePath">
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                   <div class="p-3" style="max-width: 700px;">
                     <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">{{ sillaRandom[0].nameProduct
                       }}</h1>
                     <p class="mx-md-5 px-5 animate__animated animate__bounceIn">{{ sillaRandom[0].description }}</p>
-                    <button class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp"
+                    <button (click)="detalles(''+carrucel[0]._id)" class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp"
                       style="border-radius: 10px;">Rentar</button>
                   </div>
                 </div>
               </div>
-              <div class="carousel-item" style="height: 430px;" (click)="detalles('' + mesaRandom[0]._id)">
-                <img [src]="url+mesaRandom[0].imagePath">
+              <div class="carousel-item" style="height: 430px; text-align: center;" (click)="detalles('' + mesaRandom[0]._id)">
+                <img [src]="url+carrucel[0]"  [src]="url+ style="height: 100%;"mesaRandom[0].imagePath">
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                   <div class="p-3" style="max-width: 700px;">
                     <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">{{ mesaRandom[0].nameProduct }}
                     </h1>
                     <p class="mx-md-5 px-5 animate__animated animate__bounceIn">{{ mesaRandom[0].description }}</p>
-                    <button class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp"
+                    <button (click)="detalles(''+carrucel[0]._id)" class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp"
                       style="border-radius: 10px;">Rentar</button>
                   </div>
                 </div>
               </div>
-              <div class="carousel-item" style="height: 430px;" (click)="detalles('' + adornoRandom[0]._id)">
-                <img [src]="url+adornoRandom[0].imagePath">
+              <div class="carousel-item" style="height: 430px; text-align: center;" (click)="detalles('' + adornoRandom[0]._id)">
+                <img [src]="url+carrucel[0]"  [src]="url+ style="height: 100%;"adornoRandom[0].imagePath">
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                   <div class="p-3" style="max-width: 700px;">
                     <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">{{ adornoRandom[0].nameProduct
                       }}</h1>
                     <p class="mx-md-5 px-5 animate__animated animate__bounceIn">{{ adornoRandom[0].description }}</p>
-                    <button class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp"
+                    <button (click)="detalles(''+carrucel[0]._id)" class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp"
                       style="border-radius: 10px;">Rentar</button>
                   </div>
                 </div>
@@ -120,7 +120,7 @@
         </div>
         <div class="col-lg-4">
           <div class="product-offer mb-30" style="height: 200px;" (click)="detalles('' + mesaRandom[0]._id)">
-            <img class="img-fluid" [src]="url+mesaRandom[0].imagePath" alt="">
+            <img [src]="url+carrucel[0]"  class="img [src]="url+carrucel[0]" -fluid" [src]="url+mesaRandom[0].imagePath" alt="">
             <div class="offer-text">
               <h6 class="text-white text-uppercase">{{ mesaRandom[0].description }}</h6>
               <h3 class="text-white mb-3">{{ mesaRandom[0].nameProduct }}</h3>
@@ -128,7 +128,7 @@
             </div>
           </div>
           <div class="product-offer mb-30" style="height: 200px;" (click)="detalles('' + adornoRandom[0]._id)">
-            <img class="img-fluid" [src]="url+adornoRandom[0].imagePath" alt="">
+            <img [src]="url+carrucel[0]"  class="img [src]="url+carrucel[0]" -fluid" [src]="url+adornoRandom[0].imagePath" alt="">
             <div class="offer-text">
               <h6 class="text-white text-uppercase">{{ adornoRandom[0].description }}</h6>
               <h3 class="text-white mb-3">{{ adornoRandom[0].nameProduct }}</h3>
@@ -144,8 +144,8 @@
       <div class="row px-xl-5">
         <div *ngFor="let prod of silla" class="col-lg-3 col-md-4 col-sm-6 pb-1">
           <div class="product-item bg-light mb-4" (click)="detalles('' + prod._id)">
-            <div class="product-img position-relative overflow-hidden">
-              <img [src]="url+prod.imagePath" class="img-fluid w-100" alt="" />
+            <div class="product-img [src]="url+carrucel[0]"  position-relative overflow-hidden">
+              <img [src]="url+carrucel[0]"  [src]="url+prod.imagePath" class="img [src]="url+carrucel[0]" -fluid w-100" alt="" />
               <div class="product-action">
                 <a class="btn btn-outline-dark" style="border-radius: 10px;">Ver
                   Detalles&nbsp;&nbsp;&nbsp;<i class="fa fa-search"></i></a>
@@ -170,8 +170,8 @@
       <div class="row px-xl-5">
         <div *ngFor="let prod of _mesa" class="col-lg-3 col-md-4 col-sm-6 pb-1">
           <div class="product-item bg-light mb-4" (click)="detalles('' + prod._id)">
-            <div class="product-img position-relative overflow-hidden">
-              <img [src]="url+prod.imagePath" class="img-fluid w-100" alt="" />
+            <div class="product-img [src]="url+carrucel[0]"  position-relative overflow-hidden">
+              <img [src]="url+carrucel[0]"  [src]="url+prod.imagePath" class="img [src]="url+carrucel[0]" -fluid w-100" alt="" />
               <div class="product-action">
                 <a class="btn btn-outline-dark" style="border-radius: 10px;">Ver
                   Detalles&nbsp;&nbsp;&nbsp;<i class="fa fa-search"></i></a>
@@ -197,8 +197,8 @@
       <div class="row px-xl-5">
         <div *ngFor="let prod of adorno" class="col-lg-3 col-md-4 col-sm-6 pb-1">
           <div class="product-item bg-light mb-4" (click)="detalles('' + prod._id)">
-            <div class="product-img position-relative overflow-hidden">
-              <img [src]="url+prod.imagePath" class="img-fluid w-100" alt="" />
+            <div class="product-img [src]="url+carrucel[0]"  position-relative overflow-hidden">
+              <img [src]="url+carrucel[0]"  [src]="url+prod.imagePath" class="img [src]="url+carrucel[0]" -fluid w-100" alt="" />
               <div class="product-action">
                 <a class="btn btn-outline-dark" style="border-radius: 10px;">Ver
                   Detalles&nbsp;&nbsp;&nbsp;<i class="fa fa-search"></i></a>

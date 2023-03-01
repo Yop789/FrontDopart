@@ -24,27 +24,27 @@
                             <div class="d-flex justify-content-between">
                                 <div class="d-flex flex-row align-items-center">
                                     <div>
-                                        <img [src]="url+item.UrlImage" class="img-fluid rounded-3" alt="Shopping item"
+                                        <img [src]="url+item.urlImage" class="img-fluid rounded-3" alt="Shopping item"
                                             style="width: 65px" />
                                     </div>
                                     <div class="ms-3">
-                                        <h5>{{ item.Name }}</h5>
-                                        <p class="small mb-0">{{ item.Description }}</p>
+                                        <h5>{{ item.nameProduct }}</h5>
+                                        <p class="small mb-0">{{ item.description }}</p>
                                     </div>
                                 </div>
                                 <div class="d-flex flex-row align-items-center">
                                     <div style="width: 50px">
-                                        <h5 class="fw-normal mb-0">{{ item.Amount }}</h5>
+                                        <h5 class="fw-normal mb-0">{{ item.amount }}</h5>
                                     </div>
                                     <div style="width: 80px">
-                                        <h5 class="mb-0">${{ item.Total }}</h5>
+                                        <h5 class="mb-0">${{ item.total }}</h5>
                                     </div>
-                                    <button class="btnAnimatio" (click)="detalle(item.IdProducts)" style="color: #cecece;  border: none">
+                                    <button class="btnAnimatio" (click)="detalle(item.idProduct)" style="color: #cecece;  border: none">
                                         <i data-bs-dismiss="offcanvas" 
                                             class="fas fa-pencil-alt"></i>
                                     </button>
-                                    <button class="btnAnimatio" (click)="detalle(item.IdProducts)" style="color: #cecece;  border: none">
-                                        <i (click)="eliminar(item.IdProducts)" class="fas fa-trash-alt"></i>
+                                    <button class="btnAnimatio" (click)="detalle(item.idProduct)" style="color: #cecece;  border: none">
+                                        <i (click)="eliminar(item.idProduct)" class="fas fa-trash-alt"></i>
                                     </button>
                                 </div>
                             </div>
