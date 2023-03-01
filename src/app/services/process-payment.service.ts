@@ -106,22 +106,22 @@ export class ProcessPaymentService {
           this.user = localStorage.getItem('user') + '';
           if (details) {
             const data: Order = {
-              Status: 'En proseso',
-              FullNameUser: this.nombre,
-              Paid: true,
-              Municipio: this.municipio,
-              Comunidad: this.comunidad,
-              Numero: this.numero,
-              Email: this.e_mail,
-              Telefone: this.tel,
-              DateDeliver: this.dateDeliver,
-              DateReturn: this.rangeDates,
+              status: 'En proseso',
+              fullNameUser: this.nombre,
+              paid: true,
+              municipio: this.municipio,
+              comunidad: this.comunidad,
+              numero: this.numero,
+              email: this.e_mail,
+              telefono: this.tel,
+              dateDeliver: this.dateDeliver,
+              dateReturn: this.rangeDates,
               Products: this.cargaProduct,
-              IdCustomer: this.user,
-              Dias: this.dias,
-              TotalPrecio: this.totalPrecio,
-              Calle: this.calle,
-              DateEvent: this.dateEvent,
+              idUser: this.user,
+              days: this.dias,
+              totalPrecio: this.totalPrecio,
+              calle: this.calle,
+              dateEvent: this.dateEvent,
             };
             this.mensajesService.showConfirm();
             this.orderService.postOrder(data).subscribe((mesaje: any) => {
