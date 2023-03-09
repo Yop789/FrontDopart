@@ -42,6 +42,17 @@
 .btnAnimatio:active{
   transform: scale(0.95);
 }
+.error{
+  border: none;
+  outline: none;
+  height: 40px;
+  width: 100%;
+  border-bottom: 2px solid #fd0707;
+  margin-bottom: 20px;
+  text-indent: 10px;
+  box-shadow: 10px 10px 20px #888888;
+ 
+}
 
 
 /* You can add global styles to this file, and also import other style files */

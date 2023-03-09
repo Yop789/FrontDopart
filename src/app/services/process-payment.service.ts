@@ -1,3 +1,4 @@
+import { DatapagoService } from './DataPago/datapago.service';
 import { MensajesService } from './mensajes.service';
 import { Injectable } from '@angular/core';
 import { ICreateOrderRequest, IPayPalConfig } from 'ngx-paypal';
@@ -11,6 +12,7 @@ import { UpdateCartProductsService } from './cars-services/updateCartProducts.se
 import { ControllerService } from './cart/controller.service';
 import { CartComponent } from '../area-cliente/Component/cart/cart.component';
 import { MatDialog } from '@angular/material/dialog';
+import * as jwt_decode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root',
@@ -39,9 +41,13 @@ export class ProcessPaymentService {
     private mensajesService: MensajesService,
     private controllerService: ControllerService,
     private dialog: MatDialog,
+    private datapagoService:DatapagoService
   ) {
     this.controllerService.getCostOrder().subscribe((date: any) => {
       this.totalPrecio = date.sumaCostos;
+    });
+    this.controllerService.events$.subscribe((events) => {
+      this.cargaProduct = events.list;
     });
   }
   setDate(date: Dta) {
@@ -102,26 +108,33 @@ export class ProcessPaymentService {
         // );
         
         actions.order.get().then((details: any) => {
-          this.e_mail = localStorage.getItem('e_mail') + '';
-          this.user = localStorage.getItem('user') + '';
+          const token = `${localStorage.getItem('token')}`;
+          const decodedToken: any = jwt_decode.default(token);
+          const dataCli=this.datapagoService.getDatasclient();
+          const today = new Date(dataCli.fecha) // Obtener la fecha actual
+          today.setDate(today.getDate() + 1);
+
+          const ayer = new Date(dataCli.fecha)
+          ayer.setDate(today.getDate() -1);
+
           if (details) {
             const data: Order = {
               status: 'En proseso',
-              fullNameUser: this.nombre,
+              fullNameUser: dataCli.nombre,
               paid: true,
-              municipio: this.municipio,
-              comunidad: this.comunidad,
-              numero: this.numero,
-              email: this.e_mail,
-              telefono: this.tel,
-              dateDeliver: this.dateDeliver,
-              dateReturn: this.rangeDates,
+              municipio: dataCli.municipio,
+              comunidad: dataCli.comunidad,
+              numero: dataCli.numero,
+              email: dataCli.email,
+              telefono: dataCli.tel,
+              dateDeliver: ayer,
+              dateReturn: today,
               Products: this.cargaProduct,
-              idUser: this.user,
-              days: this.dias,
+              idUser: decodedToken.id,
+              days: 1,
               totalPrecio: this.totalPrecio,
-              calle: this.calle,
-              dateEvent: this.dateEvent,
+              calle: dataCli.calle,
+              dateEvent: dataCli.fecha,
             };
             this.mensajesService.showConfirm();
             this.orderService.postOrder(data).subscribe((mesaje: any) => {

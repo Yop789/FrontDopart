@@ -15,37 +15,29 @@ import { OrderProduct } from 'src/app/models/order/order.module';
   templateUrl: './detalles.component.html',
   styleUrls: ['./detalles.component.css'],
 })
-
 export class DetallesComponent implements OnInit, DoCheck {
   cantidad = 0;
   url = `${environment.urlApi}/`;
   product!: Product;
   value: any;
   total = 0;
-  idProduct =  localStorage.getItem('idProduct');
+  idProduct = localStorage.getItem('idProduct');
   tr = this.idProduct;
   constructor(
     private snackBar: MatSnackBar,
     private processPaymentService: ControllerService,
     private breadcrumbService: BreadcrumbService,
-    private detalleService:DetalleService,
-    private dialog:MatDialog
+    private detalleService: DetalleService,
+    private dialog: MatDialog
   ) {
-    this.detalleService.listen().subscribe((date:any)=>{
-      
-      this.product=date.cp
-      console.log(this.product)
-    })
-    this.breadcrumbService.setBreadcrumb('Detalles del producto','details');
+    this.detalleService.listen().subscribe((date: any) => {
+      this.product = date.cp;
+    });
+    this.breadcrumbService.setBreadcrumb('Detalles', 'details');
   }
-  ngDoCheck(): void {
-    
-  }
+  ngDoCheck(): void {}
 
-  ngOnInit() {
-    
-   
-  }
+  ngOnInit() {}
   mas() {
     this.cantidad = Number(this.cantidad) + 1;
     this.total = Number(this.cantidad) * this.product.price;
@@ -62,37 +54,37 @@ export class DetallesComponent implements OnInit, DoCheck {
   }
 
   agregarCart() {
-    const id = localStorage.getItem('IdClient')
-    if(id!=''){
-    if (this.cantidad >= 1) {
-      const pr = this.product;
-      const cart: OrderProduct = {
-        idProduct: ''+this.product._id,
-        nameProduct: ''+this.product.nameProduct,
-        description: ''+this.product.description,
-        amount: this.cantidad,
-        total: this.total,
-        urlImage:''+this.product.imagePath 
-      };
-      this.processPaymentService.addEvent(cart);
-      if (this.product.totalStock < Number(this.cantidad)) {
-        this.alert('solo se le pueden ofrecer ' + this.product.totalStock);
-        this.cantidad = Number(this.product.totalStock);
-      }
-    } else
-      this.alert(
-        'No se puede agregar al camioncito si no son mas de una pieza'
-      );
-    }else this.btnIniciarSesion()
+    const id = localStorage.getItem('IdClient');
+    if (id != '') {
+      if (this.cantidad >= 1) {
+        const pr = this.product;
+        const cart: OrderProduct = {
+          idProduct: '' + this.product._id,
+          nameProduct: '' + this.product.nameProduct,
+          description: '' + this.product.description,
+          amount: this.cantidad,
+          total: this.total,
+          urlImage: '' + this.product.imagePath,
+        };
+        this.processPaymentService.addEvent(cart);
+        if (this.product.totalStock < Number(this.cantidad)) {
+          this.alert('solo se le pueden ofrecer ' + this.product.totalStock);
+          this.cantidad = Number(this.product.totalStock);
+        }
+      } else
+        this.alert(
+          'No se puede agregar al camioncito si no son mas de una pieza'
+        );
+    } else this.btnIniciarSesion();
   }
   alert(text: string) {
     this.snackBar.open('' + text, '', {
       duration: 3000,
     });
   }
-  btnIniciarSesion(){
+  btnIniciarSesion() {
     this.dialog.open(LogiComponent, {
-      panelClass: 'custom'
-    })
+      panelClass: 'custom',
+    });
   }
 }

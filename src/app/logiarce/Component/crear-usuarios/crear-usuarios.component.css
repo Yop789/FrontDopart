@@ -19,9 +19,18 @@
   text-indent: 10px;
   box-shadow: 10px 10px 20px #888888;
 }
-.error{
-  color: red;
+.errorR{
+  border: none;
+  outline: none;
+  height: 40px;
+  width: 300px;
+  border-bottom: 2px solid #fd0707;
+  margin-bottom: 20px;
+  text-indent: 10px;
+  box-shadow: 10px 10px 20px #888888;
+ 
 }
+
 .btnRegistro{
     height: 30px;
     outline: none;

@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { BreadcrumbService } from './services/breadcrumb.service';
 import * as jwt_decode from 'jwt-decode';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -33,8 +34,7 @@ export class AppComponent implements OnInit, DoCheck {
     private ini: IniciarSesionService,
     private controllerService: ControllerService,
     private iniciarSesionService: IniciarSesionService,
-    private breadcrumbService:BreadcrumbService
-  ) {}
+    private breadcrumbService:BreadcrumbService  ) {}
   ngDoCheck() {
     
     this.breadcrumb = this.breadcrumbService.getBreadcrumb();

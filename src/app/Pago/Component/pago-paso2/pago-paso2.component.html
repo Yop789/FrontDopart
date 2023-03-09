@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class=" Pago textoMolde">
+        <mat-dialog-content class="mat-typography conPago">
+            <h1 mat-dialog-title>
+                <div id="txtIS">
+                    Formulario de Order
+                </div>
+            </h1>
+            <div mat-dialog-content>
+                <form [formGroup]="FormPaso2">
+                    <div class="row">
+                        <div class="col">
+                            <label class="form-label lbLogin">Datos de Contacto</label>
+                            <div>
+                                <input formControlName="email" [ngClass]="{'inLogin': validator('email'), 'error': !validator('email')}" type="email" placeholder="Email">
+                            </div>
+                            <div>
+                                <input formControlName="tel"  [ngClass]="{'inLogin': validator('tel'), 'error': !validator('tel')}" class="inLogin" type="tel" placeholder="Agrega un telefono">
+                            </div>
+                            <label class="form-label lbLogin">Datos de orden</label>
+                            <div>
+                                <input formControlName="fecha"  [ngClass]="{'inLogin': validator('fecha'), 'error': !validator('fecha')}" class="inLogin" type="date" placeholder="fecha de evento">
+                            </div>
+                            
+                        </div>
+                    </div>
+                </form>
+                <div class="row">
+                    <div id="fLogin">
+                        Para poderte brindar el servicio tiene que llenar cada uno de los campos
+                        los cuales se estaran ocupando para poder realisarte tu entrega. Gracias
+                    </div>
+                </div>
+            </div>
+        </mat-dialog-content>
+        <div class="row">
+            <div class="col">
+                <hr>
+            </div>
+            <div class="col">
+                <hr style="color: #085851;height: 5px;">
+            </div>
+            <div class="col">
+                <hr>
+            </div>
+        </div>
+        <mat-dialog-actions align="end">
+            <button id="btnRegistRegistrarce" class="btnRegistro btnAnimatio" (click)="atras()">Atras</button>
+            <button mat-button mat-dialog-close id="btnRegistLimpiar btnAnimatio" class="btnRegistro">Cancelar</button>
+            <button id="btnRegistRegistrarce" class="btnRegistro btnAnimatio" (click)="siguiente()">Siguiente</button>
+        </mat-dialog-actions>
+    </div>
+</body>
+
+</html>

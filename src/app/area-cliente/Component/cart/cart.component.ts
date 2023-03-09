@@ -19,7 +19,7 @@ export class CartComponent implements OnInit {
   total = 0;
   precioOrder = 0;
   piezas = 0;
-  url = environment.urlImagen;
+  url = `${environment.urlApi}/`;
   public payPalConfig?: IPayPalConfig;
   constructor(
     private controllerService: ControllerService,
@@ -32,11 +32,8 @@ export class CartComponent implements OnInit {
   ) {
     this.controllerService.events$.subscribe((events) => {
       this.carga = events.list;
+      this.total = events.list.length 
     });
-    this.controllerService.listen().subscribe((date:any)=>{
-      this.total=date.items
-    })
-
     this.precioOrderCart();
   }
 

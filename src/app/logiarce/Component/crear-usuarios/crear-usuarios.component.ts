@@ -157,4 +157,18 @@ export class CrearUsuariosComponent implements OnInit {
       data: { texto: texto }
     });
   }
+  requerido(id:string){
+    const r= this.form.get(id)?.hasError('required')
+    const p= this.form.get(id)?.hasError('pattern')
+    const t = this.form.get(id)?.hasError('invalidPhoneNumber')
+    const f = this.form.get(id)?.hasError('invalidPassword')
+    const sim=this.form?.hasError('notSame')
+    if (!r && !p && !t && !f ) { 
+      if(id=='validarContraseña'){
+        if(!sim){
+          return true;
+        }return null;
+      }else return true;
+    } else return false;
+  }
 }

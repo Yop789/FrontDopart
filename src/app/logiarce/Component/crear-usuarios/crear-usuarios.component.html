@@ -24,24 +24,14 @@
                                     <div class="col">
 
                                         <input formControlName="nombre" type="text" id="inRegisNombre"
-                                            class="lbRegistro" placeholder="Nombre">
-                                        <div
-                                            *ngIf="form.get('nombre')?.invalid && form.get('nombre')?.touched || activate">
-                                            <div class="error" *ngIf="form.get('nombre')?.hasError('required')">
-                                                El nombre es requerido
-                                            </div>
-                                        </div>
+                                            [ngClass]="{'lbRegistro': requerido('nombre'), 'errorR': !requerido('nombre')}"
+                                            placeholder="Nombre">
                                     </div>
                                     <div class="col">
 
                                         <input formControlName="apellidos" type="text" id="inRegistApellidos"
-                                            class="lbRegistro" placeholder="Apellidos">
-                                        <div
-                                            *ngIf="form.get('apellidos')?.invalid && form.get('apellidos')?.touched || activate">
-                                            <div class="error" *ngIf="form.get('apellidos')?.hasError('required')">
-                                                El apellidoses requerido
-                                            </div>
-                                        </div>
+                                            [ngClass]="{'lbRegistro': requerido('apellidos'), 'errorR': !requerido('apellidos')}"
+                                            placeholder="Apellidos">
                                     </div>
                                 </div>
                             </div>
@@ -51,39 +41,23 @@
                             <div class="col">
 
                                 <input type="text" formControlName="municipio" id="inRegistMunicipio"
-                                    class="lbRegistro" placeholder="Municipio">
-                                <div
-                                    *ngIf="form.get('municipio')?.invalid && form.get('municipio')?.touched || activate">
-                                    <div class="error" *ngIf="form.get('municipio')?.hasError('required')">
-                                        El Municipio requerido
-                                    </div>
-                                </div>
+                                    [ngClass]="{'lbRegistro': requerido('municipio'), 'errorR': !requerido('municipio')}"
+                                    placeholder="Municipio">
                             </div>
                             <div class="col">
                                 <input type="text" formControlName="comunidad" id="inRegistComunidad"
-                                    class="lbRegistro" placeholder="Comunidad">
-                                <div
-                                    *ngIf="form.get('comunidad')?.invalid && form.get('comunidad')?.touched || activate">
-                                    <div class="error" *ngIf="form.get('comunidad')?.hasError('required')">
-                                        El comunidad requerido
-                                    </div>
-                                </div>
+                                    [ngClass]="{'lbRegistro': requerido('comunidad'), 'errorR': !requerido('comunidad')}"
+                                    placeholder="Comunidad">
                             </div>
                             <div class="col">
-                                <input type="text" formControlName="calle" id="inRegistCalle" class="lbRegistro" placeholder="Calle">
-                                <div *ngIf="form.get('calle')?.invalid && form.get('calle')?.touched || activate">
-                                    <div class="error" *ngIf="form.get('calle')?.hasError('required')">
-                                        El calle requerido
-                                    </div>
-                                </div>
+                                <input type="text" formControlName="calle" id="inRegistCalle"
+                                    [ngClass]="{'lbRegistro': requerido('calle'), 'errorR': !requerido('calle')}"
+                                    placeholder="Calle">
                             </div>
                             <div class="col">
-                                <input type="text" formControlName="num" id="inRegistNum" class="lbRegistro" placeholder="Num">
-                                <div *ngIf="form.get('num')?.invalid && form.get('num')?.touched || activate">
-                                    <div class="error" *ngIf="form.get('num')?.hasError('required')">
-                                        El num requerido
-                                    </div>
-                                </div>
+                                <input type="text" formControlName="num" id="inRegistNum"
+                                    [ngClass]="{'lbRegistro': requerido('num'), 'errorR': !requerido('num')}"
+                                    placeholder="Num">
                             </div>
                         </div>
                         <H3 style="color: black;">Datos de contacto</H3>
@@ -91,12 +65,13 @@
                             <div class="col">
 
                                 <input type="tel" maxlength="10" formControlName="telefono" id="inRegistTelefono"
-                                    class="lbRegistro" placeholder="Telefono">
+                                    [ngClass]="{'lbRegistro': requerido('telefono'), 'errorR': !requerido('telefono')}"
+                                    placeholder="Telefono">
                                 <div *ngIf="form.get('telefono')?.errors && form.get('telefono')?.touched || activate">
-                                    <div class="error" *ngIf="form.get('telefono')?.hasError('required')">
+                                    <div *ngIf="form.get('telefono')?.hasError('required')">
                                         El teléfono es requerido.
                                     </div>
-                                    <div class="error" *ngIf="form.get('telefono')?.hasError('invalidPhoneNumber')">
+                                    <div *ngIf="form.get('telefono')?.hasError('invalidPhoneNumber')">
                                         El teléfono debe tener 10 dígitos.
                                     </div>
                                 </div>
@@ -106,15 +81,9 @@
                         <div class="row">
                             <div class="col">
 
-                                <input type="email" formControlName="email" id="inRegistE-mail" class="lbRegistro" placeholder="E-mail">
-                                <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched || activate">
-                                    <div class="error" *ngIf="form.get('email')?.hasError('required')">
-                                        El email requerido
-                                    </div>
-                                    <div class="error" *ngIf="form.get('email')?.hasError('pattern')">
-                                        Por favor, ingrese un correo electrónico válido
-                                    </div>
-                                </div>
+                                <input type="email" formControlName="email" id="inRegistE-mail"
+                                    [ngClass]="{'lbRegistro': requerido('email'), 'errorR': !requerido('email')}"
+                                    placeholder="E-mail">
                             </div>
                         </div>
                         <div class="row">
@@ -123,52 +92,46 @@
                                     <div class="col">
                                         <input type="{{ showPassword ? 'text' : 'password' }}"
                                             formControlName="contraseña" id="inRegistContraseña"
-                                            class="lbRegistro" placeholder="Contraseña">
+                                            [ngClass]="{'lbRegistro': requerido('contraseña'), 'errorR': !requerido('contraseña')}"
+                                            placeholder="Contraseña">
                                         <div
                                             *ngIf="form.get('contraseña')?.invalid && form.get('contraseña')?.touched || activate">
-                                            <div class="error" *ngIf="form.get('contraseña')?.hasError('required')">
-                                                La contraseña es requerida
-                                            </div>
-                                            <div class="error"
-                                                *ngIf="form.get('contraseña')?.hasError('invalidPassword') ">
+                                            <div *ngIf="form.get('contraseña')?.hasError('invalidPassword') ">
                                                 La contraseña debe tener al menos 8 caracteres, una letra mayúscula, una
                                                 letra minúscula y un carácter especial.
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col">
-                                        
+
                                         <input type="{{ showPassword ? 'text' : 'password' }}"
                                             formControlName="validarContraseña" id="inRegistVerContraseña"
-                                            class="lbRegistro" placeholder="Verifica tu contraseña">
+                                            [ngClass]="{'lbRegistro': requerido('validarContraseña'), 'errorR': !requerido('validarContraseña')}"
+                                            placeholder="Verifica tu contraseña">
                                         <div
                                             *ngIf="form.get('validarContraseña')?.invalid && form.get('validarContraseña')?.touched || activate">
-                                            <div class="error"
-                                                *ngIf="form.get('validarContraseña')?.hasError('required')">
-                                                La contraseña es requerida
-                                            </div>
-                                            <div class="error" *ngIf="form?.hasError('notSame')">
+                                            <div *ngIf="form?.hasError('notSame')">
                                                 Las contraseñas no coinciden
-                                            </div>  
+                                            </div>
                                         </div>
-                                      </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
-                                <input (change)="viciblePassword()" type="checkbox" >Mostrar Contraseña
+                                <input (change)="viciblePassword()" type="checkbox">Mostrar Contraseña
                             </div>
 
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="roe">
                     <div class="col colBtnRegistrarce" style="color: black;">
                         <input formControlName="aceptaTerminos" type="checkbox" id="password-toggle"> Aseptar terminos y
                         condiciones
-                        <div class="error"
+                        <div 
                             *ngIf="form.get('aceptaTerminos')?.invalid && form.get('aceptaTerminos')?.touched || activate">
                             <div *ngIf="form.get('aceptaTerminos')?.hasError('required')">
                                 Por favor, acepte los términos y condiciones.

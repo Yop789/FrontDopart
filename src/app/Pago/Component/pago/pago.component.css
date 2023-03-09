@@ -1,69 +1,73 @@
-.Pago {  
-    height: 500px;
+.Pago {
+  height: 500px;
   width: 350px;
-  
-  border-radius: 20px;
-  }
-.btnRegistro{
-    height: 30px;
-    outline: none;
-    border: 0px;
-    width: 100px;
-    box-shadow: 0px 0px 20px #888888;
-}
-#btnRegistRegistrarce{
-    background-color: #374342;
-    color: white;
-}
-#btnRegistLimpiar{
-    background-color: black;
-    color: white;
-}
-  #txtIS {
 
-    font-family: Myriad Pro;
-    font-size: 25px;
-    text-align: center;
-    color: #374342;
-    text-shadow: 1px 1px #3c3b3b;
-  }
-  .conPago{
-    height: 410px;
-    
-  }
-  .inLogin {
-    border-radius: 44pt;
-    border: 2px solid #374342;
-    outline: none;
-    height: 30px;
-    width: 100%;
-    text-indent: 10px;
-  }
-  .lbLogin{
-      font-size: 12pt;
-      color: black;
-      text-shadow: 1px 1px #3c3b3b;
-  }
-  #btnLogin{
-    border-radius: 44pt;
-    border: 0;
-    outline: none;
-    height: 40px;
-    width: 100%;
-    background-color: #374342;
-    color: white;
-    margin-bottom: 50px;
-    box-shadow: 0px 10px 20px #5a5858;
-    text-shadow: 1px 1px #3c3b3b;
-  
-  }
-  #fLogin{
-    font-size: 12px;
-    text-align: justify;
-    color: black;
-    font-weight: bold;
-    
-    height: 100px;
-    border-bottom-left-radius:20px;
-    border-bottom-right-radius:20px;
-  }
+  border-radius: 20px;
+}
+.btnRegistro {
+  height: 30px;
+  outline: none;
+  border: 0px;
+  width: 100px;
+  box-shadow: 0px 0px 20px #888888;
+}
+#btnRegistRegistrarce {
+  background-color: #374342;
+  color: white;
+}
+#txtIS {
+  height: 40px;
+  box-shadow: 0px 10px 20px #5a5858;
+  font-family: Myriad Pro;
+  font-size: 25px;
+  text-align: center;
+  color: #374342;
+}
+.conPago {
+  height: 410px;
+}
+.inLogin {
+  border: none;
+  outline: none;
+  height: 40px;
+  width: 100%;
+  border-bottom: 2px solid #085851;
+  margin-bottom: 20px;
+  text-indent: 10px;
+  box-shadow: 10px 10px 20px #888888;
+}
+.lbLogin {
+  font-size: 12pt;
+  color: black;
+  text-shadow: 1px 1px #3c3b3b;
+}
+#btnLogin {
+  border-radius: 44pt;
+  border: 0;
+  outline: none;
+  height: 40px;
+  width: 100%;
+  background-color: #374342;
+  color: white;
+  margin-bottom: 50px;
+  box-shadow: 0px 10px 20px #5a5858;
+  text-shadow: 1px 1px #3c3b3b;
+}
+#fLogin {
+  font-size: 12px;
+  text-align: justify;
+  color: black;
+  font-weight: bold;
+  height: 100px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.btnCodigo {
+  text-align: center;
+  border: 0;
+  width: 100%;
+  height: 40px;
+  border-radius: 15px;
+  box-shadow: 0px 10px 20px #5a5858;
+  background-color: #085851;
+}
