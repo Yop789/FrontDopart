@@ -38,6 +38,7 @@ import { EventService } from './services/Eventos/event-service.service';
 import { CrearUsuariosComponent } from './logiarce/Component/crear-usuarios/crear-usuarios.component';
 import { LogiComponent } from './logiarce/Component/logi/logi.component';
 import { RecupeContraComponent } from './logiarce/Component/recupe-contra/recupe-contra.component';
+import { CommonModule } from '@angular/common';
 import {DialogModule} from 'primeng/dialog';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { CodigoRecuperacionComponent } from './logiarce/Component/codigo-recuperacion/codigo-recuperacion.component';
@@ -49,6 +50,8 @@ import { ErrorComponent } from './Dalogos/Error/error/error.component';
 import { PagPrincipalComponent } from './pag-principal/pag-principal.component';
 import { ConfirmarComponent } from './Dalogos/confirmar/confirmar.component';
 import { CodigoAdminComponent } from './logiarce/Component/codigo-admin/codigo-admin.component';
+import { PagoPaso2Component } from './Pago/Component/pago-paso2/pago-paso2.component';
+import { PagoPaso3Component } from './Pago/Component/pago-paso3/pago-paso3.component';
 
 
 
@@ -80,7 +83,9 @@ import { CodigoAdminComponent } from './logiarce/Component/codigo-admin/codigo-a
     ErrorComponent,
     PagPrincipalComponent,
     ConfirmarComponent,
-    CodigoAdminComponent
+    CodigoAdminComponent,
+    PagoPaso2Component,
+    PagoPaso3Component
 
   ],
   imports: [
