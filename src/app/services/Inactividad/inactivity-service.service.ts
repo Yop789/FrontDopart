@@ -1,37 +1,38 @@
 import { Injectable } from '@angular/core';
-
+import { Observable, Subject } from 'rxjs';
+import {
+  debounceTime,
+  distinctUntilChanged,
+  filter,
+  map,
+  shareReplay,
+  switchMap,
+  takeUntil,
+  tap,
+} from 'rxjs/operators';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class InactivityService {
-  inactivityTimer:any = null;
-  inactivityTime = 900000; // 15 minutos en milisegundos
-
-  constructor() { }
-
-  resetTimer() {
-    clearTimeout(this.inactivityTimer);
-    this.inactivityTimer = setTimeout(() => {
-      // Aquí va la lógica para enviar el mensaje
-      alert('¡Ha estado inactivo durante 15 minutos!');
-    }, this.inactivityTime);
-  }
-
-  startTimer() {
-    document.addEventListener('mousemove', () => this.resetTimer());
-    document.addEventListener('mousedown', () => this.resetTimer());
-    document.addEventListener('keydown', () => this.resetTimer());
-    document.addEventListener('scroll', () => this.resetTimer());
-
-    this.resetTimer();
-  }
-
-  stopTimer() {
-    document.removeEventListener('mousemove', () => this.resetTimer());
-    document.removeEventListener('mousedown', () => this.resetTimer());
-    document.removeEventListener('keydown', () => this.resetTimer());
-    document.removeEventListener('scroll', () => this.resetTimer());
-    clearTimeout(this.inactivityTimer);
-  }
+  private activity$ = new Subject();
+  private idle$ = this.activity$.pipe(
+    debounceTime(120000), // Espera 2 minutos antes de continuar
+    distinctUntilChanged(), // Ignora eventos duplicados
+    filter(() => !this.userIsActive), // Filtra solo si el usuario está inactivo
+    map(() => true), // Convierte la secuencia en verdadero cuando el usuario está inactivo
+    shareReplay({ refCount: true, bufferSize: 1 }) // Comparte la secuencia y solo mantiene el último valor
+  );
+  private userIsActive = true;
+  public userActivity() {
+    this.activity$.next(true);
+    this.userIsActive = true;
 }
-
+public isIdle(): Observable<boolean> {
+  return this.idle$.pipe(
+      tap(() => this.userIsActive = false),
+      switchMap(() => this.idle$),
+      takeUntil(this.activity$)
+  );
+}
+  constructor() {}
+}

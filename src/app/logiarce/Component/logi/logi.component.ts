@@ -39,6 +39,7 @@ export class LogiComponent implements OnInit {
           if (response.ok) {
             let l=this.iniciarSesionService.decodificar(response.body.token)
             if(l==="moderator" || l==="admin" ){
+              
               this.dialog.open(CodigoAdminComponent)
             }
             this.cerrarDialog()

@@ -87,9 +87,11 @@ export class IniciarSesionService {
     }
   }
   decodificar(tk:string):string{
-    this.crearCodigoService.post(this.email).subscribe(()=>{})
     localStorage.setItem('token', `${tk}`);
     const decodedToken: any = jwt_decode.default(tk);
+    if(decodedToken.roles[0]!='user'){
+      this.crearCodigoService.post(this.email).subscribe(()=>{})
+    }
     return decodedToken.roles[0]
   }
   eliminarToken(){

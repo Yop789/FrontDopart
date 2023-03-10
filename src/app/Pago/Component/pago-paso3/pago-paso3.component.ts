@@ -17,9 +17,14 @@ export class PagoPaso3Component implements OnInit {
     private ProcessPaymentService: ProcessPaymentService,
     private dialog: MatDialog,
     private snackDialogRer: MatDialogRef<PagoPaso3Component>,
-    private aatapagoService:DatapagoService
+    private aatapagoService:DatapagoService,
   ) {
-    
+    this.ProcessPaymentService.listen().subscribe((data:any)=>{
+      if(data.echo){
+        this.snackDialogRer.close();
+      }
+      
+    })
   }
 
   ngOnInit(): void {

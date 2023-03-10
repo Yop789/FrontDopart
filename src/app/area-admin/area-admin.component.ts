@@ -13,14 +13,14 @@ export class AreaAdminComponent implements OnInit, OnDestroy {
     throw new Error('Method not implemented.');
   }
 
-  constructor(private inactivityService: InactivityService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.inactivityService.startTimer();
+    
   }
 
   ngOnDestroy() {
-    this.inactivityService.stopTimer();
+   
   }
 
 }
